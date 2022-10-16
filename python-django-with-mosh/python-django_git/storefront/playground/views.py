@@ -7,5 +7,7 @@ from django.http import HttpResponse
 # action
 
 def say_hello(request):
-  return HttpResponse('Hello World')
+  # return HttpResponse('Hello World')
+  # instead of returnning the whole HttpResponse we will render the html from our templates
+  return render(request, 'hello.html', { 'name': 'Hanka'}) 
   

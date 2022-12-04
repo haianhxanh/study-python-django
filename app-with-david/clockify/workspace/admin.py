@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Project
+from .models import Project, Currency, Task, TimeRecord, Report, User, Role
 # Register your models here.
 
-admin.site.register(Project)
+myModels = [Project, Currency, Task, TimeRecord, Report, User, Role] 
+admin.site.register(myModels)

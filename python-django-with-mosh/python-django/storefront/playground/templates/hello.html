@@ -1,5 +1,37 @@
-<h1>Hello {{ name }}</h1>
+<html>
+  <body>
+    <h1>Hello {{ name }}</h1>
 
-{% for product in products %}
-<li>{{ product.title }}</li>
-{% endfor %}
+    <table>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <!-- <th>Collection</th> -->
+      </tr>
+
+      {% for product in products %}
+      <tr>
+        <td>{{ product.title }}</td>
+        <td>$ {{ product.unit_price }}</td>
+        <!-- <td>{{ product.collection.title }}</td> -->
+      </tr>
+
+      {% endfor %}
+    </table>
+
+    <table>
+      <tr>
+        <th>Order</th>
+        <th>Customer</th>
+      </tr>
+      {% for order in orders %}
+      <tr>
+        <td>{{ order.id }}</td>
+        <td>{{ order.customer.first_name }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    {{ result }}
+  </body>
+</html>

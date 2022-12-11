@@ -3,7 +3,7 @@ from django.core import serializers
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
-import gc
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.mixins import ListModelMixin, CreateModelMixin
@@ -18,6 +18,18 @@ from .serializers import CollectionSerializer, ProductSerializer, ReviewSerializ
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    filter_backends = [DjangoFilterBackend]
+    # specify fields used for filtering
+    filterset_fields = ["collection_id", "unit_price"]
+    # filterset_class = ProductFilter
+
+    # def get_queryset(self):
+    #     queryset = Product.objects.all()
+    #     collection_id = self.request.query_params.get("collection_id")
+    #     if collection_id is not None:
+    #         queryset = queryset.filter(collection_id=collection_id)
+
+    #     return queryset
 
     def get_serializer_context(self):
         return {"request": self.request}

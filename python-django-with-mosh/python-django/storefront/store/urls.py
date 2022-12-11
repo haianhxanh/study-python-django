@@ -1,14 +1,20 @@
-from django.urls import path
+from django.urls import include, path
+from rest_framework.routers import SimpleRouter, DefaultRouter
 from . import views
+from pprint import pprint
 
-urlpatterns = [
-    path("products/", views.ProductList.as_view()),
-    path(
-        "products/<int:pk>/", views.ProductDetail.as_view()
-    ),  # validating request so ids can only be integers
-    path("collections/", views.CollectionList.as_view()),
-    path(
-        "collections/<int:pk>/",
-        views.CollectionDetail.as_view(),
-    ),
-]
+# router = SimpleRouter()
+router = DefaultRouter()
+# 1st arg: endpoint, 2nd arg.: endpoint
+router.register("products", views.ProductViewSet)
+router.register("collections", views.CollectionViewSet)
+router.urls
+# pprint(router.urls)
+
+# Django default URL patterns
+urlpatterns = router.urls
+
+# custom URL patterns
+# urlpatterns = [
+#     path("test/", include(router.urls)),
+# ]

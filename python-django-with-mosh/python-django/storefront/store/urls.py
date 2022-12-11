@@ -4,8 +4,11 @@ from . import views
 urlpatterns = [
     path("products/", views.ProductList.as_view()),
     path(
-        "products/<int:id>/", views.ProductDetail.as_view()
+        "products/<int:pk>/", views.ProductDetail.as_view()
     ),  # validating request so ids can only be integers
     path("collections/", views.CollectionList.as_view()),
-    path("collections/<int:id>/", views.CollectionDetail.as_view()),
+    path(
+        "collections/<int:pk>/",
+        views.CollectionDetail.as_view(),
+    ),
 ]

@@ -3,7 +3,7 @@ from black.brackets import max_delimiter_priority_in_atom
 from django.db.models import Count
 from rest_framework import serializers
 import rest_framework.decorators
-from store.models import Product, Collection
+from store.models import Product, Collection, Review
 from decimal import Decimal
 
 
@@ -42,3 +42,13 @@ class ProductSerializer(serializers.ModelSerializer):
         product = Product(**validated_data)
         product.save()
         return product
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Review
+        fields = ["id", "date", "name", "description"]
+
+    def create(self, validated_data):
+        product_id = self.context["product_id"]
+        return Review.objects.create(product_id=product_id, **validated_data)

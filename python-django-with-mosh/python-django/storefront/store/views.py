@@ -22,27 +22,24 @@ class ProductViewSet(ModelViewSet):
     def get_serializer_context(self):
         return {"request": self.request}
 
-    def delete(self, request, id):
-        product = get_object_or_404(Product, pk=id)
-        if product.orderitems.count() > 0:
+    def destroy(self, request, *args, **kwargs):
+        # avoid retrieving instance 2x, this way, we only filter instances that exist in orders
+        if OrderItem.objects.filter(product_id=kwargs["pk"]).count() > 0:
             return Response(
                 {"error": "Product cannot be deleted"},  # proper error message
                 status=status.HTTP_405_METHOD_NOT_ALLOWED,
             )
-        product.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return super().destroy(request, *args, **kwargs)
 
 
 class CollectionViewSet(ModelViewSet):
     queryset = Collection.objects.annotate(products_count=Count("product")).all()
     serializer_class = CollectionSerializer
 
-    def delete(self, request, pk):
-        collection = get_object_or_404(Collection, pk=pk)
-        if collection.products.count() > 0:
+    def destroy(self, request, *args, **kwargs):
+        if Product.objects.filter(collection_id=kwargs["pk"]).count() > 0:
             return Response(
                 {"error": "Collection cannot be deleded"},  # proper error message
                 status=status.HTTP_405_METHOD_NOT_ALLOWED,
             )
-        collection.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return super().destroy(request, *args, **kwargs)

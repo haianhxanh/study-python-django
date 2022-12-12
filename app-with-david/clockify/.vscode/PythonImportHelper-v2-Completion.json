@@ -1125,7 +1125,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class TrackingStop(APIView):\n    permission_classes = [IsAuthenticated]\n    def post(self, request):\n        user: User = request.user\n        # serializer = TimeRecordSerializer(data=request.POST)\n        # if not serializer.is_valid():\n        #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)\n        # end_time = strftime(\"%H:%M\", gmtime())\n        # date_now = date.today()\n        # serializer.save(end_time=end_time, date=date_now, user=request.user)",
+        "peekOfCode": "class TrackingStop(APIView):\n    permission_classes = [IsAuthenticated]\n    def post(self, request):\n        user: User = request.user\n        try:\n            current_timer = user.get_currently_running_timer()\n        except TimeRecord.DoesNotExist:\n            Response({}, status=status.HTTP_404_NOT_FOUND)\n        current_timer.stop_time()\n        serializer = TimeRecordSerializer(current_timer)",
         "detail": "workspace.views",
         "documentation": {}
     },

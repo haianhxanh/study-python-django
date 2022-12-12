@@ -131,13 +131,6 @@ class TrackingStop(APIView):
 
     def post(self, request):
         user: User = request.user
-        # serializer = TimeRecordSerializer(data=request.POST)
-        # if not serializer.is_valid():
-        #     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        # end_time = strftime("%H:%M", gmtime())
-        # date_now = date.today()
-        # serializer.save(end_time=end_time, date=date_now, user=request.user)
-        # return Response(serializer.data, status=status.HTTP_201_CREATED)
         try:
             current_timer = user.get_currently_running_timer()
         except TimeRecord.DoesNotExist:

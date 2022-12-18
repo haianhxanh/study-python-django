@@ -7,7 +7,7 @@ from django.utils.http import urlencode
 
 # Register your models here.
 from tags.models import TaggedItem
-from .models import Collection, Customer, Order, OrderItem, Product
+from .models import Cart, CartItem, Collection, Customer, Order, OrderItem, Product
 
 # custom filter
 class InventoryFilter(admin.SimpleListFilter):
@@ -87,7 +87,18 @@ class CollectionAdmin(admin.ModelAdmin):
         return super().get_queryset(request).annotate(products_count=Count("product"))
 
 
+class CartItemAdmin(admin.ModelAdmin):
+    list_filter = ["product"]
+    list_display = ["id", "cart_id", "product_id", "quantity"]
+
+
+class CartAdmin(admin.ModelAdmin):
+    list_display = ["id", "created_at"]
+
+
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Order, OrderAdmin)
 admin.site.register(Collection, CollectionAdmin)
 admin.site.register(Customer, CustomerAdmin)
+admin.site.register(Cart, CartAdmin)
+admin.site.register(CartItem, CartItemAdmin)

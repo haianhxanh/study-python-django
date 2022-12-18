@@ -1,3 +1,4 @@
+import re
 import django.contrib
 from django.core import serializers
 
@@ -8,7 +9,7 @@ from django.http import HttpResponse
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status
 from rest_framework.filters import SearchFilter, OrderingFilter
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, action
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.mixins import (
     ListModelMixin,
@@ -123,7 +124,26 @@ class CartItemViewSet(ModelViewSet):
 
 
 class CustomerViewSet(
-    CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet
+    CreateModelMixin,
+    RetrieveModelMixin,
+    UpdateModelMixin,
+    GenericViewSet,  # called actions
 ):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
+
+    @action(
+        detail=False, methods=["GET", "PUT"]
+    )  # available on List view -> app/customers/me
+    # @action(detail=True) # available on Detail view -> app/customers/<ID>/me
+    def me(self, request):  # custom action
+        # request.user  # not logged in -> AnonymousUser
+        (customer, created) = Customer.objects.get_or_create(user_id=request.user.id)
+        if request.method == "GET":
+            serializer = CustomerSerializer(customer)
+            return Response(serializer.data)
+        elif request.method == "PUT":
+            serializer = CustomerSerializer(customer, data=request.data)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data)

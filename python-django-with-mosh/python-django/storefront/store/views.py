@@ -15,6 +15,7 @@ from rest_framework.mixins import (
     CreateModelMixin,
     RetrieveModelMixin,
     DestroyModelMixin,
+    UpdateModelMixin,
 )
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.response import Response
@@ -23,12 +24,22 @@ from rest_framework.viewsets import ModelViewSet, GenericViewSet
 import rest_framework
 
 from .pagination import DefaultPagination
-from .models import Cart, CartItem, Collection, Order, OrderItem, Product, Review
+from .models import (
+    Cart,
+    CartItem,
+    Collection,
+    Customer,
+    Order,
+    OrderItem,
+    Product,
+    Review,
+)
 from .serializers import (
     AddCartItemSerializer,
     CartSerializer,
     CartItemSerializer,
     CollectionSerializer,
+    CustomerSerializer,
     ProductSerializer,
     ReviewSerializer,
     UpdateCartItemSerializer,
@@ -109,3 +120,10 @@ class CartItemViewSet(ModelViewSet):
         return CartItem.objects.filter(cart_id=self.kwargs["cart_pk"]).select_related(
             "product"
         )
+
+
+class CustomerViewSet(
+    CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet
+):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer

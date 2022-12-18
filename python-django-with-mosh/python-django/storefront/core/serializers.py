@@ -1,5 +1,3 @@
-from django.core import serializers
-from rest_framework import serializers
 from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
 from core.models import User
 

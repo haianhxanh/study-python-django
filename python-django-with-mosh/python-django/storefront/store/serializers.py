@@ -3,7 +3,7 @@ from black.brackets import max_delimiter_priority_in_atom
 from django.db.models import Count
 from rest_framework import serializers
 import rest_framework.decorators
-from store.models import Cart, CartItem, Product, Collection, Review
+from store.models import Cart, CartItem, Customer, Product, Collection, Review
 from decimal import Decimal
 
 
@@ -126,3 +126,11 @@ class UpdateCartItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = CartItem
         fields = ["quantity"]
+
+
+class CustomerSerializer(serializers.ModelSerializer):
+    user_id = serializers.IntegerField()
+
+    class Meta:
+        model = Customer
+        fields = ["id", "user_id", "phone", "birth_date", "membership"]

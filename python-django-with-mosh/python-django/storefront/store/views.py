@@ -19,11 +19,14 @@ from rest_framework.mixins import (
     UpdateModelMixin,
 )
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 import rest_framework
+
+from store.permissions import IsAdminOrReadOnly
+
 
 from .pagination import DefaultPagination
 from .models import (
@@ -56,6 +59,7 @@ class ProductViewSet(ModelViewSet):
     filterset_fields = ["collection_id", "unit_price"]
     # filterset_class = ProductFilter
     pagination_class = DefaultPagination
+    permission_classes = [IsAdminOrReadOnly]
     search_fields = ["title", "description"]
     ordering_fields = ["unit_price", "last_update"]
 
@@ -75,6 +79,7 @@ class ProductViewSet(ModelViewSet):
 class CollectionViewSet(ModelViewSet):
     queryset = Collection.objects.annotate(products_count=Count("product")).all()
     serializer_class = CollectionSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def destroy(self, request, *args, **kwargs):
         if Product.objects.filter(collection_id=kwargs["pk"]).count() > 0:
@@ -124,23 +129,21 @@ class CartItemViewSet(ModelViewSet):
         )
 
 
-class CustomerViewSet(
-    CreateModelMixin,
-    RetrieveModelMixin,
-    UpdateModelMixin,
-    GenericViewSet,  # called actions
-):
+class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
-    permission_classes = [IsAuthenticated]  # views closed for anonymous users
+    # permission_classes = [IsAuthenticated]  # views closed for anonymous users
+    permission_classes = [IsAdminUser]
 
-    def get_permissions(self):
-        if self.request.method == "GET":
-            return [AllowAny()]  # anyone can retrieve
-        return [IsAuthenticated()]  # only authenticated users can update/create
+    # def get_permissions(self):
+    #     if self.request.method == "GET":
+    #         return [AllowAny()]  # anyone can retrieve
+    #     return [IsAuthenticated()]  # only authenticated users can update/create
 
     @action(
-        detail=False, methods=["GET", "PUT"]
+        detail=False,
+        methods=["GET", "PUT"],
+        permission_classes=[IsAuthenticated],
     )  # available on List view -> app/customers/me
     # @action(detail=True) # available on Detail view -> app/customers/<ID>/me
     def me(self, request):  # custom action

@@ -8,6 +8,7 @@ django = "*"
 djangorestframework = "*"
 drf-nested-routers = "*"
 django-filter = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 black = "*"

@@ -19,6 +19,7 @@ from rest_framework.mixins import (
     UpdateModelMixin,
 )
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
@@ -131,6 +132,12 @@ class CustomerViewSet(
 ):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
+    permission_classes = [IsAuthenticated]  # views closed for anonymous users
+
+    def get_permissions(self):
+        if self.request.method == "GET":
+            return [AllowAny()]  # anyone can retrieve
+        return [IsAuthenticated()]  # only authenticated users can update/create
 
     @action(
         detail=False, methods=["GET", "PUT"]

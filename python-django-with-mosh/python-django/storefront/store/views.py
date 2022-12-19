@@ -19,13 +19,18 @@ from rest_framework.mixins import (
     UpdateModelMixin,
 )
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
+from rest_framework.permissions import (
+    IsAuthenticated,
+    AllowAny,
+    IsAdminUser,
+    DjangoModelPermissions,
+)
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 import rest_framework
 
-from store.permissions import IsAdminOrReadOnly
+from store.permissions import FullDjangoModelPermissions, IsAdminOrReadOnly
 
 
 from .pagination import DefaultPagination
@@ -133,7 +138,7 @@ class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
     # permission_classes = [IsAuthenticated]  # views closed for anonymous users
-    permission_classes = [IsAdminUser]
+    permission_classes = [FullDjangoModelPermissions]
 
     # def get_permissions(self):
     #     if self.request.method == "GET":

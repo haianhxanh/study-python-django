@@ -48,7 +48,31 @@
         "documentation": {}
     },
     {
+        "label": "User",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
         "label": "TimeRecord",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "TimeRecord",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
         "importPath": "workspace.models",
         "description": "workspace.models",
         "isExtraImport": true,
@@ -366,6 +390,15 @@
     },
     {
         "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
         "isExtraImport": true,
@@ -397,11 +430,115 @@
         "documentation": {}
     },
     {
+        "label": "strftime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "gmtime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "gmtime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "strftime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "strftime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "gmtime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "strptime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "strftime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "gmtime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "struct_time",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "strftime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "gmtime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
         "label": "Optional",
         "importPath": "typing",
         "description": "typing",
         "isExtraImport": true,
         "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
         "documentation": {}
     },
     {
@@ -421,11 +558,52 @@
         "documentation": {}
     },
     {
+        "label": "struct",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "struct",
+        "description": "struct",
+        "detail": "struct",
+        "documentation": {}
+    },
+    {
+        "label": "start",
+        "importPath": "tracemalloc",
+        "description": "tracemalloc",
+        "isExtraImport": true,
+        "detail": "tracemalloc",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
         "isExtraImport": true,
         "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "patch",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "Mock",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
         "documentation": {}
     },
     {
@@ -498,22 +676,6 @@
         "description": "django.contrib.auth",
         "isExtraImport": true,
         "detail": "django.contrib.auth",
-        "documentation": {}
-    },
-    {
-        "label": "strftime",
-        "importPath": "time",
-        "description": "time",
-        "isExtraImport": true,
-        "detail": "time",
-        "documentation": {}
-    },
-    {
-        "label": "gmtime",
-        "importPath": "time",
-        "description": "time",
-        "isExtraImport": true,
-        "detail": "time",
         "documentation": {}
     },
     {
@@ -918,7 +1080,7 @@
         "kind": 6,
         "importPath": "workspace.forms",
         "description": "workspace.forms",
-        "peekOfCode": "class RegistrationForm(forms.ModelForm):\n    password = forms.CharField(label='Password', widget=forms.PasswordInput)\n    class Meta:\n        model = User\n        fields = ('username', 'password')\n    def save(self, commit=True):\n        # Save the provided password in hashed format\n        user = super().save(commit=False)\n        user.set_password(self.cleaned_data[\"password\"])\n        if commit:",
+        "peekOfCode": "class RegistrationForm(forms.ModelForm):\n    password = forms.CharField(label=\"Password\", widget=forms.PasswordInput)\n    class Meta:\n        model = User\n        fields = (\"username\", \"password\")\n    def save(self, commit=True):\n        # Save the provided password in hashed format\n        user = super().save(commit=False)\n        user.set_password(self.cleaned_data[\"password\"])\n        if commit:",
         "detail": "workspace.forms",
         "documentation": {}
     },
@@ -927,7 +1089,7 @@
         "kind": 6,
         "importPath": "workspace.forms",
         "description": "workspace.forms",
-        "peekOfCode": "class UserCreationForm(forms.ModelForm):\n    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)\n    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)\n    class Meta:\n        model = User\n        fields = ('username',)\n    def clean_password2(self):\n        # Check that the two password entries match\n        password1 = self.cleaned_data.get(\"password1\")\n        password2 = self.cleaned_data.get(\"password2\")",
+        "peekOfCode": "class UserCreationForm(forms.ModelForm):\n    password1 = forms.CharField(label=\"Password\", widget=forms.PasswordInput)\n    password2 = forms.CharField(\n        label=\"Password confirmation\", widget=forms.PasswordInput\n    )\n    class Meta:\n        model = User\n        fields = (\"username\",)\n    def clean_password2(self):\n        # Check that the two password entries match",
         "detail": "workspace.forms",
         "documentation": {}
     },
@@ -981,7 +1143,7 @@
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class User(AbstractUser):\n    def __str__(self):\n        return self.email\n    def get_currently_running_timer(self) -> TimeRecord:\n        \"\"\"If nothing found in queryset throws TimeRecord.DoesNotExist\"\"\"\n        time_records = self.time_records.filter(end_time__isnull=True)\n        if time_records.count() > 1:\n            # throw error/ kill all but last\n            pass\n        return time_records.get()",
+        "peekOfCode": "class User(AbstractUser):\n    def __str__(self):\n        return self.email\n    def get_currently_running_timer(self) -> TimeRecord:\n        \"\"\"If nothing found in queryset throws TimeRecord.DoesNotExist\"\"\"\n        time_records = self.time_records.filter(end_time__isnull=True)\n        if time_records.count() > 1:\n            # throw error/ kill all but last\n            last_record = time_records.latest(\"id\")\n            all_other_records = time_records.exclude(pk__in=list(last_record))",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1067,6 +1229,24 @@
         "documentation": {}
     },
     {
+        "label": "TimeRecordTestCase",
+        "kind": 6,
+        "importPath": "workspace.tests",
+        "description": "workspace.tests",
+        "peekOfCode": "class TimeRecordTestCase(TestCase):\n    def setUp(self):  # runs before every test\n        self.user = User.objects.create(username=\"test\")\n    # def tearDown():\n    def tearDown(self):  # runs after every test\n        pass\n    def test_stop_time_after_midnight(self):\n        start_time = strftime(\"%H:%M\", gmtime())\n        date = datetime.date(2022, 12, 19)\n        timer = TimeRecord.objects.create(",
+        "detail": "workspace.tests",
+        "documentation": {}
+    },
+    {
+        "label": "TimeRecordQuerySetTestCase",
+        "kind": 6,
+        "importPath": "workspace.tests",
+        "description": "workspace.tests",
+        "peekOfCode": "class TimeRecordQuerySetTestCase(TestCase):\n    pass",
+        "detail": "workspace.tests",
+        "documentation": {}
+    },
+    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "workspace.urls",
@@ -1107,7 +1287,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class TrackingStart(APIView):\n    permission_classes = [IsAuthenticated]\n    # {\"id\": 12}, [12, \"test\"]\n    def post(self, request):\n        serializer = TimeRecordStartSerializer(data=request.POST)\n        if not serializer.is_valid():\n            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)\n        start_time = strftime(\"%H:%M\", gmtime())\n        # start_time = datetime.now().time\n        date_now = date.today()",
+        "peekOfCode": "class TrackingStart(APIView):\n    permission_classes = [IsAuthenticated]\n    def find_and_kill_all_running(self, user):\n        running_timers = TimeRecord.objects.filter_all_running(user)\n        for timer in running_timers:\n            timer.stop_time()\n    # {\"id\": 12}, [12, \"test\"]\n    def post(self, request):\n        serializer = TimeRecordStartSerializer(data=request.POST)\n        if not serializer.is_valid():",
         "detail": "workspace.views",
         "documentation": {}
     },

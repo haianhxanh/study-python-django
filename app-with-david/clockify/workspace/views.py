@@ -74,22 +74,13 @@ class Register(APIView):
         return redirect("home")
 
 
-# def register(request):
-#   if request.method == 'POST':
-#     form = UserCreationForm(request.POST)
-#     if form.is_valid():
-#       form.save()
-#       username = form.cleaned_data.get('username')
-#       messages.success(request, f'Hi {username}, your account was successfully created')
-#       return redirect('home')
-#   else:
-#     form = UserCreationForm()
-
-#   return render(request, 'workspace/register.html', {'form':form})
-
-
 class TrackingStart(APIView):
     permission_classes = [IsAuthenticated]
+
+    def find_and_kill_all_running(self, user):
+        running_timers = TimeRecord.objects.filter_all_running(user)
+        for timer in running_timers:
+            timer.stop_time()
 
     # {"id": 12}, [12, "test"]
     def post(self, request):
@@ -101,6 +92,7 @@ class TrackingStart(APIView):
         start_time = strftime("%H:%M", gmtime())
         # start_time = datetime.now().time
         date_now = date.today()
+        self.find_and_kill_all_running(request.user)
         time_record = serializer.save(
             start_time=start_time, date=date_now, user=request.user
         )

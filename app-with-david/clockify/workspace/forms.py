@@ -2,14 +2,15 @@ from django import forms
 from django.contrib.auth.models import Group
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
-from .models import User
+from workspace.models import User
 
 
 class RegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+    password = forms.CharField(label="Password", widget=forms.PasswordInput)
+
     class Meta:
         model = User
-        fields = ('username', 'password')
+        fields = ("username", "password")
 
     def save(self, commit=True):
         # Save the provided password in hashed format
@@ -19,13 +20,16 @@ class RegistrationForm(forms.ModelForm):
             user.save()
         return user
 
+
 class UserCreationForm(forms.ModelForm):
-    password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
+    password1 = forms.CharField(label="Password", widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label="Password confirmation", widget=forms.PasswordInput
+    )
 
     class Meta:
         model = User
-        fields = ('username',)
+        fields = ("username",)
 
     def clean_password2(self):
         # Check that the two password entries match

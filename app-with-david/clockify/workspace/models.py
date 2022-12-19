@@ -1,7 +1,10 @@
 from datetime import datetime
+from time import strftime, gmtime
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from typing import Optional
+from time import gmtime, strftime
+from django.utils import timezone
 
 from workspace.querysets import TimeRecordQuerySet
 
@@ -54,23 +57,40 @@ class TimeRecord(models.Model):
         if self.task:
             return f"{self.task} - {self.start_time}"
         return f"{self.id} - {self.start_time}"
-    
-    def save(self, *args, **kwargs):
-        # todo allow only one running instance
-        # find all running instances
-        # kill them 
-        
-        super().save(*args, **kwargs)
+
+    # def save(self, *args, **kwargs):
+    #     # todo allow only one running instance
+    #     # find all running instances
+    #     # kill them
+
+    #     super().save(*args, **kwargs)
+
+    #     running_records = self.objects.filter_running_timers(self.user)
+    #     if running_records.count() > 1:
+    #         last_record = running_records.latest("id")
+    #         all_other_records = self.objects.exclude(pk__in=list(last_record))
+    #         self.stop_time(all_other_records)
 
     def change_start_time(self, start_time):
         self.start_time = start_time
         self.save()
-        
+
     # todo
     def stop_time(self):
         # check if after midnight
-        pass
-        
+        start_time = datetime.strptime(self.start_time.replace(":", ""), "%H%M")  # 1000
+        # todo dont use gmtime
+        end_time = strftime("%H:%M", gmtime())
+        now = datetime.now()
+
+        if self.date == now.date():
+            self.end_time = end_time
+            self.save()
+            return
+
+        self.end_time = "23:59"
+        # todo create new time record when over midnight
+        return self.save()
 
 
 class Report(models.Model):
@@ -79,18 +99,20 @@ class Report(models.Model):
 
 
 class User(AbstractUser):
-
     def __str__(self):
         return self.email
 
     def get_currently_running_timer(self) -> TimeRecord:
         """If nothing found in queryset throws TimeRecord.DoesNotExist"""
         time_records = self.time_records.filter(end_time__isnull=True)
-        
+
         if time_records.count() > 1:
             # throw error/ kill all but last
-            pass
-        
+            last_record = time_records.latest("id")
+            all_other_records = time_records.exclude(pk__in=list(last_record))
+            self.stop_time(all_other_records)
+            return last_record.get()
+
         return time_records.get()
 
 

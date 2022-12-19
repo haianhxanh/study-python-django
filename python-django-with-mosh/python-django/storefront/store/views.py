@@ -30,7 +30,11 @@ from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 import rest_framework
 
-from store.permissions import FullDjangoModelPermissions, IsAdminOrReadOnly
+from store.permissions import (
+    FullDjangoModelPermissions,
+    IsAdminOrReadOnly,
+    ViewCustomerHistoryPermission,
+)
 
 
 from .pagination import DefaultPagination
@@ -138,12 +142,16 @@ class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
     # permission_classes = [IsAuthenticated]  # views closed for anonymous users
-    permission_classes = [FullDjangoModelPermissions]
+    permission_classes = [IsAdminUser]
 
     # def get_permissions(self):
     #     if self.request.method == "GET":
     #         return [AllowAny()]  # anyone can retrieve
     #     return [IsAuthenticated()]  # only authenticated users can update/create
+
+    @action(detail=True, permission_classes=[ViewCustomerHistoryPermission])
+    def history(self, request, pk):
+        return Response("ok")
 
     @action(
         detail=False,

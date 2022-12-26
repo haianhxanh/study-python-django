@@ -43,6 +43,7 @@ from .models import (
     Order,
     OrderItem,
     Product,
+    ProductImage,
     Review,
 )
 from .serializers import (
@@ -53,6 +54,7 @@ from .serializers import (
     CreateOrderSerializer,
     CustomerSerializer,
     OrderSerialier,
+    ProductImageSerializer,
     ProductSerializer,
     ReviewSerializer,
     UpdateCartItemSerializer,
@@ -201,3 +203,13 @@ class OrderViewSet(ModelViewSet):
             return Order.objects.all()
         customer_id = Customer.objects.only("id").get(user_id=user.id)
         return Order.objects.filter(customer_id=customer_id)
+
+
+class ProductImageViewSet(ModelViewSet):
+    serializer_class = ProductImageSerializer
+
+    def get_serializer_context(self):
+        return {"product_id": self.kwargs["product_pk"]}
+
+    def get_queryset(self):
+        return ProductImage.objects.filter(product_id=self.kwargs["product_pk"])

@@ -1,6 +1,6 @@
 from django.db import transaction
 from rest_framework import serializers
-from store.models import Cart, CartItem, Customer, Order, OrderItem, Product, Collection, Review
+from store.models import Cart, CartItem, Customer, Order, OrderItem, Product, Collection, ProductImage, Review
 from store.signals import order_created
 from decimal import Decimal
 
@@ -186,3 +186,13 @@ class CreateOrderSerializer(serializers.Serializer):
             )  # 1. arg: returns the class of current instance, 2nd arg: optional
 
             return order
+
+
+class ProductImageSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        product_id = self.context["product_id"]
+        return ProductImage.objects.create(product_id=product_id, **validated_data)
+
+    class Meta:
+        model = ProductImage
+        fields = ["id", "image"]

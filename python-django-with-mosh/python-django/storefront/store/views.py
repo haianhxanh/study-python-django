@@ -171,7 +171,7 @@ class CustomerViewSet(ModelViewSet):
 class OrderViewSet(ModelViewSet):
     # serializer_class = OrderSerialier
     # permission_classes = [IsAuthenticated]
-    http_method_names = ["get", "patch", "delete", "head", "options"]
+    http_method_names = ["get", "patch", "post", "delete", "head", "options"]
 
     def get_permissions(self):
         if self.request.method in ["PATCH", "DELETE"]:

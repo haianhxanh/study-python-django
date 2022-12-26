@@ -28,9 +28,3 @@ carts_router.register("items", views.CartItemViewSet, basename="cart-items")
 
 # Compbine parent and child urls
 urlpatterns = router.urls + products_router.urls + carts_router.urls
-
-# custom URL patterns
-# urlpatterns = [
-#     path("", include(router.urls + products_router.urls)),
-#     # path("carts/<uuid:cart_id>"),
-# ]

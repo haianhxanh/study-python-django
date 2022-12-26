@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.core import serializers
 
 # from django.core.cache import DefaultCacheProxy
@@ -170,13 +171,20 @@ class OrderViewSet(ModelViewSet):
     # serializer_class = OrderSerialier
     permission_classes = [IsAuthenticated]
 
+    def create(self, request, *args, **kwargs):
+        serializer = CreateOrderSerializer(data=request.data, context={"user_id": self.request.user.id})
+        serializer.is_valid(raise_exception=True)
+        order = serializer.save()
+        serializer = OrderSerialier(order)
+        return Response(serializer.data)
+
     def get_serializer_class(self):
         if self.request.method == "POST":
             return CreateOrderSerializer
         return OrderSerialier
 
-    def get_serializer_context(self):
-        return {"user_id": self.request.user.id}
+    # def get_serializer_context(self):
+    #     return {"user_id": self.request.user.id}
 
     def get_queryset(self):
         user = self.request.user

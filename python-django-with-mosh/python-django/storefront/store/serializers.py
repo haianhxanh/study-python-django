@@ -3,7 +3,7 @@ from black.brackets import max_delimiter_priority_in_atom
 from django.db.models import Count
 from rest_framework import serializers
 import rest_framework.decorators
-from store.models import Cart, CartItem, Customer, Product, Collection, Review
+from store.models import Cart, CartItem, Customer, Order, Product, Collection, Review
 from decimal import Decimal
 
 
@@ -79,9 +79,7 @@ class CartSerializer(serializers.ModelSerializer):
 
     def get_total_price(self, cart):
         # list comprehension
-        return sum(
-            [item.quantity * item.product.unit_price for item in cart.items.all()]
-        )
+        return sum([item.quantity * item.product.unit_price for item in cart.items.all()])
 
     class Meta:
         model = Cart
@@ -89,9 +87,7 @@ class CartSerializer(serializers.ModelSerializer):
 
 
 class AddCartItemSerializer(serializers.ModelSerializer):
-    product_id = (
-        serializers.IntegerField()
-    )  # we have to define this field because it's dynamically generated
+    product_id = serializers.IntegerField()  # we have to define this field because it's dynamically generated
 
     # validate input
     # convention validate_FIELD_NAME()
@@ -111,9 +107,7 @@ class AddCartItemSerializer(serializers.ModelSerializer):
             cart_item.save()
             self.instance = cart_item
         except CartItem.DoesNotExist:  # add new item
-            self.instance = CartItem.objects.create(
-                cart_id=cart_id, **self.validated_data
-            )
+            self.instance = CartItem.objects.create(cart_id=cart_id, **self.validated_data)
 
         return self.instance
 

@@ -1,5 +1,3 @@
-import re
-import django.contrib
 from django.core import serializers
 
 # from django.core.cache import DefaultCacheProxy
@@ -18,7 +16,6 @@ from rest_framework.mixins import (
     DestroyModelMixin,
     UpdateModelMixin,
 )
-from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import (
     IsAuthenticated,
     AllowAny,
@@ -36,7 +33,6 @@ from store.permissions import (
     ViewCustomerHistoryPermission,
 )
 
-
 from .pagination import DefaultPagination
 from .models import (
     Cart,
@@ -53,6 +49,7 @@ from .serializers import (
     CartSerializer,
     CartItemSerializer,
     CollectionSerializer,
+    CreateOrderSerializer,
     CustomerSerializer,
     OrderSerialier,
     ProductSerializer,
@@ -170,5 +167,20 @@ class CustomerViewSet(ModelViewSet):
 
 
 class OrderViewSet(ModelViewSet):
-    queryset = Order.objects.all()
-    serializer_class = OrderSerialier
+    # serializer_class = OrderSerialier
+    permission_classes = [IsAuthenticated]
+
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return CreateOrderSerializer
+        return OrderSerialier
+
+    def get_serializer_context(self):
+        return {"user_id": self.request.user.id}
+
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_staff:
+            return Order.objects.all()
+        (customer_id, created) = Customer.objects.only("id").get_or_create(user_id=user.id)
+        return Order.objects.filter(customer_id=customer_id)

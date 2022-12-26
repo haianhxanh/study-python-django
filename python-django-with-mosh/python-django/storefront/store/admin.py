@@ -7,7 +7,7 @@ from django.utils.http import urlencode
 
 # Register your models here.
 from tags.models import TaggedItem
-from .models import Cart, CartItem, Collection, Customer, Order, OrderItem, Product
+from .models import Cart, CartItem, Collection, Customer, Order, OrderItem, Product, ProductImage
 
 # custom filter
 class InventoryFilter(admin.SimpleListFilter):
@@ -32,6 +32,16 @@ class CustomerAdmin(admin.ModelAdmin):
     search_fields = ["first_name__istartswith", "last_name__istartswith"]
 
 
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+    readonly_fields = ["thumbnail"]
+
+    def thumbnail(self, instance):
+        if instance.image.name != "":
+            return format_html(f'<img src="{instance.image.url}" class="thumbnail"/>')
+        return ""
+
+
 class ProductAdmin(admin.ModelAdmin):
     search_fields = ["title"]
     autocomplete_fields = ["collection"]
@@ -42,6 +52,8 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ["collection", "last_update", InventoryFilter]
     list_per_page = 10
     list_select_related = ["collection"]
+
+    inlines = [ProductImageInline]
 
     def collection_title(self, product):
         return product.collection.title
@@ -56,9 +68,11 @@ class ProductAdmin(admin.ModelAdmin):
     def clear_inventory(self, request, queryset):
         updated_count = queryset.update(inventory=0)
         # show message to user
-        self.message_user(
-            request, f"{updated_count} products were updated", messages.ERROR
-        )
+        self.message_user(request, f"{updated_count} products were updated", messages.ERROR)
+
+    # load static assets
+    class Media:
+        css = {"all": ["store/styles.css"]}
 
 
 class OrderItemInline(admin.StackedInline):
@@ -79,11 +93,7 @@ class CollectionAdmin(admin.ModelAdmin):
 
     def products_count(self, collection):
         # url format of reverse function: app_model_page
-        url = (
-            reverse("admin:store_product_changelist")
-            + "?"
-            + urlencode({"collection__id": str(collection.id)})
-        )
+        url = reverse("admin:store_product_changelist") + "?" + urlencode({"collection__id": str(collection.id)})
         return format_html('<a href="{}">{}</a>', url, collection.products_count)
 
     def get_queryset(self, request):

@@ -11,6 +11,7 @@ router.register("products", views.ProductViewSet, basename="products")
 router.register("collections", views.CollectionViewSet)
 router.register("carts", views.CartViewSet, basename="carts")
 router.register("customers", views.CustomerViewSet)
+router.register("orders", views.OrderViewSet)
 
 # creating child routers
 # 1st param: parent router, 2nd param: parent prefix, 3rd param: lookup param

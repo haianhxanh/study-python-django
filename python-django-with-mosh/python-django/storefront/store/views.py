@@ -54,6 +54,7 @@ from .serializers import (
     CartItemSerializer,
     CollectionSerializer,
     CustomerSerializer,
+    OrderSerialier,
     ProductSerializer,
     ReviewSerializer,
     UpdateCartItemSerializer,
@@ -166,3 +167,8 @@ class CustomerViewSet(ModelViewSet):
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data)
+
+
+class OrderViewSet(ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerialier

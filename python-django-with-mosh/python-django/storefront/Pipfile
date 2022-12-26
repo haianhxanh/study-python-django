@@ -9,6 +9,7 @@ djangorestframework = "*"
 drf-nested-routers = "*"
 django-filter = "*"
 djangorestframework-simplejwt = "*"
+pillow = "*"
 
 [dev-packages]
 black = "*"

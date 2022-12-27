@@ -182,3 +182,5 @@ EMAIL_HOST_USER = ""
 EMAIL_HOST_PASSWORD = ""
 EMAIL_PORT = 2525  # usually 25 in production
 DEFAULT_FROM_EMAIL = "hankawork@gmail.com"
+
+ADMINS = [("Hanka", "hankawork@gmail.com")]

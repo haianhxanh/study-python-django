@@ -21,6 +21,7 @@ pytest-watch = "*"
 black = "*"
 pylint = "*"
 pytest = "*"
+model-bakery = "*"
 
 [requires]
 python_version = "3.10"

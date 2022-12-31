@@ -184,3 +184,5 @@ EMAIL_PORT = 2525  # usually 25 in production
 DEFAULT_FROM_EMAIL = "hankawork@gmail.com"
 
 ADMINS = [("Hanka", "hankawork@gmail.com")]
+
+CELERY_BROKER_URL = "redis://localhost:6379/1"  # localhost/database

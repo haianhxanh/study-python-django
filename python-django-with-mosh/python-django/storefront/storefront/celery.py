@@ -9,3 +9,5 @@ celery = Celery("storefront")  # name of celery
 # 1 arg: go to Django conf and load settings object
 # 2 arg: define namespace, all config settings should start with the value we set, in this case CELERY
 celery.config_from_object("django.conf:settings", namespace="CELERY")
+# instruct celery to discover tasks
+celery.autodiscover_tasks()

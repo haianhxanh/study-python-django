@@ -12,22 +12,9 @@ from store.models import Collection, Product, OrderItem, Order, Customer
 from django.views.generic import TemplateView
 from django.contrib.contenttypes.models import ContentType
 from tags.models import TaggedItem
+from .tasks import notify_customers
 
 
 def say_hello(request):
-    try:
-        # send_mail("subject", "message", "hankawork@gmail.com", ["hanka7n@gmail.com", "hankawork@gmail.com"])
-        # mail_admins("subject", "message", html_message="message")
-        # message = EmailMessage(
-        #     "subject", "message", "hankawork@gmail.com", ["hanka7n@gmail.com", "hankawork@gmail.com"]
-        # )
-        # message.attach_file("playground/static/images/blake-yuto-VqxNK0FpSPo-unsplash.jpg")
-        # message.send()
-        message = BaseEmailMessage(
-            template_name='emails/hello.html',
-            context={'name': 'Hanka'}
-        )
-        message.send(['hankawork@gmail.com'])
-    except BadHeaderError:
-        pass  # e.g. Email successfully sent
+    notify_customers.delay("Hello")
     return render(request, "hello.html", {"name": "Hanka"})

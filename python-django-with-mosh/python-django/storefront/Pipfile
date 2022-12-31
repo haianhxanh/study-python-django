@@ -22,6 +22,7 @@ black = "*"
 pylint = "*"
 pytest = "*"
 model-bakery = "*"
+locust = "*"
 
 [requires]
 python_version = "3.10"

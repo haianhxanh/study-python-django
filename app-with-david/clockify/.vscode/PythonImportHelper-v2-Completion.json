@@ -40,7 +40,7 @@
         "documentation": {}
     },
     {
-        "label": "User",
+        "label": "TimeRecord",
         "importPath": "workspace.models",
         "description": "workspace.models",
         "isExtraImport": true,
@@ -64,7 +64,7 @@
         "documentation": {}
     },
     {
-        "label": "TimeRecord",
+        "label": "User",
         "importPath": "workspace.models",
         "description": "workspace.models",
         "isExtraImport": true,
@@ -73,6 +73,30 @@
     },
     {
         "label": "User",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "Permission",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "TimeRecord",
         "importPath": "workspace.models",
         "description": "workspace.models",
         "isExtraImport": true,
@@ -349,116 +373,108 @@
         "documentation": {}
     },
     {
-        "label": "AppConfig",
-        "importPath": "django.apps",
-        "description": "django.apps",
-        "isExtraImport": true,
-        "detail": "django.apps",
-        "documentation": {}
-    },
-    {
-        "label": "forms",
-        "importPath": "django",
-        "description": "django",
-        "isExtraImport": true,
-        "detail": "django",
-        "documentation": {}
-    },
-    {
-        "label": "ReadOnlyPasswordHashField",
-        "importPath": "django.contrib.auth.forms",
-        "description": "django.contrib.auth.forms",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.forms",
-        "documentation": {}
-    },
-    {
-        "label": "UserCreationForm",
-        "importPath": "django.contrib.auth.forms",
-        "description": "django.contrib.auth.forms",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.forms",
-        "documentation": {}
-    },
-    {
-        "label": "AuthenticationForm",
-        "importPath": "django.contrib.auth.forms",
-        "description": "django.contrib.auth.forms",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth.forms",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
+        "label": "struct",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "datetime",
-        "description": "datetime",
-        "detail": "datetime",
+        "importPath": "struct",
+        "description": "struct",
+        "detail": "struct",
         "documentation": {}
     },
     {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "start",
+        "importPath": "tracemalloc",
+        "description": "tracemalloc",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "tracemalloc",
         "documentation": {}
     },
     {
-        "label": "date",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "start",
+        "importPath": "tracemalloc",
+        "description": "tracemalloc",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "tracemalloc",
         "documentation": {}
     },
     {
-        "label": "time",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "NullBooleanField",
+        "importPath": "django.forms",
+        "description": "django.forms",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "django.forms",
         "documentation": {}
     },
     {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "NullBooleanField",
+        "importPath": "django.forms",
+        "description": "django.forms",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "django.forms",
         "documentation": {}
     },
     {
-        "label": "strftime",
-        "importPath": "time",
-        "description": "time",
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
         "isExtraImport": true,
-        "detail": "time",
+        "detail": "django.test",
         "documentation": {}
     },
     {
-        "label": "gmtime",
-        "importPath": "time",
-        "description": "time",
+        "label": "TestCase",
+        "importPath": "django.test",
+        "description": "django.test",
         "isExtraImport": true,
-        "detail": "time",
+        "detail": "django.test",
         "documentation": {}
     },
     {
-        "label": "gmtime",
-        "importPath": "time",
-        "description": "time",
+        "label": "patch",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
         "isExtraImport": true,
-        "detail": "time",
+        "detail": "unittest.mock",
         "documentation": {}
     },
     {
-        "label": "strftime",
-        "importPath": "time",
-        "description": "time",
+        "label": "Mock",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
         "isExtraImport": true,
-        "detail": "time",
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "patch",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "Mock",
+        "importPath": "unittest.mock",
+        "description": "unittest.mock",
+        "isExtraImport": true,
+        "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
         "documentation": {}
     },
     {
@@ -526,11 +542,140 @@
         "documentation": {}
     },
     {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
+        "label": "strptime",
+        "importPath": "time",
+        "description": "time",
         "isExtraImport": true,
-        "detail": "typing",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "strftime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "gmtime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "struct_time",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "strftime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "localtime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "strftime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "gmtime",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "django.utils",
+        "description": "django.utils",
+        "isExtraImport": true,
+        "detail": "django.utils",
         "documentation": {}
     },
     {
@@ -550,68 +695,83 @@
         "documentation": {}
     },
     {
-        "label": "QuerySet",
-        "importPath": "django.db.models",
-        "description": "django.db.models",
+        "label": "TimeRecordQuerySet",
+        "importPath": "workspace.querysets",
+        "description": "workspace.querysets",
         "isExtraImport": true,
-        "detail": "django.db.models",
+        "detail": "workspace.querysets",
         "documentation": {}
     },
     {
-        "label": "struct",
-        "kind": 6,
+        "label": "TimeRecordQuerySet",
+        "importPath": "workspace.querysets",
+        "description": "workspace.querysets",
         "isExtraImport": true,
-        "importPath": "struct",
-        "description": "struct",
-        "detail": "struct",
+        "detail": "workspace.querysets",
         "documentation": {}
     },
     {
-        "label": "start",
-        "importPath": "tracemalloc",
-        "description": "tracemalloc",
+        "label": "AppConfig",
+        "importPath": "django.apps",
+        "description": "django.apps",
         "isExtraImport": true,
-        "detail": "tracemalloc",
+        "detail": "django.apps",
         "documentation": {}
     },
     {
-        "label": "TestCase",
-        "importPath": "django.test",
-        "description": "django.test",
+        "label": "forms",
+        "importPath": "django",
+        "description": "django",
         "isExtraImport": true,
-        "detail": "django.test",
+        "detail": "django",
         "documentation": {}
     },
     {
-        "label": "patch",
-        "importPath": "unittest.mock",
-        "description": "unittest.mock",
+        "label": "ReadOnlyPasswordHashField",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
         "isExtraImport": true,
-        "detail": "unittest.mock",
+        "detail": "django.contrib.auth.forms",
         "documentation": {}
     },
     {
-        "label": "Mock",
-        "importPath": "unittest.mock",
-        "description": "unittest.mock",
+        "label": "UserCreationForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
         "isExtraImport": true,
-        "detail": "unittest.mock",
+        "detail": "django.contrib.auth.forms",
         "documentation": {}
     },
     {
-        "label": "pprint",
-        "importPath": "pprint",
-        "description": "pprint",
+        "label": "AuthenticationForm",
+        "importPath": "django.contrib.auth.forms",
+        "description": "django.contrib.auth.forms",
         "isExtraImport": true,
-        "detail": "pprint",
+        "detail": "django.contrib.auth.forms",
         "documentation": {}
     },
     {
-        "label": "serializers",
-        "importPath": "django.core",
-        "description": "django.core",
+        "label": "get_objects",
+        "importPath": "gc",
+        "description": "gc",
         "isExtraImport": true,
-        "detail": "django.core",
+        "detail": "gc",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
         "documentation": {}
     },
     {
@@ -631,6 +791,38 @@
         "documentation": {}
     },
     {
+        "label": "BasePermission",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "QuerySet",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
+        "isExtraImport": true,
+        "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "serializers",
+        "importPath": "django.core",
+        "description": "django.core",
+        "isExtraImport": true,
+        "detail": "django.core",
+        "documentation": {}
+    },
+    {
         "label": "APIView",
         "importPath": "rest_framework.views",
         "description": "rest_framework.views",
@@ -644,14 +836,6 @@
         "description": "rest_framework.generics",
         "isExtraImport": true,
         "detail": "rest_framework.generics",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
@@ -711,6 +895,14 @@
         "documentation": {}
     },
     {
+        "label": "isProjectAdmin",
+        "importPath": "workspace.permissions",
+        "description": "workspace.permissions",
+        "isExtraImport": true,
+        "detail": "workspace.permissions",
+        "documentation": {}
+    },
+    {
         "label": "ListTimeRecordsSerializer",
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
@@ -740,6 +932,14 @@
         "description": "workspace.serializers",
         "isExtraImport": true,
         "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TimeRecordQuerySetTestCase",
+        "importPath": "workspace.tests",
+        "description": "workspace.tests",
+        "isExtraImport": true,
+        "detail": "workspace.tests",
         "documentation": {}
     },
     {
@@ -1058,6 +1258,24 @@
         "documentation": {}
     },
     {
+        "label": "TimeRecordQuerySetTestCase",
+        "kind": 6,
+        "importPath": "workspace.tests.test_queryset",
+        "description": "workspace.tests.test_queryset",
+        "peekOfCode": "class TimeRecordQuerySetTestCase(TestCase):\n    def setUp(self):\n        start_time = strftime(\"%H:%M\")\n        date = datetime.date(2022, 12, 19)\n        self.user = User.objects.create(username=\"test\")\n        self.user_2 = User.objects.create(username=\"test_2\")\n        self.timer_first_user = TimeRecord.objects.create(\n            user=self.user, date=date, start_time=start_time\n        )\n        self.timer_second_user = TimeRecord.objects.create(",
+        "detail": "workspace.tests.test_queryset",
+        "documentation": {}
+    },
+    {
+        "label": "TimeRecordTestCase",
+        "kind": 6,
+        "importPath": "workspace.tests.test_time_record",
+        "description": "workspace.tests.test_time_record",
+        "peekOfCode": "class TimeRecordTestCase(TestCase):\n    def setUp(self):  # runs before every test\n        self.user = User.objects.create(username=\"test\")\n    def tearDown(self):  # runs after every test\n        pass\n    def test_stop_time_after_midnight(self):\n        start_time = strftime(\"%H:%M\")\n        date = datetime.date(2022, 12, 19)\n        timer = TimeRecord.objects.create(\n            user=self.user, date=date, start_time=start_time",
+        "detail": "workspace.tests.test_time_record",
+        "documentation": {}
+    },
+    {
         "label": "myModels",
         "kind": 5,
         "importPath": "workspace.admin",
@@ -1184,11 +1402,20 @@
         "documentation": {}
     },
     {
+        "label": "isProjectAdmin",
+        "kind": 6,
+        "importPath": "workspace.permissions",
+        "description": "workspace.permissions",
+        "peekOfCode": "class isProjectAdmin(BasePermission):\n    def has_permission(self, request, view):\n        return super().has_permission(request, view)",
+        "detail": "workspace.permissions",
+        "documentation": {}
+    },
+    {
         "label": "TimeRecordQuerySet",
         "kind": 6,
         "importPath": "workspace.querysets",
         "description": "workspace.querysets",
-        "peekOfCode": "class TimeRecordQuerySet(QuerySet):\n    def filter_running_timers(self, user=None):\n        qs = self.filter(end_time__isnull=True)\n        if user:\n            qs.filter(user=user)\n        return qs",
+        "peekOfCode": "class TimeRecordQuerySet(QuerySet):\n    def filter_running_timers(self, user=None):\n        qs = self.filter(end_time__isnull=True)\n        if user:\n            qs = qs.filter(user=user)\n        return qs",
         "detail": "workspace.querysets",
         "documentation": {}
     },
@@ -1229,24 +1456,6 @@
         "documentation": {}
     },
     {
-        "label": "TimeRecordTestCase",
-        "kind": 6,
-        "importPath": "workspace.tests",
-        "description": "workspace.tests",
-        "peekOfCode": "class TimeRecordTestCase(TestCase):\n    def setUp(self):  # runs before every test\n        self.user = User.objects.create(username=\"test\")\n    # def tearDown():\n    def tearDown(self):  # runs after every test\n        pass\n    def test_stop_time_after_midnight(self):\n        start_time = strftime(\"%H:%M\", gmtime())\n        date = datetime.date(2022, 12, 19)\n        timer = TimeRecord.objects.create(",
-        "detail": "workspace.tests",
-        "documentation": {}
-    },
-    {
-        "label": "TimeRecordQuerySetTestCase",
-        "kind": 6,
-        "importPath": "workspace.tests",
-        "description": "workspace.tests",
-        "peekOfCode": "class TimeRecordQuerySetTestCase(TestCase):\n    pass",
-        "detail": "workspace.tests",
-        "documentation": {}
-    },
-    {
         "label": "urlpatterns",
         "kind": 5,
         "importPath": "workspace.urls",
@@ -1260,7 +1469,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class RegistrationView(CreateView):\n    template_name = \"workspace/register.html\"\n    form_class = RegistrationForm\n    def get_context_data(self, *args, **kwargs):\n        context = super().get_context_data(*args, **kwargs)\n        context[\"next\"] = self.request.GET.get(\"next\")\n        return context\n    def get_success_url(self):\n        next_url = self.request.POST.get(\"next\")\n        success_url = reverse(\"login\")",
+        "peekOfCode": "class RegistrationView(CreateView):\n    template_name = \"workspace/register.html\"\n    form_class = RegistrationForm\n    permission_classes = [isProjectAdmin]\n    def get_context_data(self, *args, **kwargs):\n        context = super().get_context_data(*args, **kwargs)\n        context[\"next\"] = self.request.GET.get(\"next\")\n        return context\n    def get_success_url(self):\n        next_url = self.request.POST.get(\"next\")",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -1332,7 +1541,7 @@
         "kind": 2,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "def home(request):\n    return render(request, \"workspace/home.html\")\nclass RegistrationView(CreateView):\n    template_name = \"workspace/register.html\"\n    form_class = RegistrationForm\n    def get_context_data(self, *args, **kwargs):\n        context = super().get_context_data(*args, **kwargs)\n        context[\"next\"] = self.request.GET.get(\"next\")\n        return context\n    def get_success_url(self):",
+        "peekOfCode": "def home(request):\n    return render(request, \"workspace/home.html\")\nclass RegistrationView(CreateView):\n    template_name = \"workspace/register.html\"\n    form_class = RegistrationForm\n    permission_classes = [isProjectAdmin]\n    def get_context_data(self, *args, **kwargs):\n        context = super().get_context_data(*args, **kwargs)\n        context[\"next\"] = self.request.GET.get(\"next\")\n        return context",
         "detail": "workspace.views",
         "documentation": {}
     },

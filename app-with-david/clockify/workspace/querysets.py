@@ -6,6 +6,6 @@ class TimeRecordQuerySet(QuerySet):
         qs = self.filter(end_time__isnull=True)
 
         if user:
-            qs.filter(user=user)
+            qs = qs.filter(user=user)
 
         return qs

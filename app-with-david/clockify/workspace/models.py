@@ -1,9 +1,10 @@
-from datetime import datetime
-from time import strftime, gmtime
+from datetime import datetime, date, timedelta
+from gc import get_objects
+from time import strftime, localtime
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from typing import Optional
-from time import gmtime, strftime
+from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
 from workspace.querysets import TimeRecordQuerySet
@@ -58,39 +59,38 @@ class TimeRecord(models.Model):
             return f"{self.task} - {self.start_time}"
         return f"{self.id} - {self.start_time}"
 
-    # def save(self, *args, **kwargs):
-    #     # todo allow only one running instance
-    #     # find all running instances
-    #     # kill them
-
-    #     super().save(*args, **kwargs)
-
-    #     running_records = self.objects.filter_running_timers(self.user)
-    #     if running_records.count() > 1:
-    #         last_record = running_records.latest("id")
-    #         all_other_records = self.objects.exclude(pk__in=list(last_record))
-    #         self.stop_time(all_other_records)
-
     def change_start_time(self, start_time):
         self.start_time = start_time
         self.save()
 
     # todo
     def stop_time(self):
-        # check if after midnight
-        start_time = datetime.strptime(self.start_time.replace(":", ""), "%H%M")  # 1000
-        # todo dont use gmtime
-        end_time = strftime("%H:%M", gmtime())
+
+        end_time = strftime("%H:%M")
         now = datetime.now()
+        start_date = self.date  # datetime.date(2022, 12, 19)
+        end_date = now.date()
 
-        if self.date == now.date():
+        if end_date == start_date:  # if same date
             self.end_time = end_time
+            self.date = end_date
             self.save()
-            return
 
-        self.end_time = "23:59"
-        # todo create new time record when over midnight
-        return self.save()
+        elif end_date > start_date:  # if after midnight
+            self.end_time = "23:59"
+            self.date = end_date - timedelta(days=1)
+            self.save()
+
+            # todo autokill after 24 hours
+            new_end_time = end_time
+            new_end_date = end_date
+            new_start_time = "00:00"
+            TimeRecord.objects.create(
+                start_time=new_start_time,
+                end_time=new_end_time,
+                date=new_end_date,
+                user=self.user,
+            )
 
 
 class Report(models.Model):

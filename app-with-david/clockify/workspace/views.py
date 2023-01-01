@@ -18,6 +18,8 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView
 from django.urls import reverse
 
+from workspace.permissions import isProjectAdmin
+
 from .models import User, TimeRecord
 from .forms import RegistrationForm
 from workspace.serializers import (
@@ -26,6 +28,7 @@ from workspace.serializers import (
     TimeRecordSerializer,
     TimeRecordStartSerializer,
 )
+from workspace.tests import TimeRecordQuerySetTestCase
 
 
 def home(request):
@@ -35,6 +38,7 @@ def home(request):
 class RegistrationView(CreateView):
     template_name = "workspace/register.html"
     form_class = RegistrationForm
+    permission_classes = [isProjectAdmin]
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -89,8 +93,7 @@ class TrackingStart(APIView):
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        start_time = strftime("%H:%M", gmtime())
-        # start_time = datetime.now().time
+        start_time = strftime("%H:%M")
         date_now = date.today()
         self.find_and_kill_all_running(request.user)
         time_record = serializer.save(

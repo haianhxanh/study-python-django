@@ -36,3 +36,5 @@ if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
     )  # expose endpoint MEDIA_URL, requests to be routed to file system at address MEDIA_ROOT
+
+    urlpatterns += [path("silk/", include("silk.urls", namespace="silk"))]

@@ -1,7 +1,7 @@
 {% extends 'workspace/base.html' %} {% block title %} Login {% endblock %}
 {%block content %}
 <form method="post">
-  {% csrf_token %} {{ form|crispy}}
+  {% csrf_token %} {% comment %} {{ form|crispy}} {% endcomment %}
   <p>Don't have an account? <a href="/sign-up">Create account</a></p>
   <button class="btn" type="submit"></button>
 </form>

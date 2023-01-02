@@ -1,8 +1,9 @@
-from workspace.models import Permission
+from workspace.models import Permission, User
+from rest_framework import permissions
 
-from rest_framework.permissions import BasePermission
 
-
-class isProjectAdmin(BasePermission):
+class isProjectAdmin(permissions.BasePermission):
     def has_permission(self, request, view):
-        return super().has_permission(request, view)
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        return bool(request.User)

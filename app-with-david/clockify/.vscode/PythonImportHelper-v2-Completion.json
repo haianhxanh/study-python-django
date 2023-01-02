@@ -8,6 +8,14 @@
         "documentation": {}
     },
     {
+        "label": "permissions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "serializers",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -96,7 +104,55 @@
         "documentation": {}
     },
     {
+        "label": "Currency",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "Project",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "Task",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
         "label": "TimeRecord",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserProject",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserTask",
         "importPath": "workspace.models",
         "description": "workspace.models",
         "isExtraImport": true,
@@ -113,6 +169,14 @@
     },
     {
         "label": "path",
+        "importPath": "django.urls",
+        "description": "django.urls",
+        "isExtraImport": true,
+        "detail": "django.urls",
+        "documentation": {}
+    },
+    {
+        "label": "include",
         "importPath": "django.urls",
         "description": "django.urls",
         "isExtraImport": true,
@@ -225,100 +289,35 @@
         "documentation": {}
     },
     {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
         "isExtraImport": true,
-        "detail": "django.db",
+        "detail": "django.conf",
         "documentation": {}
     },
     {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
         "isExtraImport": true,
-        "detail": "django.db",
+        "detail": "django.conf",
         "documentation": {}
     },
     {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
         "isExtraImport": true,
-        "detail": "django.db",
+        "detail": "django.conf",
         "documentation": {}
     },
     {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
         "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "migrations",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
-        "label": "django.db.models.deletion",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "django.db.models.deletion",
-        "description": "django.db.models.deletion",
-        "detail": "django.db.models.deletion",
+        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -356,20 +355,181 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "connection",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
         "label": "django.utils.timezone",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "django.utils.timezone",
         "description": "django.utils.timezone",
         "detail": "django.utils.timezone",
-        "documentation": {}
-    },
-    {
-        "label": "settings",
-        "importPath": "django.conf",
-        "description": "django.conf",
-        "isExtraImport": true,
-        "detail": "django.conf",
         "documentation": {}
     },
     {
@@ -459,6 +619,14 @@
         "description": "unittest.mock",
         "isExtraImport": true,
         "detail": "unittest.mock",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
         "documentation": {}
     },
     {
@@ -775,6 +943,14 @@
         "documentation": {}
     },
     {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -791,27 +967,43 @@
         "documentation": {}
     },
     {
-        "label": "BasePermission",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
-        "documentation": {}
-    },
-    {
         "label": "QuerySet",
         "importPath": "django.db.models",
         "description": "django.db.models",
         "isExtraImport": true,
         "detail": "django.db.models",
+        "documentation": {}
+    },
+    {
+        "label": "read",
+        "importPath": "asyncore",
+        "description": "asyncore",
+        "isExtraImport": true,
+        "detail": "asyncore",
+        "documentation": {}
+    },
+    {
+        "label": "require",
+        "importPath": "pkg_resources",
+        "description": "pkg_resources",
+        "isExtraImport": true,
+        "detail": "pkg_resources",
+        "documentation": {}
+    },
+    {
+        "label": "DefaultRouter",
+        "importPath": "rest_framework.routers",
+        "description": "rest_framework.routers",
+        "isExtraImport": true,
+        "detail": "rest_framework.routers",
+        "documentation": {}
+    },
+    {
+        "label": "routers",
+        "importPath": "rest_framework_nested",
+        "description": "rest_framework_nested",
+        "isExtraImport": true,
+        "detail": "rest_framework_nested",
         "documentation": {}
     },
     {
@@ -831,11 +1023,27 @@
         "documentation": {}
     },
     {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
         "label": "ListAPIView",
         "importPath": "rest_framework.generics",
         "description": "rest_framework.generics",
         "isExtraImport": true,
         "detail": "rest_framework.generics",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
@@ -903,7 +1111,15 @@
         "documentation": {}
     },
     {
-        "label": "ListTimeRecordsSerializer",
+        "label": "AddUserProjectSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CreateProjectSerializers",
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
         "isExtraImport": true,
@@ -912,6 +1128,38 @@
     },
     {
         "label": "ListUserSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectDetailSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaskItemSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaskSerializer",
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
         "isExtraImport": true,
@@ -928,6 +1176,38 @@
     },
     {
         "label": "TimeRecordStartSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateProjectSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserProjectSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserTaskSerializer",
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
         "isExtraImport": true,
@@ -1001,7 +1281,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = 'django-insecure-wa_q^(3-j2lt5n&rw$6y^(&km)d&y(#j&hu)m!=j6z0p8d$t7+'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\nSECRET_KEY = \"django-insecure-wa_q^(3-j2lt5n&rw$6y^(&km)d&y(#j&hu)m!=j6z0p8d$t7+\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1010,7 +1290,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "SECRET_KEY = 'django-insecure-wa_q^(3-j2lt5n&rw$6y^(&km)d&y(#j&hu)m!=j6z0p8d$t7+'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',",
+        "peekOfCode": "SECRET_KEY = \"django-insecure-wa_q^(3-j2lt5n&rw$6y^(&km)d&y(#j&hu)m!=j6z0p8d$t7+\"\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1019,7 +1299,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1028,7 +1308,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',",
+        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1037,7 +1317,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'workspace.apps.WorkspaceConfig',\n    'crispy_forms',",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",\n    \"workspace.apps.WorkspaceConfig\",\n    \"crispy_forms\",",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1046,7 +1326,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "CRISPY_TEMPLATE_PACK = 'bootstrap4'\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]",
+        "peekOfCode": "CRISPY_TEMPLATE_PACK = \"bootstrap4\"\nMIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1055,7 +1335,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'clockify.urls'",
+        "peekOfCode": "MIDDLEWARE = [\n    \"django.middleware.security.SecurityMiddleware\",\n    \"django.contrib.sessions.middleware.SessionMiddleware\",\n    \"django.middleware.common.CommonMiddleware\",\n    \"django.middleware.csrf.CsrfViewMiddleware\",\n    \"django.contrib.auth.middleware.AuthenticationMiddleware\",\n    \"django.contrib.messages.middleware.MessageMiddleware\",\n    \"django.middleware.clickjacking.XFrameOptionsMiddleware\",\n]\nROOT_URLCONF = \"clockify.urls\"",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1064,7 +1344,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "ROOT_URLCONF = 'clockify.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "peekOfCode": "ROOT_URLCONF = \"clockify.urls\"\nTEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.debug\",\n                \"django.template.context_processors.request\",",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1073,7 +1353,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "peekOfCode": "TEMPLATES = [\n    {\n        \"BACKEND\": \"django.template.backends.django.DjangoTemplates\",\n        \"DIRS\": [],\n        \"APP_DIRS\": True,\n        \"OPTIONS\": {\n            \"context_processors\": [\n                \"django.template.context_processors.debug\",\n                \"django.template.context_processors.request\",\n                \"django.contrib.auth.context_processors.auth\",",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1082,7 +1362,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'clockify.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.1/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "peekOfCode": "WSGI_APPLICATION = \"clockify.wsgi.application\"\n# Database\n# https://docs.djangoproject.com/en/4.1/ref/settings/#databases\nDATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": \"clockify\",\n        \"HOST\": \"localhost\",\n        \"USER\": \"postgres\",\n        \"PASSWORD\": \"HankaDS\",",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1091,7 +1371,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "peekOfCode": "DATABASES = {\n    \"default\": {\n        \"ENGINE\": \"django.db.backends.postgresql\",\n        \"NAME\": \"clockify\",\n        \"HOST\": \"localhost\",\n        \"USER\": \"postgres\",\n        \"PASSWORD\": \"HankaDS\",\n        \"PORT\": \"5432\",\n    }\n}",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1100,7 +1380,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',\n    },",
+        "peekOfCode": "AUTH_PASSWORD_VALIDATORS = [\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.UserAttributeSimilarityValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.MinimumLengthValidator\",\n    },\n    {\n        \"NAME\": \"django.contrib.auth.password_validation.CommonPasswordValidator\",\n    },",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1109,7 +1389,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "LANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "LANGUAGE_CODE = \"en-us\"\nTIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.1/howto/static-files/\nSTATIC_URL = \"static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1118,7 +1398,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nAUTH_USER_MODEL = 'workspace.User'",
+        "peekOfCode": "TIME_ZONE = \"UTC\"\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.1/howto/static-files/\nSTATIC_URL = \"static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nAUTH_USER_MODEL = \"workspace.User\"",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1127,7 +1407,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nAUTH_USER_MODEL = 'workspace.User'\nLOGIN_REDIRECT_URL = 'home'",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.1/howto/static-files/\nSTATIC_URL = \"static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nAUTH_USER_MODEL = \"workspace.User\"\nLOGIN_REDIRECT_URL = \"home\"",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1136,7 +1416,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nAUTH_USER_MODEL = 'workspace.User'\nLOGIN_REDIRECT_URL = 'home'\nLOGOUT_REDIRECT_URL = 'home'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/4.1/howto/static-files/\nSTATIC_URL = \"static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nAUTH_USER_MODEL = \"workspace.User\"\nLOGIN_REDIRECT_URL = \"home\"\nLOGOUT_REDIRECT_URL = \"home\"",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1145,7 +1425,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nAUTH_USER_MODEL = 'workspace.User'\nLOGIN_REDIRECT_URL = 'home'\nLOGOUT_REDIRECT_URL = 'home'",
+        "peekOfCode": "STATIC_URL = \"static/\"\n# Default primary key field type\n# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nAUTH_USER_MODEL = \"workspace.User\"\nLOGIN_REDIRECT_URL = \"home\"\nLOGOUT_REDIRECT_URL = \"home\"",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1154,7 +1434,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nAUTH_USER_MODEL = 'workspace.User'\nLOGIN_REDIRECT_URL = 'home'\nLOGOUT_REDIRECT_URL = 'home'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = \"django.db.models.BigAutoField\"\nAUTH_USER_MODEL = \"workspace.User\"\nLOGIN_REDIRECT_URL = \"home\"\nLOGOUT_REDIRECT_URL = \"home\"",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1163,7 +1443,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "AUTH_USER_MODEL = 'workspace.User'\nLOGIN_REDIRECT_URL = 'home'\nLOGOUT_REDIRECT_URL = 'home'",
+        "peekOfCode": "AUTH_USER_MODEL = \"workspace.User\"\nLOGIN_REDIRECT_URL = \"home\"\nLOGOUT_REDIRECT_URL = \"home\"",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1172,7 +1452,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "LOGIN_REDIRECT_URL = 'home'\nLOGOUT_REDIRECT_URL = 'home'",
+        "peekOfCode": "LOGIN_REDIRECT_URL = \"home\"\nLOGOUT_REDIRECT_URL = \"home\"",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1181,7 +1461,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "LOGOUT_REDIRECT_URL = 'home'",
+        "peekOfCode": "LOGOUT_REDIRECT_URL = \"home\"",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1208,53 +1488,80 @@
         "kind": 6,
         "importPath": "workspace.migrations.0001_initial",
         "description": "workspace.migrations.0001_initial",
-        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Permission',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('name', models.CharField(choices=[('add', 'add'), ('edit', 'edit'), ('delete', 'delete'), ('view', 'view')], max_length=20)),",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        (\"auth\", \"0012_alter_user_first_name_max_length\"),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"User\",\n            fields=[\n                (",
         "detail": "workspace.migrations.0001_initial",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "workspace.migrations.0002_alter_project_currency",
-        "description": "workspace.migrations.0002_alter_project_currency",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('workspace', '0001_initial'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='project',\n            name='currency',\n            field=models.CharField(choices=[('', ''), ('EUR', 'EUR'), ('USD', 'USD'), ('CZK', 'CZK')], default='', max_length=3),\n        ),",
-        "detail": "workspace.migrations.0002_alter_project_currency",
+        "importPath": "workspace.migrations.0002_alter_task_id",
+        "description": "workspace.migrations.0002_alter_task_id",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0001_initial\"),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name=\"task\",\n            name=\"id\",\n            field=models.AutoField(primary_key=True, serialize=False),\n        ),",
+        "detail": "workspace.migrations.0002_alter_task_id",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "workspace.migrations.0003_currency_project_hourly_rate_alter_permission_name_and_more",
-        "description": "workspace.migrations.0003_currency_project_hourly_rate_alter_permission_name_and_more",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('workspace', '0002_alter_project_currency'),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Currency',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('shortcut_name', models.CharField(max_length=3)),",
-        "detail": "workspace.migrations.0003_currency_project_hourly_rate_alter_permission_name_and_more",
-        "documentation": {}
-    },
-    {
-        "label": "create_currencies",
-        "kind": 2,
-        "importPath": "workspace.migrations.0003_currency_project_hourly_rate_alter_permission_name_and_more",
-        "description": "workspace.migrations.0003_currency_project_hourly_rate_alter_permission_name_and_more",
-        "peekOfCode": "def create_currencies(apps, schema_editor):\n    Currency = apps.get_model(\"workspace\", \"Currency\")\n    currencies = [\n        \"USD\", \"EUR\", \"CZK\"\n    ]\n    for currency in currencies:\n        Currency.objects.create(shortcut_name=currency)\nclass Migration(migrations.Migration):\n    dependencies = [\n        ('workspace', '0002_alter_project_currency'),",
-        "detail": "workspace.migrations.0003_currency_project_hourly_rate_alter_permission_name_and_more",
+        "importPath": "workspace.migrations.0003_alter_userprojectrole_project_and_more",
+        "description": "workspace.migrations.0003_alter_userprojectrole_project_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0002_alter_task_id\"),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name=\"userprojectrole\",\n            name=\"project\",\n            field=models.ForeignKey(\n                on_delete=django.db.models.deletion.PROTECT,",
+        "detail": "workspace.migrations.0003_alter_userprojectrole_project_and_more",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "workspace.migrations.0004_alter_user_options_alter_user_managers_and_more",
-        "description": "workspace.migrations.0004_alter_user_options_alter_user_managers_and_more",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('auth', '0012_alter_user_first_name_max_length'),\n        ('workspace', '0003_currency_project_hourly_rate_alter_permission_name_and_more'),\n    ]\n    operations = [\n        migrations.AlterModelOptions(\n            name='user',\n            options={'verbose_name': 'user', 'verbose_name_plural': 'users'},\n        ),",
-        "detail": "workspace.migrations.0004_alter_user_options_alter_user_managers_and_more",
+        "importPath": "workspace.migrations.0004_alter_userprojectrole_project_and_more",
+        "description": "workspace.migrations.0004_alter_userprojectrole_project_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0003_alter_userprojectrole_project_and_more\"),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name=\"userprojectrole\",\n            name=\"project\",\n            field=models.ForeignKey(\n                on_delete=django.db.models.deletion.PROTECT,",
+        "detail": "workspace.migrations.0004_alter_userprojectrole_project_and_more",
         "documentation": {}
     },
     {
         "label": "Migration",
         "kind": 6,
-        "importPath": "workspace.migrations.0005_timerecord_user",
-        "description": "workspace.migrations.0005_timerecord_user",
-        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('workspace', '0004_alter_user_options_alter_user_managers_and_more'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='timerecord',\n            name='user',\n            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, related_name='time_records', to=settings.AUTH_USER_MODEL),\n            preserve_default=False,",
-        "detail": "workspace.migrations.0005_timerecord_user",
+        "importPath": "workspace.migrations.0005_userproject_delete_userprojectrole",
+        "description": "workspace.migrations.0005_userproject_delete_userprojectrole",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0004_alter_userprojectrole_project_and_more\"),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name=\"UserProject\",\n            fields=[\n                (\n                    \"id\",",
+        "detail": "workspace.migrations.0005_userproject_delete_userprojectrole",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "workspace.migrations.0006_userproject_role",
+        "description": "workspace.migrations.0006_userproject_role",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0005_userproject_delete_userprojectrole\"),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name=\"userproject\",\n            name=\"role\",\n            field=models.ForeignKey(\n                blank=True,",
+        "detail": "workspace.migrations.0006_userproject_role",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "workspace.migrations.0007_alter_currency_shortcut_name",
+        "description": "workspace.migrations.0007_alter_currency_shortcut_name",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0006_userproject_role\"),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name=\"currency\",\n            name=\"shortcut_name\",\n            field=models.CharField(blank=True, max_length=3, null=True),\n        ),",
+        "detail": "workspace.migrations.0007_alter_currency_shortcut_name",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "workspace.migrations.0008_alter_currency_shortcut_name_alter_project_currency",
+        "description": "workspace.migrations.0008_alter_currency_shortcut_name_alter_project_currency",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0007_alter_currency_shortcut_name\"),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name=\"currency\",\n            name=\"shortcut_name\",\n            field=models.CharField(max_length=3),\n        ),",
+        "detail": "workspace.migrations.0008_alter_currency_shortcut_name_alter_project_currency",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "workspace.migrations.0009_alter_project_currency_alter_project_hex_color",
+        "description": "workspace.migrations.0009_alter_project_currency_alter_project_hex_color",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0008_alter_currency_shortcut_name_alter_project_currency\"),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name=\"project\",\n            name=\"currency\",\n            field=models.ForeignKey(\n                blank=True,",
+        "detail": "workspace.migrations.0009_alter_project_currency_alter_project_hex_color",
         "documentation": {}
     },
     {
@@ -1271,8 +1578,17 @@
         "kind": 6,
         "importPath": "workspace.tests.test_time_record",
         "description": "workspace.tests.test_time_record",
-        "peekOfCode": "class TimeRecordTestCase(TestCase):\n    def setUp(self):  # runs before every test\n        self.user = User.objects.create(username=\"test\")\n    def tearDown(self):  # runs after every test\n        pass\n    def test_stop_time_after_midnight(self):\n        start_time = strftime(\"%H:%M\")\n        date = datetime.date(2022, 12, 19)\n        timer = TimeRecord.objects.create(\n            user=self.user, date=date, start_time=start_time",
+        "peekOfCode": "class TimeRecordTestCase(TestCase):\n    def setUp(self):  # runs before every test\n        self.user = User.objects.create(username=\"test\")\n    def tearDown(self):  # runs after every test\n        pass\n    def test_stop_time_after_midnight(self):\n        start_time = strftime(\"%H:%M\")\n        date = datetime.date(2022, 12, 19)\n        timer = TimeRecord.objects.create(user=self.user, date=date, start_time=start_time)\n        with patch(\"workspace.models.datetime\") as datetime_mock:",
         "detail": "workspace.tests.test_time_record",
+        "documentation": {}
+    },
+    {
+        "label": "TimeRecordAdmin",
+        "kind": 6,
+        "importPath": "workspace.admin",
+        "description": "workspace.admin",
+        "peekOfCode": "class TimeRecordAdmin(admin.ModelAdmin):\n    list_display = [\"id\", \"start_time\", \"end_time\", \"date\"]\nmyModels = [Project, Currency, Task, Report, User, Role, UserProject, UserTask, Permission]\nadmin.site.register(myModels)\nadmin.site.register(TimeRecord, TimeRecordAdmin)",
+        "detail": "workspace.admin",
         "documentation": {}
     },
     {
@@ -1280,7 +1596,7 @@
         "kind": 5,
         "importPath": "workspace.admin",
         "description": "workspace.admin",
-        "peekOfCode": "myModels = [Project, Currency, Task, TimeRecord, Report, User, Role] \nadmin.site.register(myModels)",
+        "peekOfCode": "myModels = [Project, Currency, Task, Report, User, Role, UserProject, UserTask, Permission]\nadmin.site.register(myModels)\nadmin.site.register(TimeRecord, TimeRecordAdmin)",
         "detail": "workspace.admin",
         "documentation": {}
     },
@@ -1316,7 +1632,7 @@
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class Currency(models.Model):\n    shortcut_name = models.CharField(max_length=3)\n    def __str__(self):\n        return self.shortcut_name\nclass Project(models.Model):\n    name = models.CharField(max_length=255)\n    description = models.TextField()\n    currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True)\n    hex_color = models.CharField(max_length=7)  # predefined colors + color picker\n    hourly_rate = models.FloatField(null=True)",
+        "peekOfCode": "class Currency(models.Model):\n    shortcut_name = models.CharField(max_length=3)\n    def __str__(self):\n        return self.shortcut_name\nclass Project(models.Model):\n    name = models.CharField(max_length=255)\n    description = models.TextField()\n    currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True, blank=True, related_name=\"currency\")\n    hex_color = models.CharField(max_length=7, null=True, blank=True)  # predefined colors + color picker\n    hourly_rate = models.FloatField(null=True)",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1325,7 +1641,7 @@
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class Project(models.Model):\n    name = models.CharField(max_length=255)\n    description = models.TextField()\n    currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True)\n    hex_color = models.CharField(max_length=7)  # predefined colors + color picker\n    hourly_rate = models.FloatField(null=True)\n    def __str__(self):\n        return self.name\nclass Task(models.Model):\n    name = models.CharField(max_length=255)",
+        "peekOfCode": "class Project(models.Model):\n    name = models.CharField(max_length=255)\n    description = models.TextField()\n    currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True, blank=True, related_name=\"currency\")\n    hex_color = models.CharField(max_length=7, null=True, blank=True)  # predefined colors + color picker\n    hourly_rate = models.FloatField(null=True)\n    def __str__(self):\n        return self.name\nclass Task(models.Model):\n    id = models.AutoField(primary_key=True)",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1334,7 +1650,7 @@
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class Task(models.Model):\n    name = models.CharField(max_length=255)\n    description = models.TextField()\n    max_allocated_hours = models.FloatField(null=True, blank=True)\n    project = models.ForeignKey(Project, on_delete=models.CASCADE)\n    def __str__(self):\n        return self.name\nclass TimeRecord(models.Model):\n    description = models.TextField(max_length=1024, null=True, blank=True)\n    start_time = (",
+        "peekOfCode": "class Task(models.Model):\n    id = models.AutoField(primary_key=True)\n    name = models.CharField(max_length=255)\n    description = models.TextField()\n    max_allocated_hours = models.FloatField(null=True, blank=True)\n    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name=\"tasks\")\n    def __str__(self):\n        return f\"{self.project.name} - {self.name}\"\nclass TimeRecord(models.Model):\n    description = models.TextField(max_length=1024, null=True, blank=True)",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1343,7 +1659,7 @@
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class TimeRecord(models.Model):\n    description = models.TextField(max_length=1024, null=True, blank=True)\n    start_time = (\n        models.TimeField()\n    )  # auto add time when Object is created, make it editable\n    end_time = models.TimeField(null=True, blank=True)\n    date = models.DateField()\n    task = models.ForeignKey(Task, on_delete=models.CASCADE, null=True, blank=True)\n    user = models.ForeignKey(\n        \"User\", on_delete=models.CASCADE, related_name=\"time_records\"",
+        "peekOfCode": "class TimeRecord(models.Model):\n    description = models.TextField(max_length=1024, null=True, blank=True)\n    start_time = models.TimeField()  # auto add time when Object is created, make it editable\n    end_time = models.TimeField(null=True, blank=True)\n    date = models.DateField()\n    task = models.ForeignKey(Task, on_delete=models.CASCADE, null=True, blank=True, related_name=\"time_records\")\n    user = models.ForeignKey(\"User\", on_delete=models.CASCADE, related_name=\"time_records\")\n    objects = TimeRecordQuerySet.as_manager()\n    def __str__(self):\n        if self.task:",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1361,7 +1677,7 @@
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class User(AbstractUser):\n    def __str__(self):\n        return self.email\n    def get_currently_running_timer(self) -> TimeRecord:\n        \"\"\"If nothing found in queryset throws TimeRecord.DoesNotExist\"\"\"\n        time_records = self.time_records.filter(end_time__isnull=True)\n        if time_records.count() > 1:\n            # throw error/ kill all but last\n            last_record = time_records.latest(\"id\")\n            all_other_records = time_records.exclude(pk__in=list(last_record))",
+        "peekOfCode": "class User(AbstractUser):\n    def __str__(self):\n        return self.email\n    def get_currently_running_timer(self) -> TimeRecord:\n        \"\"\"If nothing found in queryset throws TimeRecord.DoesNotExist\"\"\"\n        time_records = self.time_records.filter(end_time__isnull=True)\n        if time_records.count() > 1:\n            # throw error/ kill all but last\n            # ordered_time_records = time_records.order_by(\"-id\")\n            # latest_record = ordered_time_records[0]",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1370,7 +1686,7 @@
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class Role(models.Model):\n    name = models.CharField(max_length=8)\n    description = models.TextField()\n    permissions = models.ManyToManyField(\"Permission\", related_name=\"roles\")\n    def __str__(self):\n        return self.name\nclass Permission(models.Model):\n    PERMISSION_CHOICES = [\n        (\"add_project\", \"add_project\"),\n        (\"edit_prject\", \"edit_project\"),",
+        "peekOfCode": "class Role(models.Model):\n    # ADMIN = \"AD\"\n    # MEMBER = \"M\"\n    # GUEST = \"G\"\n    # ROLE_CHOICES = [(ADMIN, \"admin\"), (MEMBER, \"member\"), (GUEST, \"guest\")]\n    # name = models.CharField(max_length=2, choices=ROLE_CHOICES, default=ADMIN, unique=True)\n    name = models.CharField(max_length=8, unique=True)\n    description = models.TextField()\n    permissions = models.ManyToManyField(\"Permission\", related_name=\"roles\")\n    def __str__(self):",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1384,20 +1700,20 @@
         "documentation": {}
     },
     {
-        "label": "UserTasks",
+        "label": "UserTask",
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class UserTasks(models.Model):\n    user = models.ForeignKey(User, on_delete=models.PROTECT)\n    task = models.ForeignKey(Task, on_delete=models.PROTECT)\nclass UserProjects(models.Model):\n    user = models.ForeignKey(User, on_delete=models.PROTECT)\n    project = models.ForeignKey(Project, on_delete=models.PROTECT)",
+        "peekOfCode": "class UserTask(models.Model):\n    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name=\"user_tasks\")\n    task = models.ForeignKey(Task, on_delete=models.PROTECT, related_name=\"task_users\")\n    def __str__(self):\n        return f\"{self.user} - {self.task.name}\"\nclass UserProject(models.Model):\n    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name=\"user_projects\")\n    project = models.ForeignKey(Project, on_delete=models.PROTECT, related_name=\"project_users\")\n    role = models.ForeignKey(Role, on_delete=models.PROTECT, related_name=\"userprojects\", null=True, blank=True)\n    def __str__(self):",
         "detail": "workspace.models",
         "documentation": {}
     },
     {
-        "label": "UserProjects",
+        "label": "UserProject",
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class UserProjects(models.Model):\n    user = models.ForeignKey(User, on_delete=models.PROTECT)\n    project = models.ForeignKey(Project, on_delete=models.PROTECT)",
+        "peekOfCode": "class UserProject(models.Model):\n    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name=\"user_projects\")\n    project = models.ForeignKey(Project, on_delete=models.PROTECT, related_name=\"project_users\")\n    role = models.ForeignKey(Role, on_delete=models.PROTECT, related_name=\"userprojects\", null=True, blank=True)\n    def __str__(self):\n        return f\"{self.user} - {self.project.name}\"",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1406,7 +1722,7 @@
         "kind": 6,
         "importPath": "workspace.permissions",
         "description": "workspace.permissions",
-        "peekOfCode": "class isProjectAdmin(BasePermission):\n    def has_permission(self, request, view):\n        return super().has_permission(request, view)",
+        "peekOfCode": "class isProjectAdmin(permissions.BasePermission):\n    def has_permission(self, request, view):\n        if request.method in permissions.SAFE_METHODS:\n            return True\n        return bool(request.User)",
         "detail": "workspace.permissions",
         "documentation": {}
     },
@@ -1420,20 +1736,74 @@
         "documentation": {}
     },
     {
-        "label": "ListUserSerializer",
+        "label": "CurrencySerializer",
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class ListUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = User\n        fields = \"__all__\"\nclass ListTimeRecordsSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = TimeRecord\n        fields = \"__all__\"\nclass TimeRecordSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "peekOfCode": "class CurrencySerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Currency\n        fields = [\"shortcut_name\"]\nclass ListUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = User\n        fields = \"__all__\"\nclass UserSerializer(serializers.ModelSerializer):\n    class Meta:",
         "detail": "workspace.serializers",
         "documentation": {}
     },
     {
-        "label": "ListTimeRecordsSerializer",
+        "label": "ListUserSerializer",
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class ListTimeRecordsSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = TimeRecord\n        fields = \"__all__\"\nclass TimeRecordSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = TimeRecord\n        fields = \"__all__\"\nclass TimeRecordStartSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "peekOfCode": "class ListUserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = User\n        fields = \"__all__\"\nclass UserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = User\n        fields = [\"id\", \"username\", \"first_name\", \"last_name\"]\nclass TaskSimpleSerializer(serializers.ModelSerializer):\n    class Meta:",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class UserSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = User\n        fields = [\"id\", \"username\", \"first_name\", \"last_name\"]\nclass TaskSimpleSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\"]\nclass UserTaskSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaskSimpleSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class TaskSimpleSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\"]\nclass UserTaskSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    class Meta:\n        model = UserTask\n        fields = [\"username\"]\nclass TaskSerializer(serializers.ModelSerializer):",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserTaskSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class UserTaskSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    class Meta:\n        model = UserTask\n        fields = [\"username\"]\nclass TaskSerializer(serializers.ModelSerializer):\n    task_users = UserTaskSerializer(many=True)\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\", \"max_allocated_hours\", \"task_users\"]",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaskSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class TaskSerializer(serializers.ModelSerializer):\n    task_users = UserTaskSerializer(many=True)\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\", \"max_allocated_hours\", \"task_users\"]\nclass TaskItemSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = \"__all__\"\nclass TaskProjectSimpleSerializer(serializers.ModelSerializer):",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaskItemSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class TaskItemSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = \"__all__\"\nclass TaskProjectSimpleSerializer(serializers.ModelSerializer):\n    task_project = serializers.SerializerMethodField()\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\", \"task_project\"]\n    def get_task_project(self, Task):",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaskProjectSimpleSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class TaskProjectSimpleSerializer(serializers.ModelSerializer):\n    task_project = serializers.SerializerMethodField()\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\", \"task_project\"]\n    def get_task_project(self, Task):\n        return Task.project.name\nclass TimeRecordSerializer(serializers.ModelSerializer):\n    user = serializers.SerializerMethodField()\n    task = TaskProjectSimpleSerializer()",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -1442,7 +1812,7 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class TimeRecordSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = TimeRecord\n        fields = \"__all__\"\nclass TimeRecordStartSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = TimeRecord\n        fields = [\"description\"]",
+        "peekOfCode": "class TimeRecordSerializer(serializers.ModelSerializer):\n    user = serializers.SerializerMethodField()\n    task = TaskProjectSimpleSerializer()\n    class Meta:\n        model = TimeRecord\n        fields = [\"id\", \"description\", \"start_time\", \"end_time\", \"date\", \"task\", \"user\"]\n    def get_user(self, TimeRecord):\n        return TimeRecord.user.username\n    def get_task(self, TimeRecord):\n        return TimeRecord.task.name",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -1451,8 +1821,116 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class TimeRecordStartSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = TimeRecord\n        fields = [\"description\"]",
+        "peekOfCode": "class TimeRecordStartSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = TimeRecord\n        fields = [\"description\", \"task\"]\nclass TimeRecordStopSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = TimeRecord\n        fields = [\"description\", \"task\", \"start_time\", \"end_time\"]\nclass UserProjectSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")",
         "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TimeRecordStopSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class TimeRecordStopSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = TimeRecord\n        fields = [\"description\", \"task\", \"start_time\", \"end_time\"]\nclass UserProjectSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    role = serializers.ReadOnlyField(source=\"role.name\")\n    user_id = serializers.ReadOnlyField(source=\"user.id\")\n    class Meta:\n        model = UserProject",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserProjectSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class UserProjectSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    role = serializers.ReadOnlyField(source=\"role.name\")\n    user_id = serializers.ReadOnlyField(source=\"user.id\")\n    class Meta:\n        model = UserProject\n        fields = [\"username\", \"user_id\", \"role\"]\nclass AddUserProjectSerializer(serializers.ModelSerializer):\n    user_id = serializers.IntegerField()\n    role_id = serializers.IntegerField()",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "AddUserProjectSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class AddUserProjectSerializer(serializers.ModelSerializer):\n    user_id = serializers.IntegerField()\n    role_id = serializers.IntegerField()\n    def save(self, **kwargs):\n        project_id = self.context[\"project_id\"]\n        user_id = self.validated_data[\"user_id\"]\n        role_id = self.validated_data[\"role_id\"]\n        try:\n            user_project = UserProject.objects.get(project_id=project_id, user_id=user_id, role_id=role_id)\n            user_project.save()",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaskSimpleSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class TaskSimpleSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\"]\nclass ProjectSerializer(serializers.ModelSerializer):\n    project_users = UserProjectSerializer(many=True, read_only=True)\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\", \"project_users\"]\n    def get_project_users(self, Project):",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class ProjectSerializer(serializers.ModelSerializer):\n    project_users = UserProjectSerializer(many=True, read_only=True)\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\", \"project_users\"]\n    def get_project_users(self, Project):\n        return Project.user.username\nclass UpdateProjectSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Project",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateProjectSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class UpdateProjectSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Project\n        fields = \"__all__\"\nclass CreateProjectSerializers(serializers.ModelSerializer):\n    def create(self, validated_data):\n        return Project.objects.create(**validated_data)\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\", \"description\", \"hourly_rate\", \"currency\"]",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "CreateProjectSerializers",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class CreateProjectSerializers(serializers.ModelSerializer):\n    def create(self, validated_data):\n        return Project.objects.create(**validated_data)\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\", \"description\", \"hourly_rate\", \"currency\"]\nclass ProjectDetailSerializer(serializers.ModelSerializer):\n    tasks = TaskSimpleSerializer(many=True)\n    project_users = UserProjectSerializer(many=True)\n    currency = CurrencySerializer()",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectDetailSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class ProjectDetailSerializer(serializers.ModelSerializer):\n    tasks = TaskSimpleSerializer(many=True)\n    project_users = UserProjectSerializer(many=True)\n    currency = CurrencySerializer()\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\", \"description\", \"hourly_rate\", \"currency\", \"tasks\", \"project_users\"]\n    def get_currency(self, Project):\n        return Project.currency.shortcut_name",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register(r\"projects\", views.ProjectViewSet, basename=\"projects\")\ntask_router = routers.NestedDefaultRouter(router, r\"projects\", lookup=\"project\")\ntask_router.register(r\"tasks\", views.TaskViewSet, basename=\"tasks\")\nproject_user_router = routers.NestedDefaultRouter(router, r\"projects\", lookup=\"project\")\nproject_user_router.register(r\"users\", views.UserProjectViewSet, basename=\"users\")\nrouter.register(r\"users\", views.UserViewSet, basename=\"users\")\nuser_tracking_router = routers.NestedDefaultRouter(router, r\"users\", lookup=\"user\")\nuser_tracking_router.register(r\"tracking\", views.TimeRecordViewSet, basename=\"tracking\")\nurlpatterns = [",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "task_router",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "task_router = routers.NestedDefaultRouter(router, r\"projects\", lookup=\"project\")\ntask_router.register(r\"tasks\", views.TaskViewSet, basename=\"tasks\")\nproject_user_router = routers.NestedDefaultRouter(router, r\"projects\", lookup=\"project\")\nproject_user_router.register(r\"users\", views.UserProjectViewSet, basename=\"users\")\nrouter.register(r\"users\", views.UserViewSet, basename=\"users\")\nuser_tracking_router = routers.NestedDefaultRouter(router, r\"users\", lookup=\"user\")\nuser_tracking_router.register(r\"tracking\", views.TimeRecordViewSet, basename=\"tracking\")\nurlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"\", include(router.urls)),",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "project_user_router",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "project_user_router = routers.NestedDefaultRouter(router, r\"projects\", lookup=\"project\")\nproject_user_router.register(r\"users\", views.UserProjectViewSet, basename=\"users\")\nrouter.register(r\"users\", views.UserViewSet, basename=\"users\")\nuser_tracking_router = routers.NestedDefaultRouter(router, r\"users\", lookup=\"user\")\nuser_tracking_router.register(r\"tracking\", views.TimeRecordViewSet, basename=\"tracking\")\nurlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"\", include(router.urls)),\n    path(\"\", include(task_router.urls)),\n    path(\"\", include(project_user_router.urls)),",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "user_tracking_router",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "user_tracking_router = routers.NestedDefaultRouter(router, r\"users\", lookup=\"user\")\nuser_tracking_router.register(r\"tracking\", views.TimeRecordViewSet, basename=\"tracking\")\nurlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"\", include(router.urls)),\n    path(\"\", include(task_router.urls)),\n    path(\"\", include(project_user_router.urls)),\n    path(\"\", include(user_tracking_router.urls)),\n    path(\"register/\", views.Register.as_view(), name=\"register\"),\n    # path(\"users\", views.ListAllUsers.as_view(), name=\"list-users\"),",
+        "detail": "workspace.urls",
         "documentation": {}
     },
     {
@@ -1460,7 +1938,7 @@
         "kind": 5,
         "importPath": "workspace.urls",
         "description": "workspace.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"register/\", views.Register.as_view(), name=\"register\"),\n    path(\"api/users\", views.ListAllUsers.as_view(), name=\"list-users\"),\n    path(\"api/tracking\", views.ListTimeRecords.as_view(), name=\"list-time-records\"),\n    path(\"api/tracking/start\", views.TrackingStart.as_view(), name=\"tracker-start\"),\n    path(\"api/tracking/stop\", views.TrackingStop.as_view(), name=\"tracker-stop\"),\n]",
+        "peekOfCode": "urlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"\", include(router.urls)),\n    path(\"\", include(task_router.urls)),\n    path(\"\", include(project_user_router.urls)),\n    path(\"\", include(user_tracking_router.urls)),\n    path(\"register/\", views.Register.as_view(), name=\"register\"),\n    # path(\"users\", views.ListAllUsers.as_view(), name=\"list-users\"),\n    # path(\"tracking\", views.ListTimeRecords.as_view(), name=\"list-time-records\"),\n    path(\"tracking/start\", views.TrackingStart.as_view(), name=\"tracker-start\"),",
         "detail": "workspace.urls",
         "documentation": {}
     },
@@ -1487,7 +1965,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class Register(APIView):\n    def post(self, request):\n        form = UserCreationForm(request.POST)\n        form.is_valid()\n        form.save()\n        username = form.cleaned_data.get(\"username\")\n        messages.success(\n            request, f\"Hi {username}, your account was successfully created\"\n        )\n        return redirect(\"home\")",
+        "peekOfCode": "class Register(APIView):\n    def post(self, request):\n        form = UserCreationForm(request.POST)\n        form.is_valid()\n        form.save()\n        username = form.cleaned_data.get(\"username\")\n        messages.success(request, f\"Hi {username}, your account was successfully created\")\n        return redirect(\"home\")\nclass TrackingStart(APIView):\n    permission_classes = [IsAuthenticated]",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -1496,7 +1974,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class TrackingStart(APIView):\n    permission_classes = [IsAuthenticated]\n    def find_and_kill_all_running(self, user):\n        running_timers = TimeRecord.objects.filter_all_running(user)\n        for timer in running_timers:\n            timer.stop_time()\n    # {\"id\": 12}, [12, \"test\"]\n    def post(self, request):\n        serializer = TimeRecordStartSerializer(data=request.POST)\n        if not serializer.is_valid():",
+        "peekOfCode": "class TrackingStart(APIView):\n    permission_classes = [IsAuthenticated]\n    # kill all running\n    def find_and_kill_all_running(self, user):\n        running_timers = TimeRecord.objects.filter_running_timers(user)\n        for timer in running_timers:\n            timer.stop_time()\n    # start new\n    def post(self, request):\n        serializer = TimeRecordStartSerializer(data=request.POST)",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -1505,7 +1983,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class StopAll(APIView):\n    permission_classes = [IsAuthenticated]\n    def post(self, request):\n        queryset = TimeRecord.objects.filter_running_timers(user=request.user)\n        for tracker in queryset:\n            tracker.stop_time()\n        serializer = TimeRecordSerializer(queryset, many=True)\n        return Response(serializer.data, status=status.HTTP_200_OK)\nclass TrackingStop(APIView):\n    permission_classes = [IsAuthenticated]",
+        "peekOfCode": "class StopAll(APIView):\n    permission_classes = [IsAuthenticated]\n    def post(self, request):\n        queryset = TimeRecord.objects.filter_running_timers(user=request.user)\n        for tracker in queryset:\n            tracker.stop_time()\n        serializer = TimeRecordSerializer(queryset, many=True)\n        return Response(serializer.data, status=status.HTTP_200_OK)\n# stop currently running one\nclass TrackingStop(APIView):",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -1523,16 +2001,52 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class ListAllUsers(ListAPIView):\n    serializer_class = ListUserSerializer\n    def get_queryset(self):\n        return User.objects.all()\nclass ListTimeRecords(ListAPIView):\n    serializer_class = ListTimeRecordsSerializer\n    def get_queryset(self):\n        return TimeRecord.objects.all()",
+        "peekOfCode": "class ListAllUsers(ListAPIView):\n    serializer_class = ListUserSerializer\n    def get_queryset(self):\n        return User.objects.all()\nclass UserViewSet(ModelViewSet):\n    serializer_class = UserSerializer\n    def get_queryset(self):\n        return User.objects.all()\nclass UserProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]",
         "detail": "workspace.views",
         "documentation": {}
     },
     {
-        "label": "ListTimeRecords",
+        "label": "UserViewSet",
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class ListTimeRecords(ListAPIView):\n    serializer_class = ListTimeRecordsSerializer\n    def get_queryset(self):\n        return TimeRecord.objects.all()",
+        "peekOfCode": "class UserViewSet(ModelViewSet):\n    serializer_class = UserSerializer\n    def get_queryset(self):\n        return User.objects.all()\nclass UserProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    http_method_names = [\"get\", \"post\", \"patch\", \"delete\"]\n    def get_serializer_class(self):\n        if self.request.method == \"POST\":\n            return AddUserProjectSerializer",
+        "detail": "workspace.views",
+        "documentation": {}
+    },
+    {
+        "label": "UserProjectViewSet",
+        "kind": 6,
+        "importPath": "workspace.views",
+        "description": "workspace.views",
+        "peekOfCode": "class UserProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    http_method_names = [\"get\", \"post\", \"patch\", \"delete\"]\n    def get_serializer_class(self):\n        if self.request.method == \"POST\":\n            return AddUserProjectSerializer\n        return UserProjectSerializer\n    def get_serializer_context(self):\n        return {\"project_id\": self.kwargs[\"project_pk\"]}\n    def get_queryset(self):",
+        "detail": "workspace.views",
+        "documentation": {}
+    },
+    {
+        "label": "TimeRecordViewSet",
+        "kind": 6,
+        "importPath": "workspace.views",
+        "description": "workspace.views",
+        "peekOfCode": "class TimeRecordViewSet(ModelViewSet):\n    serializer_class = TimeRecordSerializer\n    def get_queryset(self):\n        return TimeRecord.objects.all()\nclass ProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    http_method_names = [\"get\", \"patch\", \"post\", \"delete\", \"head\", \"options\"]\n    def get_serializer_class(self):\n        if self.action == \"list\":\n            return ProjectSerializer",
+        "detail": "workspace.views",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectViewSet",
+        "kind": 6,
+        "importPath": "workspace.views",
+        "description": "workspace.views",
+        "peekOfCode": "class ProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    http_method_names = [\"get\", \"patch\", \"post\", \"delete\", \"head\", \"options\"]\n    def get_serializer_class(self):\n        if self.action == \"list\":\n            return ProjectSerializer\n        if self.request.method == \"GET\":\n            return ProjectDetailSerializer\n        if self.request.method == \"PATCH\":\n            return UpdateProjectSerializer",
+        "detail": "workspace.views",
+        "documentation": {}
+    },
+    {
+        "label": "TaskViewSet",
+        "kind": 6,
+        "importPath": "workspace.views",
+        "description": "workspace.views",
+        "peekOfCode": "class TaskViewSet(ModelViewSet):\n    serializer_class = TaskSerializer\n    permission_classes = [IsAuthenticated]\n    def get_serializer_context(self):\n        return {\"project_id\": self.kwargs[\"project_pk\"]}\n    def get_queryset(self):\n        return Task.objects.filter(project_id=self.kwargs[\"project_pk\"]).select_related(\"project\")",
         "detail": "workspace.views",
         "documentation": {}
     },

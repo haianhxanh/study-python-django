@@ -26,9 +26,7 @@ class TimeRecordTestCase(TestCase):
     def test_stop_time_after_midnight(self):
         start_time = strftime("%H:%M")
         date = datetime.date(2022, 12, 19)
-        timer = TimeRecord.objects.create(
-            user=self.user, date=date, start_time=start_time
-        )
+        timer = TimeRecord.objects.create(user=self.user, date=date, start_time=start_time)
 
         with patch("workspace.models.datetime") as datetime_mock:
             datetime_mock.now = Mock()
@@ -40,3 +38,21 @@ class TimeRecordTestCase(TestCase):
         self.assertEqual(TimeRecord.objects.all().count(), 2)
 
     # todo test_stop_time_same_day()
+    def test_stop_time_same_day(self):
+        start_time = strftime("%H:%M")
+        now = datetime.datetime.now()
+        date = now.date()
+        timer = TimeRecord.objects.create(user=self.user, start_time=start_time, date=date)
+        timer.stop_time()
+
+        self.assertEqual(timer.date, date)
+        self.assertEqual(timer.end_time, strftime("%H:%M"))
+
+
+# user = User.objects.create(username="test7")
+# start_time = strftime("%H:%M")
+# now = datetime.datetime.now()
+# today = now.date()
+# stop_time = now
+# timer = TimeRecord.objects.create(user=user, start_time=start_time, date=today)
+# print(timer.now)

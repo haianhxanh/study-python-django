@@ -1,11 +1,28 @@
-from django.urls import path
+from django.urls import include, path
 from . import views
+from rest_framework.routers import DefaultRouter
+from rest_framework_nested import routers
+
+router = DefaultRouter()
+router.register(r"projects", views.ProjectViewSet, basename="projects")
+task_router = routers.NestedDefaultRouter(router, r"projects", lookup="project")
+task_router.register(r"tasks", views.TaskViewSet, basename="tasks")
+project_user_router = routers.NestedDefaultRouter(router, r"projects", lookup="project")
+project_user_router.register(r"users", views.UserProjectViewSet, basename="users")
+
+router.register(r"users", views.UserViewSet, basename="users")
+user_tracking_router = routers.NestedDefaultRouter(router, r"users", lookup="user")
+user_tracking_router.register(r"tracking", views.TimeRecordViewSet, basename="tracking")
 
 urlpatterns = [
     path("", views.home, name="home"),
+    path("", include(router.urls)),
+    path("", include(task_router.urls)),
+    path("", include(project_user_router.urls)),
+    path("", include(user_tracking_router.urls)),
     path("register/", views.Register.as_view(), name="register"),
-    path("api/users", views.ListAllUsers.as_view(), name="list-users"),
-    path("api/tracking", views.ListTimeRecords.as_view(), name="list-time-records"),
-    path("api/tracking/start", views.TrackingStart.as_view(), name="tracker-start"),
-    path("api/tracking/stop", views.TrackingStop.as_view(), name="tracker-stop"),
+    # path("users", views.ListAllUsers.as_view(), name="list-users"),
+    # path("tracking", views.ListTimeRecords.as_view(), name="list-time-records"),
+    path("tracking/start", views.TrackingStart.as_view(), name="tracker-start"),
+    path("tracking/stop", views.TrackingStop.as_view(), name="tracker-stop"),
 ]

@@ -1,10 +1,7 @@
-{% extends 'workspace/base.html' %} 
-{% load crispy_forms_tags %} 
-{% block title%} Register {% endblock %} 
-{%block content %}
+{% extends 'workspace/base.html' %} {% load crispy_forms_tags %} {% block
+title%} Register {% endblock %} {%block content %}
 <form action="" method="POST">
-  {% csrf_token %} 
-  {{ form|crispy}}
+  {% csrf_token %} {% comment %} {{ form|crispy}} {% endcomment %}
   <p>Already have an account? <a href="/login">Login</a></p>
   <button class="btn" type="submit">Create account</button>
 </form>

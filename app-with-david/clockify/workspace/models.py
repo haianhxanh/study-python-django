@@ -1,11 +1,12 @@
 from datetime import datetime, date, timedelta
 from gc import get_objects
 from time import strftime, localtime
-from django.db import models
+from django.db import models, connection
 from django.contrib.auth.models import AbstractUser
 from typing import Optional
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
+from pprint import pprint
 
 from workspace.querysets import TimeRecordQuerySet
 
@@ -22,8 +23,8 @@ class Currency(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
-    currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True)
-    hex_color = models.CharField(max_length=7)  # predefined colors + color picker
+    currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True, blank=True, related_name="currency")
+    hex_color = models.CharField(max_length=7, null=True, blank=True)  # predefined colors + color picker
     hourly_rate = models.FloatField(null=True)
 
     def __str__(self):
@@ -31,26 +32,23 @@ class Project(models.Model):
 
 
 class Task(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField()
     max_allocated_hours = models.FloatField(null=True, blank=True)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="tasks")
 
     def __str__(self):
-        return self.name
+        return f"{self.project.name} - {self.name}"
 
 
 class TimeRecord(models.Model):
     description = models.TextField(max_length=1024, null=True, blank=True)
-    start_time = (
-        models.TimeField()
-    )  # auto add time when Object is created, make it editable
+    start_time = models.TimeField()  # auto add time when Object is created, make it editable
     end_time = models.TimeField(null=True, blank=True)
     date = models.DateField()
-    task = models.ForeignKey(Task, on_delete=models.CASCADE, null=True, blank=True)
-    user = models.ForeignKey(
-        "User", on_delete=models.CASCADE, related_name="time_records"
-    )
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, null=True, blank=True, related_name="time_records")
+    user = models.ForeignKey("User", on_delete=models.CASCADE, related_name="time_records")
 
     objects = TimeRecordQuerySet.as_manager()
 
@@ -78,7 +76,7 @@ class TimeRecord(models.Model):
 
         elif end_date > start_date:  # if after midnight
             self.end_time = "23:59"
-            self.date = end_date - timedelta(days=1)
+            # self.date = end_date - timedelta(days=1)
             self.save()
 
             # todo autokill after 24 hours
@@ -108,6 +106,18 @@ class User(AbstractUser):
 
         if time_records.count() > 1:
             # throw error/ kill all but last
+            # ordered_time_records = time_records.order_by("-id")
+            # latest_record = ordered_time_records[0]
+            # for record in ordered_time_records:
+            #     pprint(record)
+            #     start_date = record.date
+            #     now = datetime.now()
+            #     if start_date != now.date():
+            #         record.stop_time()
+            #     elif start_date == now.date():
+            #         if record != latest_record:
+            #             pass
+            # return record
             last_record = time_records.latest("id")
             all_other_records = time_records.exclude(pk__in=list(last_record))
             self.stop_time(all_other_records)
@@ -117,7 +127,12 @@ class User(AbstractUser):
 
 
 class Role(models.Model):
-    name = models.CharField(max_length=8)
+    # ADMIN = "AD"
+    # MEMBER = "M"
+    # GUEST = "G"
+    # ROLE_CHOICES = [(ADMIN, "admin"), (MEMBER, "member"), (GUEST, "guest")]
+    # name = models.CharField(max_length=2, choices=ROLE_CHOICES, default=ADMIN, unique=True)
+    name = models.CharField(max_length=8, unique=True)
     description = models.TextField()
     permissions = models.ManyToManyField("Permission", related_name="roles")
 
@@ -141,12 +156,22 @@ class Permission(models.Model):
     ]
     name = models.CharField(max_length=20, choices=PERMISSION_CHOICES)
 
-
-class UserTasks(models.Model):
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
-    task = models.ForeignKey(Task, on_delete=models.PROTECT)
+    def __str__(self):
+        return self.name
 
 
-class UserProjects(models.Model):
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
-    project = models.ForeignKey(Project, on_delete=models.PROTECT)
+class UserTask(models.Model):
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="user_tasks")
+    task = models.ForeignKey(Task, on_delete=models.PROTECT, related_name="task_users")
+
+    def __str__(self):
+        return f"{self.user} - {self.task.name}"
+
+
+class UserProject(models.Model):
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="user_projects")
+    project = models.ForeignKey(Project, on_delete=models.PROTECT, related_name="project_users")
+    role = models.ForeignKey(Role, on_delete=models.PROTECT, related_name="userprojects", null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.user} - {self.project.name}"

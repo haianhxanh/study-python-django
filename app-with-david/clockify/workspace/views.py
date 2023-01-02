@@ -1,8 +1,9 @@
 from django.core import serializers
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 
 # from django.http import HttpResponse
 from rest_framework.views import APIView
+from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -20,13 +21,22 @@ from django.urls import reverse
 
 from workspace.permissions import isProjectAdmin
 
-from .models import User, TimeRecord
+from .models import Project, Task, TimeRecord, User, UserProject
 from .forms import RegistrationForm
 from workspace.serializers import (
-    ListTimeRecordsSerializer,
+    AddUserProjectSerializer,
+    CreateProjectSerializers,
     ListUserSerializer,
+    ProjectDetailSerializer,
+    ProjectSerializer,
+    TaskItemSerializer,
+    TaskSerializer,
     TimeRecordSerializer,
     TimeRecordStartSerializer,
+    UpdateProjectSerializer,
+    UserProjectSerializer,
+    UserSerializer,
+    UserTaskSerializer,
 )
 from workspace.tests import TimeRecordQuerySetTestCase
 
@@ -72,21 +82,20 @@ class Register(APIView):
         form.is_valid()
         form.save()
         username = form.cleaned_data.get("username")
-        messages.success(
-            request, f"Hi {username}, your account was successfully created"
-        )
+        messages.success(request, f"Hi {username}, your account was successfully created")
         return redirect("home")
 
 
 class TrackingStart(APIView):
     permission_classes = [IsAuthenticated]
 
+    # kill all running
     def find_and_kill_all_running(self, user):
-        running_timers = TimeRecord.objects.filter_all_running(user)
+        running_timers = TimeRecord.objects.filter_running_timers(user)
         for timer in running_timers:
             timer.stop_time()
 
-    # {"id": 12}, [12, "test"]
+    # start new
     def post(self, request):
         serializer = TimeRecordStartSerializer(data=request.POST)
 
@@ -96,16 +105,10 @@ class TrackingStart(APIView):
         start_time = strftime("%H:%M")
         date_now = date.today()
         self.find_and_kill_all_running(request.user)
-        time_record = serializer.save(
-            start_time=start_time, date=date_now, user=request.user
-        )
+        time_record = serializer.save(start_time=start_time, date=date_now, user=request.user)
         response_serializer = TimeRecordSerializer(time_record)
         # TimeRecord.objects.create(**serializer.validated_data, start_time=start_time, date=date_now, user=request.user)
         return Response(response_serializer.data, status=status.HTTP_201_CREATED)
-
-
-# todo kill all running and start new
-# todo stop currently running one
 
 
 class StopAll(APIView):
@@ -121,6 +124,7 @@ class StopAll(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+# stop currently running one
 class TrackingStop(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -143,8 +147,61 @@ class ListAllUsers(ListAPIView):
         return User.objects.all()
 
 
-class ListTimeRecords(ListAPIView):
-    serializer_class = ListTimeRecordsSerializer
+class UserViewSet(ModelViewSet):
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        return User.objects.all()
+
+
+class UserProjectViewSet(ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    http_method_names = ["get", "post", "patch", "delete"]
+
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return AddUserProjectSerializer
+        return UserProjectSerializer
+
+    def get_serializer_context(self):
+        return {"project_id": self.kwargs["project_pk"]}
+
+    def get_queryset(self):
+        return UserProject.objects.all()
+
+
+class TimeRecordViewSet(ModelViewSet):
+    serializer_class = TimeRecordSerializer
 
     def get_queryset(self):
         return TimeRecord.objects.all()
+
+
+class ProjectViewSet(ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    http_method_names = ["get", "patch", "post", "delete", "head", "options"]
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return ProjectSerializer
+        if self.request.method == "GET":
+            return ProjectDetailSerializer
+        if self.request.method == "PATCH":
+            return UpdateProjectSerializer
+        if self.request.method == "POST":
+            return CreateProjectSerializers
+        return ProjectSerializer
+
+    def get_queryset(self):
+        return Project.objects.all()
+
+
+class TaskViewSet(ModelViewSet):
+    serializer_class = TaskSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_serializer_context(self):
+        return {"project_id": self.kwargs["project_pk"]}
+
+    def get_queryset(self):
+        return Task.objects.filter(project_id=self.kwargs["project_pk"]).select_related("project")

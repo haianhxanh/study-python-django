@@ -24,6 +24,14 @@
         "documentation": {}
     },
     {
+        "label": "permissions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
         "label": "status",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -88,7 +96,7 @@
         "documentation": {}
     },
     {
-        "label": "Permission",
+        "label": "Project",
         "importPath": "workspace.models",
         "description": "workspace.models",
         "isExtraImport": true,
@@ -97,6 +105,14 @@
     },
     {
         "label": "User",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "Role",
         "importPath": "workspace.models",
         "description": "workspace.models",
         "isExtraImport": true,
@@ -321,6 +337,14 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "django.contrib.auth.models",
         "kind": 6,
         "isExtraImport": true,
@@ -352,6 +376,38 @@
         "importPath": "django.contrib.auth.validators",
         "description": "django.contrib.auth.validators",
         "detail": "django.contrib.auth.validators",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -1007,6 +1063,31 @@
         "documentation": {}
     },
     {
+        "label": "drf_yasg.views",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "drf_yasg.views",
+        "description": "drf_yasg.views",
+        "detail": "drf_yasg.views",
+        "documentation": {}
+    },
+    {
+        "label": "get_schema_view",
+        "importPath": "drf_yasg.views",
+        "description": "drf_yasg.views",
+        "isExtraImport": true,
+        "detail": "drf_yasg.views",
+        "documentation": {}
+    },
+    {
+        "label": "openapi",
+        "importPath": "drf_yasg",
+        "description": "drf_yasg",
+        "isExtraImport": true,
+        "detail": "drf_yasg",
+        "documentation": {}
+    },
+    {
         "label": "serializers",
         "importPath": "django.core",
         "description": "django.core",
@@ -1151,14 +1232,6 @@
         "documentation": {}
     },
     {
-        "label": "TaskItemSerializer",
-        "importPath": "workspace.serializers",
-        "description": "workspace.serializers",
-        "isExtraImport": true,
-        "detail": "workspace.serializers",
-        "documentation": {}
-    },
-    {
         "label": "TaskSerializer",
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
@@ -1200,14 +1273,6 @@
     },
     {
         "label": "UserSerializer",
-        "importPath": "workspace.serializers",
-        "description": "workspace.serializers",
-        "isExtraImport": true,
-        "detail": "workspace.serializers",
-        "documentation": {}
-    },
-    {
-        "label": "UserTaskSerializer",
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
         "isExtraImport": true,
@@ -1317,7 +1382,7 @@
         "kind": 5,
         "importPath": "clockify.settings",
         "description": "clockify.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",\n    \"workspace.apps.WorkspaceConfig\",\n    \"crispy_forms\",",
+        "peekOfCode": "INSTALLED_APPS = [\n    \"django.contrib.admin\",\n    \"django.contrib.auth\",\n    \"django.contrib.contenttypes\",\n    \"django.contrib.sessions\",\n    \"django.contrib.messages\",\n    \"django.contrib.staticfiles\",\n    \"rest_framework\",\n    \"drf_yasg\",\n    \"workspace.apps.WorkspaceConfig\",",
         "detail": "clockify.settings",
         "documentation": {}
     },
@@ -1565,6 +1630,42 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "workspace.migrations.0010_alter_userproject_project_alter_userproject_role_and_more",
+        "description": "workspace.migrations.0010_alter_userproject_project_alter_userproject_role_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0009_alter_project_currency_alter_project_hex_color\"),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name=\"userproject\",\n            name=\"project\",\n            field=models.ForeignKey(\n                on_delete=django.db.models.deletion.CASCADE,",
+        "detail": "workspace.migrations.0010_alter_userproject_project_alter_userproject_role_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "workspace.migrations.0011_remove_role_permissions_alter_role_name_and_more",
+        "description": "workspace.migrations.0011_remove_role_permissions_alter_role_name_and_more",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0010_alter_userproject_project_alter_userproject_role_and_more\"),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name=\"role\",\n            name=\"permissions\",\n        ),\n        migrations.AlterField(",
+        "detail": "workspace.migrations.0011_remove_role_permissions_alter_role_name_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "create_roles",
+        "kind": 2,
+        "importPath": "workspace.migrations.0011_remove_role_permissions_alter_role_name_and_more",
+        "description": "workspace.migrations.0011_remove_role_permissions_alter_role_name_and_more",
+        "peekOfCode": "def create_roles(apps, schema_editor):\n    Role = apps.get_model(\"workspace\", \"Role\")\n    roles = [\"admin\", \"member\", \"guest\"]\n    for role in roles:\n        Role.objects.create(name=role)\ndef delete_roles(apps, schema_editor):\n    Role = apps.get_model(\"workspace\", \"Role\")\n    Role.objects.all().delete()\nclass Migration(migrations.Migration):\n    dependencies = [",
+        "detail": "workspace.migrations.0011_remove_role_permissions_alter_role_name_and_more",
+        "documentation": {}
+    },
+    {
+        "label": "delete_roles",
+        "kind": 2,
+        "importPath": "workspace.migrations.0011_remove_role_permissions_alter_role_name_and_more",
+        "description": "workspace.migrations.0011_remove_role_permissions_alter_role_name_and_more",
+        "peekOfCode": "def delete_roles(apps, schema_editor):\n    Role = apps.get_model(\"workspace\", \"Role\")\n    Role.objects.all().delete()\nclass Migration(migrations.Migration):\n    dependencies = [\n        (\"workspace\", \"0010_alter_userproject_project_alter_userproject_role_and_more\"),\n    ]\n    operations = [\n        migrations.RemoveField(\n            model_name=\"role\",",
+        "detail": "workspace.migrations.0011_remove_role_permissions_alter_role_name_and_more",
+        "documentation": {}
+    },
+    {
         "label": "TimeRecordQuerySetTestCase",
         "kind": 6,
         "importPath": "workspace.tests.test_queryset",
@@ -1587,7 +1688,7 @@
         "kind": 6,
         "importPath": "workspace.admin",
         "description": "workspace.admin",
-        "peekOfCode": "class TimeRecordAdmin(admin.ModelAdmin):\n    list_display = [\"id\", \"start_time\", \"end_time\", \"date\"]\nmyModels = [Project, Currency, Task, Report, User, Role, UserProject, UserTask, Permission]\nadmin.site.register(myModels)\nadmin.site.register(TimeRecord, TimeRecordAdmin)",
+        "peekOfCode": "class TimeRecordAdmin(admin.ModelAdmin):\n    list_display = [\"id\", \"start_time\", \"end_time\", \"date\"]\nmyModels = [Project, Currency, Task, Report, User, Role, UserProject, UserTask]\nadmin.site.register(myModels)\nadmin.site.register(TimeRecord, TimeRecordAdmin)",
         "detail": "workspace.admin",
         "documentation": {}
     },
@@ -1596,7 +1697,7 @@
         "kind": 5,
         "importPath": "workspace.admin",
         "description": "workspace.admin",
-        "peekOfCode": "myModels = [Project, Currency, Task, Report, User, Role, UserProject, UserTask, Permission]\nadmin.site.register(myModels)\nadmin.site.register(TimeRecord, TimeRecordAdmin)",
+        "peekOfCode": "myModels = [Project, Currency, Task, Report, User, Role, UserProject, UserTask]\nadmin.site.register(myModels)\nadmin.site.register(TimeRecord, TimeRecordAdmin)",
         "detail": "workspace.admin",
         "documentation": {}
     },
@@ -1686,16 +1787,7 @@
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class Role(models.Model):\n    # ADMIN = \"AD\"\n    # MEMBER = \"M\"\n    # GUEST = \"G\"\n    # ROLE_CHOICES = [(ADMIN, \"admin\"), (MEMBER, \"member\"), (GUEST, \"guest\")]\n    # name = models.CharField(max_length=2, choices=ROLE_CHOICES, default=ADMIN, unique=True)\n    name = models.CharField(max_length=8, unique=True)\n    description = models.TextField()\n    permissions = models.ManyToManyField(\"Permission\", related_name=\"roles\")\n    def __str__(self):",
-        "detail": "workspace.models",
-        "documentation": {}
-    },
-    {
-        "label": "Permission",
-        "kind": 6,
-        "importPath": "workspace.models",
-        "description": "workspace.models",
-        "peekOfCode": "class Permission(models.Model):\n    PERMISSION_CHOICES = [\n        (\"add_project\", \"add_project\"),\n        (\"edit_prject\", \"edit_project\"),\n        (\"delete_project\", \"delete_project\"),\n        (\"add_task\", \"add_task\"),\n        (\"edit_task\", \"edit_task\"),\n        (\"delete_task\", \"delete_task\"),\n        (\"add_time_record\", \"add_time_record\"),\n        (\"edit_time_record\", \"edit_time_record\"),",
+        "peekOfCode": "class Role(models.Model):\n    name = models.CharField(max_length=32, unique=True)\n    description = models.TextField()\n    def __str__(self):\n        return self.name\nclass UserTask(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name=\"user_tasks\")\n    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name=\"task_users\")\n    def __str__(self):\n        return f\"{self.user} - {self.task.name}\"",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1704,7 +1796,7 @@
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class UserTask(models.Model):\n    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name=\"user_tasks\")\n    task = models.ForeignKey(Task, on_delete=models.PROTECT, related_name=\"task_users\")\n    def __str__(self):\n        return f\"{self.user} - {self.task.name}\"\nclass UserProject(models.Model):\n    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name=\"user_projects\")\n    project = models.ForeignKey(Project, on_delete=models.PROTECT, related_name=\"project_users\")\n    role = models.ForeignKey(Role, on_delete=models.PROTECT, related_name=\"userprojects\", null=True, blank=True)\n    def __str__(self):",
+        "peekOfCode": "class UserTask(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name=\"user_tasks\")\n    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name=\"task_users\")\n    def __str__(self):\n        return f\"{self.user} - {self.task.name}\"\nclass UserProject(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name=\"user_projects\")\n    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name=\"project_users\")\n    role = models.ForeignKey(Role, on_delete=models.SET_NULL, related_name=\"userprojects\", null=True, blank=True)\n    def __str__(self):",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1713,7 +1805,7 @@
         "kind": 6,
         "importPath": "workspace.models",
         "description": "workspace.models",
-        "peekOfCode": "class UserProject(models.Model):\n    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name=\"user_projects\")\n    project = models.ForeignKey(Project, on_delete=models.PROTECT, related_name=\"project_users\")\n    role = models.ForeignKey(Role, on_delete=models.PROTECT, related_name=\"userprojects\", null=True, blank=True)\n    def __str__(self):\n        return f\"{self.user} - {self.project.name}\"",
+        "peekOfCode": "class UserProject(models.Model):\n    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name=\"user_projects\")\n    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name=\"project_users\")\n    role = models.ForeignKey(Role, on_delete=models.SET_NULL, related_name=\"userprojects\", null=True, blank=True)\n    def __str__(self):\n        return f\"{self.user} - {self.project.name}\"",
         "detail": "workspace.models",
         "documentation": {}
     },
@@ -1722,7 +1814,7 @@
         "kind": 6,
         "importPath": "workspace.permissions",
         "description": "workspace.permissions",
-        "peekOfCode": "class isProjectAdmin(permissions.BasePermission):\n    def has_permission(self, request, view):\n        if request.method in permissions.SAFE_METHODS:\n            return True\n        return bool(request.User)",
+        "peekOfCode": "class isProjectAdmin(permissions.BasePermission):\n    def has_permission(self, request, view):\n        role = Role.objects.get(name=\"admin\")\n        return request.user.role == role\n    def has_object_permission(self, request, view, obj):\n        if isinstance(obj, Project):\n            # wont work\n            if request.user in obj.project_users:\n                if obj.project_users.get(user=request.user).role.name == \"member\" and permissions.SAFE_METHODS:\n                    return True",
         "detail": "workspace.permissions",
         "documentation": {}
     },
@@ -1898,6 +1990,15 @@
         "documentation": {}
     },
     {
+        "label": "schema_view",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "schema_view = get_schema_view(\n    openapi.Info(\n        title=\"Snippets API\",\n        default_version=\"v1\",\n        description=\"Test description\",\n        terms_of_service=\"https://www.google.com/policies/terms/\",\n        contact=openapi.Contact(email=\"contact@snippets.local\"),\n        license=openapi.License(name=\"BSD License\"),\n    ),\n    public=True,",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
         "label": "router",
         "kind": 5,
         "importPath": "workspace.urls",
@@ -1929,7 +2030,7 @@
         "kind": 5,
         "importPath": "workspace.urls",
         "description": "workspace.urls",
-        "peekOfCode": "user_tracking_router = routers.NestedDefaultRouter(router, r\"users\", lookup=\"user\")\nuser_tracking_router.register(r\"tracking\", views.TimeRecordViewSet, basename=\"tracking\")\nurlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"\", include(router.urls)),\n    path(\"\", include(task_router.urls)),\n    path(\"\", include(project_user_router.urls)),\n    path(\"\", include(user_tracking_router.urls)),\n    path(\"register/\", views.Register.as_view(), name=\"register\"),\n    # path(\"users\", views.ListAllUsers.as_view(), name=\"list-users\"),",
+        "peekOfCode": "user_tracking_router = routers.NestedDefaultRouter(router, r\"users\", lookup=\"user\")\nuser_tracking_router.register(r\"tracking\", views.TimeRecordViewSet, basename=\"tracking\")\nurlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"\", include(router.urls)),\n    path(\"\", include(task_router.urls)),\n    path(\"\", include(project_user_router.urls)),\n    path(\"\", include(user_tracking_router.urls)),\n    path(\"docs/\", schema_view.with_ui(\"swagger\", cache_timeout=0), name=\"schema-swagger-ui\"),\n    path(\"register/\", views.Register.as_view(), name=\"register\"),",
         "detail": "workspace.urls",
         "documentation": {}
     },
@@ -1938,7 +2039,7 @@
         "kind": 5,
         "importPath": "workspace.urls",
         "description": "workspace.urls",
-        "peekOfCode": "urlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"\", include(router.urls)),\n    path(\"\", include(task_router.urls)),\n    path(\"\", include(project_user_router.urls)),\n    path(\"\", include(user_tracking_router.urls)),\n    path(\"register/\", views.Register.as_view(), name=\"register\"),\n    # path(\"users\", views.ListAllUsers.as_view(), name=\"list-users\"),\n    # path(\"tracking\", views.ListTimeRecords.as_view(), name=\"list-time-records\"),\n    path(\"tracking/start\", views.TrackingStart.as_view(), name=\"tracker-start\"),",
+        "peekOfCode": "urlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"\", include(router.urls)),\n    path(\"\", include(task_router.urls)),\n    path(\"\", include(project_user_router.urls)),\n    path(\"\", include(user_tracking_router.urls)),\n    path(\"docs/\", schema_view.with_ui(\"swagger\", cache_timeout=0), name=\"schema-swagger-ui\"),\n    path(\"register/\", views.Register.as_view(), name=\"register\"),\n    # path(\"users\", views.ListAllUsers.as_view(), name=\"list-users\"),\n    # path(\"tracking\", views.ListTimeRecords.as_view(), name=\"list-time-records\"),",
         "detail": "workspace.urls",
         "documentation": {}
     },
@@ -2010,7 +2111,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class UserViewSet(ModelViewSet):\n    serializer_class = UserSerializer\n    def get_queryset(self):\n        return User.objects.all()\nclass UserProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    http_method_names = [\"get\", \"post\", \"patch\", \"delete\"]\n    def get_serializer_class(self):\n        if self.request.method == \"POST\":\n            return AddUserProjectSerializer",
+        "peekOfCode": "class UserViewSet(ModelViewSet):\n    serializer_class = UserSerializer\n    def get_queryset(self):\n        return User.objects.all()\nclass UserProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    serializer_class = AddUserProjectSerializer\n    def get_serializer_class(self):\n        if self.request.method == \"POST\":\n            return AddUserProjectSerializer",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -2019,7 +2120,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class UserProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    http_method_names = [\"get\", \"post\", \"patch\", \"delete\"]\n    def get_serializer_class(self):\n        if self.request.method == \"POST\":\n            return AddUserProjectSerializer\n        return UserProjectSerializer\n    def get_serializer_context(self):\n        return {\"project_id\": self.kwargs[\"project_pk\"]}\n    def get_queryset(self):",
+        "peekOfCode": "class UserProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    serializer_class = AddUserProjectSerializer\n    def get_serializer_class(self):\n        if self.request.method == \"POST\":\n            return AddUserProjectSerializer\n        return UserProjectSerializer\n    def get_serializer_context(self):\n        return {\"project_id\": self.kwargs[\"project_pk\"]}\n    def get_queryset(self):",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -2028,7 +2129,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class TimeRecordViewSet(ModelViewSet):\n    serializer_class = TimeRecordSerializer\n    def get_queryset(self):\n        return TimeRecord.objects.all()\nclass ProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    http_method_names = [\"get\", \"patch\", \"post\", \"delete\", \"head\", \"options\"]\n    def get_serializer_class(self):\n        if self.action == \"list\":\n            return ProjectSerializer",
+        "peekOfCode": "class TimeRecordViewSet(ModelViewSet):\n    serializer_class = TimeRecordSerializer\n    def get_queryset(self):\n        return TimeRecord.objects.all()\nclass ProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated, isProjectAdmin]\n    http_method_names = [\"get\", \"patch\", \"post\", \"delete\", \"head\", \"options\"]\n    def get_serializer_class(self):\n        if self.action == \"list\":\n            return ProjectSerializer",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -2037,7 +2138,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class ProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    http_method_names = [\"get\", \"patch\", \"post\", \"delete\", \"head\", \"options\"]\n    def get_serializer_class(self):\n        if self.action == \"list\":\n            return ProjectSerializer\n        if self.request.method == \"GET\":\n            return ProjectDetailSerializer\n        if self.request.method == \"PATCH\":\n            return UpdateProjectSerializer",
+        "peekOfCode": "class ProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated, isProjectAdmin]\n    http_method_names = [\"get\", \"patch\", \"post\", \"delete\", \"head\", \"options\"]\n    def get_serializer_class(self):\n        if self.action == \"list\":\n            return ProjectSerializer\n        if self.request.method == \"GET\":\n            return ProjectDetailSerializer\n        if self.request.method == \"PATCH\":\n            return UpdateProjectSerializer",
         "detail": "workspace.views",
         "documentation": {}
     },

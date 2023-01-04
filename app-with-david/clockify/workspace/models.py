@@ -127,51 +127,25 @@ class User(AbstractUser):
 
 
 class Role(models.Model):
-    # ADMIN = "AD"
-    # MEMBER = "M"
-    # GUEST = "G"
-    # ROLE_CHOICES = [(ADMIN, "admin"), (MEMBER, "member"), (GUEST, "guest")]
-    # name = models.CharField(max_length=2, choices=ROLE_CHOICES, default=ADMIN, unique=True)
-    name = models.CharField(max_length=8, unique=True)
+    name = models.CharField(max_length=32, unique=True)
     description = models.TextField()
-    permissions = models.ManyToManyField("Permission", related_name="roles")
-
-    def __str__(self):
-        return self.name
-
-
-class Permission(models.Model):
-    PERMISSION_CHOICES = [
-        ("add_project", "add_project"),
-        ("edit_prject", "edit_project"),
-        ("delete_project", "delete_project"),
-        ("add_task", "add_task"),
-        ("edit_task", "edit_task"),
-        ("delete_task", "delete_task"),
-        ("add_time_record", "add_time_record"),
-        ("edit_time_record", "edit_time_record"),
-        ("delete_time_record", "delete_time_record"),
-        ("view", "view"),
-        ("generate_report", "generate_report"),
-    ]
-    name = models.CharField(max_length=20, choices=PERMISSION_CHOICES)
 
     def __str__(self):
         return self.name
 
 
 class UserTask(models.Model):
-    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="user_tasks")
-    task = models.ForeignKey(Task, on_delete=models.PROTECT, related_name="task_users")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_tasks")
+    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name="task_users")
 
     def __str__(self):
         return f"{self.user} - {self.task.name}"
 
 
 class UserProject(models.Model):
-    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="user_projects")
-    project = models.ForeignKey(Project, on_delete=models.PROTECT, related_name="project_users")
-    role = models.ForeignKey(Role, on_delete=models.PROTECT, related_name="userprojects", null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_projects")
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="project_users")
+    role = models.ForeignKey(Role, on_delete=models.SET_NULL, related_name="userprojects", null=True, blank=True)
 
     def __str__(self):
         return f"{self.user} - {self.project.name}"

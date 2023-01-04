@@ -1,4 +1,5 @@
 {
   "python.pythonPath": "/Users/hanka/.local/share/virtualenvs/clockify-TrQ6LfAg/bin/python",
-  "python.formatting.provider": "black"
+  "python.formatting.provider": "black",
+  "python.linting.pylintEnabled": true
 }

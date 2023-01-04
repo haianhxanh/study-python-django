@@ -2,12 +2,14 @@ from django.core import serializers
 from django.shortcuts import get_object_or_404, render, redirect
 
 # from django.http import HttpResponse
+import drf_yasg.views
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
+
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
@@ -29,14 +31,12 @@ from workspace.serializers import (
     ListUserSerializer,
     ProjectDetailSerializer,
     ProjectSerializer,
-    TaskItemSerializer,
     TaskSerializer,
     TimeRecordSerializer,
     TimeRecordStartSerializer,
     UpdateProjectSerializer,
     UserProjectSerializer,
     UserSerializer,
-    UserTaskSerializer,
 )
 from workspace.tests import TimeRecordQuerySetTestCase
 
@@ -156,7 +156,7 @@ class UserViewSet(ModelViewSet):
 
 class UserProjectViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
-    http_method_names = ["get", "post", "patch", "delete"]
+    serializer_class = AddUserProjectSerializer
 
     def get_serializer_class(self):
         if self.request.method == "POST":
@@ -178,7 +178,7 @@ class TimeRecordViewSet(ModelViewSet):
 
 
 class ProjectViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, isProjectAdmin]
     http_method_names = ["get", "patch", "post", "delete", "head", "options"]
 
     def get_serializer_class(self):

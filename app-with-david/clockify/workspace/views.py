@@ -1,30 +1,19 @@
-from django.core import serializers
-from django.shortcuts import get_object_or_404, render, redirect
+from datetime import date
+from time import strftime
 
+from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.views.generic.edit import CreateView, UpdateView
+from rest_framework import status
+from rest_framework.generics import ListAPIView
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 # from django.http import HttpResponse
-import drf_yasg.views
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.generics import ListAPIView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
 
-from django.contrib.auth import authenticate, login as auth_login, logout
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib import messages
-from datetime import date, time, datetime
-from time import strftime, gmtime
-
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView
-from django.views.generic.edit import CreateView, UpdateView
-from django.urls import reverse
-
-from workspace.permissions import isProjectAdmin
-
-from .models import Project, Task, TimeRecord, User, UserProject
-from .forms import RegistrationForm
 from workspace.serializers import (
     AddUserProjectSerializer,
     CreateProjectSerializers,
@@ -36,9 +25,14 @@ from workspace.serializers import (
     TimeRecordStartSerializer,
     UpdateProjectSerializer,
     UserProjectSerializer,
-    UserSerializer,
+    UserSerializer, ProjectTaskSerializer,
 )
-from workspace.tests import TimeRecordQuerySetTestCase
+from .forms import RegistrationForm
+from .models import Project, Task, TimeRecord, User, UserProject
+from .permissions import isProjectAdmin
+
+
+# from workspace.permissions import isProjectAdmin
 
 
 def home(request):
@@ -48,7 +42,8 @@ def home(request):
 class RegistrationView(CreateView):
     template_name = "workspace/register.html"
     form_class = RegistrationForm
-    permission_classes = [isProjectAdmin]
+
+    # permission_classes = [isProjectAdmin]
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -107,7 +102,8 @@ class TrackingStart(APIView):
         self.find_and_kill_all_running(request.user)
         time_record = serializer.save(start_time=start_time, date=date_now, user=request.user)
         response_serializer = TimeRecordSerializer(time_record)
-        # TimeRecord.objects.create(**serializer.validated_data, start_time=start_time, date=date_now, user=request.user)
+        # TimeRecord.objects.create(**serializer.validated_data, start_time=start_time, date=date_now,
+        # user=request.user)
         return Response(response_serializer.data, status=status.HTTP_201_CREATED)
 
 
@@ -141,10 +137,11 @@ class TrackingStop(APIView):
 
 
 class ListAllUsers(ListAPIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = ListUserSerializer
 
-    def get_queryset(self):
-        return User.objects.all()
+    def get_queryset(self, request):
+        return User.objects.get(id=request.user.id)
 
 
 class UserViewSet(ModelViewSet):
@@ -167,7 +164,7 @@ class UserProjectViewSet(ModelViewSet):
         return {"project_id": self.kwargs["project_pk"]}
 
     def get_queryset(self):
-        return UserProject.objects.all()
+        return UserProject.objects.filter(project_id=self.kwargs["project_pk"]).select_related("project")
 
 
 class TimeRecordViewSet(ModelViewSet):
@@ -179,6 +176,7 @@ class TimeRecordViewSet(ModelViewSet):
 
 class ProjectViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated, isProjectAdmin]
+    # permission_classes = [IsAuthenticated]
     http_method_names = ["get", "patch", "post", "delete", "head", "options"]
 
     def get_serializer_class(self):
@@ -197,8 +195,12 @@ class ProjectViewSet(ModelViewSet):
 
 
 class TaskViewSet(ModelViewSet):
-    serializer_class = TaskSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_serializer_class(self):
+        if self.request.method == "POST":
+            return ProjectTaskSerializer
+        return TaskSerializer
 
     def get_serializer_context(self):
         return {"project_id": self.kwargs["project_pk"]}

@@ -1,7 +1,22 @@
 from asyncore import read
 from pkg_resources import require
 from rest_framework import serializers
-from workspace.models import Currency, Project, Task, User, TimeRecord, UserProject, UserTask
+from workspace.models import Currency, Project, Task, User, TimeRecord, UserProject, UserTask, Role
+from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
+from django.contrib.auth.hashers import make_password
+
+
+class UserCreateSerializer(BaseUserCreateSerializer):
+    class Meta:
+        model = User
+        fields = tuple(User.REQUIRED_FIELDS) + (
+            "id",
+            "username",
+            "password",
+            "email",
+            "first_name",
+            "last_name",
+        )
 
 
 class CurrencySerializer(serializers.ModelSerializer):
@@ -17,9 +32,13 @@ class ListUserSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+
+    def validate_password(self, value: str) -> str:
+        return make_password(value)
+
     class Meta:
         model = User
-        fields = ["id", "username", "first_name", "last_name"]
+        fields = ["id", "username", "first_name", "last_name", "email"]
 
 
 class TaskSimpleSerializer(serializers.ModelSerializer):
@@ -38,6 +57,12 @@ class UserTaskSerializer(serializers.ModelSerializer):
 
 class TaskSerializer(serializers.ModelSerializer):
     task_users = UserTaskSerializer(many=True)
+
+    def create(self, validated_data):
+        project_id = self.context['request'].project.id
+        task = Task(name=validated_data["name"], project_id=project_id)
+        task.save()
+        return task
 
     class Meta:
         model = Task
@@ -59,6 +84,16 @@ class TaskProjectSimpleSerializer(serializers.ModelSerializer):
 
     def get_task_project(self, Task):
         return Task.project.name
+
+
+class ProjectTaskSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        project_id = self.context['project_id']
+        return Task.objects.create(project_id=project_id, **validated_data)
+
+    class Meta:
+        model = Task
+        fields = "__all__"
 
 
 class TimeRecordSerializer(serializers.ModelSerializer):
@@ -145,11 +180,16 @@ class UpdateProjectSerializer(serializers.ModelSerializer):
 
 class CreateProjectSerializers(serializers.ModelSerializer):
     def create(self, validated_data):
-        return Project.objects.create(**validated_data)
+        project = Project(name=validated_data["name"])
+        project.save()
+        user_id = self.context['request'].user.id
+        role = Role.objects.get(name="admin")
+        UserProject.objects.create(user_id=user_id, project_id=project.id, role_id=role.id)
+        return project
 
     class Meta:
         model = Project
-        fields = ["id", "name", "description", "hourly_rate", "currency"]
+        fields = ["id", "name", "description", "hourly_rate", "currency", "project_users"]
 
 
 class ProjectDetailSerializer(serializers.ModelSerializer):

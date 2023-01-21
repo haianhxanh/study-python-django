@@ -10,6 +10,7 @@ from pprint import pprint
 
 from workspace.querysets import TimeRecordQuerySet
 
+
 # Create your models here.
 
 
@@ -22,7 +23,7 @@ class Currency(models.Model):
 
 class Project(models.Model):
     name = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True, blank=True, related_name="currency")
     hex_color = models.CharField(max_length=7, null=True, blank=True)  # predefined colors + color picker
     hourly_rate = models.FloatField(null=True)
@@ -145,7 +146,7 @@ class UserTask(models.Model):
 class UserProject(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_projects")
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="project_users")
-    role = models.ForeignKey(Role, on_delete=models.SET_NULL, related_name="userprojects", null=True, blank=True)
+    role = models.ForeignKey(Role, on_delete=models.CASCADE, related_name="role")
 
     def __str__(self):
         return f"{self.user} - {self.project.name}"

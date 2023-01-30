@@ -3,16 +3,19 @@ from time import strftime
 
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from django.db.models import Q
+from django.http import Http404, HttpResponseForbidden
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 from rest_framework import status
 from rest_framework.generics import ListAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, SAFE_METHODS
 from rest_framework.response import Response
 # from django.http import HttpResponse
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
+from django.core.exceptions import PermissionDenied
 
 from workspace.serializers import (
     AddUserProjectSerializer,
@@ -25,11 +28,12 @@ from workspace.serializers import (
     TimeRecordStartSerializer,
     UpdateProjectSerializer,
     UserProjectSerializer,
-    UserSerializer, ProjectTaskSerializer,
+    UserSerializer, ProjectTaskSerializer, ListProjectsSerializer, UserTaskSerializer,
+    AddUserTaskSerializer,
 )
 from .forms import RegistrationForm
-from .models import Project, Task, TimeRecord, User, UserProject
-from .permissions import isProjectAdmin
+from .models import Project, Task, TimeRecord, User, UserProject, UserTask
+from .permissions import isProjectAdmin, IsProjectMember, IsGuest, isProjectAdminOrMember, isAuthenticated
 
 
 # from workspace.permissions import isProjectAdmin
@@ -151,9 +155,18 @@ class UserViewSet(ModelViewSet):
         return User.objects.all()
 
 
+class ListUserProject(ListAPIView):
+    pass
+
+
 class UserProjectViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated]
-    serializer_class = AddUserProjectSerializer
+
+    def get_permissions(self):
+        if self.request.method in SAFE_METHODS:
+            self.permission_classes = [IsProjectMember]
+        else:
+            self.permission_classes = [isProjectAdmin]
+        return [isProjectAdminOrMember()]
 
     def get_serializer_class(self):
         if self.request.method == "POST":
@@ -171,34 +184,49 @@ class TimeRecordViewSet(ModelViewSet):
     serializer_class = TimeRecordSerializer
 
     def get_queryset(self):
-        return TimeRecord.objects.all()
+        return TimeRecord.objects.filter(user=self.request.user)
+
+
+class TaskTimeRecordViewSet(ModelViewSet):
+    serializer_class = TimeRecordSerializer
+    permission_classes = [isProjectAdmin | IsProjectMember]
+
+    def get_queryset(self):
+        return TimeRecord.objects.filter(task__project_id=self.kwargs["project_pk"])
 
 
 class ProjectViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated, isProjectAdmin]
-    # permission_classes = [IsAuthenticated]
-    http_method_names = ["get", "patch", "post", "delete", "head", "options"]
+    permission_classes = [isProjectAdmin | IsProjectMember]
 
     def get_serializer_class(self):
         if self.action == "list":
             return ProjectSerializer
+
         if self.request.method == "GET":
             return ProjectDetailSerializer
+
         if self.request.method == "PATCH":
             return UpdateProjectSerializer
+
         if self.request.method == "POST":
             return CreateProjectSerializers
+
         return ProjectSerializer
 
     def get_queryset(self):
-        return Project.objects.all()
+        return Project.objects.filter(project_users__user_id=self.request.user.id, project_users__role__isnull=False)
+        # .filter(Q(project_users__role__name="member") | Q(project_users__role__name="admin"))
 
 
 class TaskViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [isProjectAdminOrMember]
+    # def get_permissions(self):
+    #     if self.request.method in SAFE_METHODS:
+    #         return [IsProjectMember()]
+    #     return [isProjectAdmin()]
 
     def get_serializer_class(self):
-        if self.request.method == "POST":
+        if self.request.method in ["POST", "PATCH"]:
             return ProjectTaskSerializer
         return TaskSerializer
 
@@ -207,3 +235,18 @@ class TaskViewSet(ModelViewSet):
 
     def get_queryset(self):
         return Task.objects.filter(project_id=self.kwargs["project_pk"]).select_related("project")
+
+
+class TaskUsers(ModelViewSet):
+    permission_classes = [isProjectAdminOrMember]
+
+    def get_serializer_class(self):
+        if self.request.method in ["POST"]:
+            return AddUserTaskSerializer
+        return UserTaskSerializer
+
+    def get_serializer_context(self):
+        return {"task_id": self.kwargs["task_pk"]}
+
+    def get_queryset(self):
+        return UserTask.objects.filter(task__project_id=self.kwargs["project_pk"])

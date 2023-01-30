@@ -49,10 +49,32 @@ class TaskSimpleSerializer(serializers.ModelSerializer):
 
 class UserTaskSerializer(serializers.ModelSerializer):
     username = serializers.ReadOnlyField(source="user.username")
+    user_id = serializers.ReadOnlyField(source="user.id")
 
     class Meta:
         model = UserTask
-        fields = ["username"]
+        fields = ["id", "username", "user_id"]
+
+
+class AddUserTaskSerializer(serializers.ModelSerializer):
+    user_id = serializers.IntegerField()
+    username = serializers.ReadOnlyField(source="user.username")
+
+    def save(self, **kwargs):
+        task_id = self.context["task_id"]
+        user_id = self.validated_data["user_id"]
+
+        try:
+            task_user = UserTask.objects.get(task_id=task_id, user_id=user_id)
+            task_user.save()
+        except UserTask.DoesNotExist:
+            self.instance = UserTask.objects.create(task_id=task_id, **self.validated_data)
+
+        return self.instance
+
+    class Meta:
+        model = UserTask
+        fields = ["user_id", "username"]
 
 
 class TaskSerializer(serializers.ModelSerializer):
@@ -66,7 +88,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ["id", "name", "max_allocated_hours", "task_users"]
+        fields = ["id", "name", "max_allocated_hours", "task_users", "project_id"]
 
 
 class TaskItemSerializer(serializers.ModelSerializer):
@@ -130,7 +152,7 @@ class UserProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserProject
-        fields = ["username", "user_id", "role"]
+        fields = ["id", "username", "user_id", "role"]
 
 
 class AddUserProjectSerializer(serializers.ModelSerializer):
@@ -161,15 +183,22 @@ class TaskSimpleSerializer(serializers.ModelSerializer):
         fields = ["id", "name"]
 
 
+class ListProjectsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = ["id", "name"]
+
+
 class ProjectSerializer(serializers.ModelSerializer):
-    project_users = UserProjectSerializer(many=True, read_only=True)
+    project_users = UserProjectSerializer(many=True)
 
     class Meta:
         model = Project
         fields = ["id", "name", "project_users"]
 
-    def get_project_users(self, Project):
-        return Project.user.username
+    def get_project_users(self, project_obj):
+        print(project_obj)
+        return project_obj.user.username
 
 
 class UpdateProjectSerializer(serializers.ModelSerializer):
@@ -189,7 +218,7 @@ class CreateProjectSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ["id", "name", "description", "hourly_rate", "currency", "project_users"]
+        fields = ["id", "name", "description", "hourly_rate", "currency"]
 
 
 class ProjectDetailSerializer(serializers.ModelSerializer):

@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 from rest_framework import status
+from rest_framework.exceptions import ValidationError
 from rest_framework.generics import ListAPIView
 from rest_framework.permissions import IsAuthenticated, SAFE_METHODS
 from rest_framework.response import Response
@@ -29,7 +30,7 @@ from workspace.serializers import (
     UpdateProjectSerializer,
     UserProjectSerializer,
     UserSerializer, ProjectTaskSerializer, ListProjectsSerializer, UserTaskSerializer,
-    AddUserTaskSerializer,
+    AddUserTaskSerializer, ProjectTimeRecordSerializer, TaskTimeRecordSerializer,
 )
 from .forms import RegistrationForm
 from .models import Project, Task, TimeRecord, User, UserProject, UserTask
@@ -182,14 +183,52 @@ class UserProjectViewSet(ModelViewSet):
 
 class TimeRecordViewSet(ModelViewSet):
     serializer_class = TimeRecordSerializer
+    permission_classes = [isProjectAdmin | IsProjectMember]
+
+    def get_queryset(self):
+        return TimeRecord.objects.filter(user=self.request.user)
+
+    def update(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data)
+
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        new_task = serializer.validated_data["task"]
+
+        if new_task and not instance.user.user_tasks.filter(task=new_task).exists():
+            raise ValidationError(f"User doesn't have task {new_task.id} assigned")
+
+        self.perform_update(serializer)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class UpdateTimeRecordViewSet(ModelViewSet):
+    serializer_class = TimeRecordSerializer
+    permission_classes = [isProjectAdmin | IsProjectMember]
 
     def get_queryset(self):
         return TimeRecord.objects.filter(user=self.request.user)
 
 
 class TaskTimeRecordViewSet(ModelViewSet):
-    serializer_class = TimeRecordSerializer
+    serializer_class = TaskTimeRecordSerializer
     permission_classes = [isProjectAdmin | IsProjectMember]
+
+    def get_queryset(self):
+        return TimeRecord.objects.filter(task__project_id=self.kwargs["project_pk"])
+
+
+class ProjectTimeRecordViewSet(ModelViewSet):
+    serializer_class = TaskTimeRecordSerializer
+
+    def get_permissions(self):
+        if self.action == 'list':
+            permission_classes = [isProjectAdminOrMember]
+        else:
+            permission_classes = [isProjectAdmin | IsProjectMember]
+        return [permission() for permission in permission_classes]
 
     def get_queryset(self):
         return TimeRecord.objects.filter(task__project_id=self.kwargs["project_pk"])
@@ -220,10 +259,6 @@ class ProjectViewSet(ModelViewSet):
 
 class TaskViewSet(ModelViewSet):
     permission_classes = [isProjectAdminOrMember]
-    # def get_permissions(self):
-    #     if self.request.method in SAFE_METHODS:
-    #         return [IsProjectMember()]
-    #     return [isProjectAdmin()]
 
     def get_serializer_class(self):
         if self.request.method in ["POST", "PATCH"]:
@@ -235,6 +270,13 @@ class TaskViewSet(ModelViewSet):
 
     def get_queryset(self):
         return Task.objects.filter(project_id=self.kwargs["project_pk"]).select_related("project")
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        task = serializer.save()
+        request.user.tasks.add(task)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class TaskUsers(ModelViewSet):

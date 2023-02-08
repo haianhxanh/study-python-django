@@ -1,9 +1,9 @@
-from asyncore import read
-from pkg_resources import require
-from rest_framework import serializers
-from workspace.models import Currency, Project, Task, User, TimeRecord, UserProject, UserTask, Role
-from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
 from django.contrib.auth.hashers import make_password
+from djoser.serializers import UserCreateSerializer as BaseUserCreateSerializer
+from rest_framework import serializers
+from drf_writable_nested.serializers import WritableNestedModelSerializer
+
+from workspace.models import Currency, Project, Task, User, TimeRecord, UserProject, UserTask, Role
 
 
 class UserCreateSerializer(BaseUserCreateSerializer):
@@ -88,7 +88,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ["id", "name", "max_allocated_hours", "task_users", "project_id"]
+        fields = ["id", "name", "max_allocated_hours", "task_users", "project_id", "time_records"]
 
 
 class TaskItemSerializer(serializers.ModelSerializer):
@@ -102,7 +102,7 @@ class TaskProjectSimpleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ["id", "name", "task_project"]
+        fields = ["id", "task_project"]
 
     def get_task_project(self, Task):
         return Task.project.name
@@ -111,26 +111,68 @@ class TaskProjectSimpleSerializer(serializers.ModelSerializer):
 class ProjectTaskSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         project_id = self.context['project_id']
-        return Task.objects.create(project_id=project_id, **validated_data)
+        return Task.objects.create(project_id=project_id, **self.validated_data)
 
     class Meta:
         model = Task
         fields = "__all__"
 
 
-class TimeRecordSerializer(serializers.ModelSerializer):
+class ProjectTimeRecordSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField()
     task = TaskProjectSimpleSerializer()
+    project_id = serializers.ReadOnlyField(source="project.id")
 
     class Meta:
         model = TimeRecord
-        fields = ["id", "description", "start_time", "end_time", "date", "task", "user"]
+        fields = ["id", "description", "start_time", "end_time", "date", "task", "user", "project_id"]
 
     def get_user(self, TimeRecord):
         return TimeRecord.user.username
 
     def get_task(self, TimeRecord):
         return TimeRecord.task.name
+
+    def get_project(self, TimeRecord):
+        return TimeRecord.task.project.id
+
+
+class TaskTimeRecordSerializer(WritableNestedModelSerializer, serializers.ModelSerializer):
+    user = serializers.SerializerMethodField()
+
+    class Meta:
+        model = TimeRecord
+        fields = ["id", "description", "start_time", "end_time", "date", "user"]
+
+    def get_user(self, TimeRecord):
+        return TimeRecord.user.username
+
+
+class TimeRecordSerializer(serializers.ModelSerializer):
+    # user = serializers.SerializerMethodField()
+    user = UserSerializer(required=False)
+    task = serializers.PrimaryKeyRelatedField(queryset=Task.objects.all())
+
+    class Meta:
+        model = TimeRecord
+        fields = ["id", "description", "start_time", "end_time", "date", "task", "user"]
+
+    # def validate(self, data):
+    #     validated_data = super().validate(data)
+    #     print(validated_data)
+    #     return validated_data
+
+    # def validate_user(self, data):
+    #     if not data:
+    #         print("user not present")
+    #     return data
+    #
+    # def update(self, obj, validated_data):
+    #     validated_data["user"] = obj.user
+    #     return super().update(obj, validated_data)
+
+    # def get_user(self, time_record):
+    #     return time_record.user.username
 
 
 class TimeRecordStartSerializer(serializers.ModelSerializer):
@@ -197,7 +239,6 @@ class ProjectSerializer(serializers.ModelSerializer):
         fields = ["id", "name", "project_users"]
 
     def get_project_users(self, project_obj):
-        print(project_obj)
         return project_obj.user.username
 
 

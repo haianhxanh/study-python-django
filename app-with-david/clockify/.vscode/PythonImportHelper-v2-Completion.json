@@ -136,6 +136,22 @@
         "documentation": {}
     },
     {
+        "label": "TimeRecord",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
+        "label": "UserTask",
+        "importPath": "workspace.models",
+        "description": "workspace.models",
+        "isExtraImport": true,
+        "detail": "workspace.models",
+        "documentation": {}
+    },
+    {
         "label": "Currency",
         "importPath": "workspace.models",
         "description": "workspace.models",
@@ -1073,6 +1089,14 @@
         "documentation": {}
     },
     {
+        "label": "get_object_or_404",
+        "importPath": "django.shortcuts",
+        "description": "django.shortcuts",
+        "isExtraImport": true,
+        "detail": "django.shortcuts",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -1105,19 +1129,91 @@
         "documentation": {}
     },
     {
-        "label": "read",
-        "importPath": "asyncore",
-        "description": "asyncore",
+        "label": "Q",
+        "importPath": "django.db.models",
+        "description": "django.db.models",
         "isExtraImport": true,
-        "detail": "asyncore",
+        "detail": "django.db.models",
         "documentation": {}
     },
     {
-        "label": "require",
-        "importPath": "pkg_resources",
-        "description": "pkg_resources",
+        "label": "Http404",
+        "importPath": "django.http",
+        "description": "django.http",
         "isExtraImport": true,
-        "detail": "pkg_resources",
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponseForbidden",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "Http404",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "HttpResponseForbidden",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "SAFE_METHODS",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "SAFE_METHODS",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "PermissionDenied",
+        "importPath": "django.core.exceptions",
+        "description": "django.core.exceptions",
+        "isExtraImport": true,
+        "detail": "django.core.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "PermissionDenied",
+        "importPath": "django.core.exceptions",
+        "description": "django.core.exceptions",
+        "isExtraImport": true,
+        "detail": "django.core.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "make_password",
+        "importPath": "django.contrib.auth.hashers",
+        "description": "django.contrib.auth.hashers",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.hashers",
         "documentation": {}
     },
     {
@@ -1129,11 +1225,11 @@
         "documentation": {}
     },
     {
-        "label": "make_password",
-        "importPath": "django.contrib.auth.hashers",
-        "description": "django.contrib.auth.hashers",
+        "label": "WritableNestedModelSerializer",
+        "importPath": "drf_writable_nested.serializers",
+        "description": "drf_writable_nested.serializers",
         "isExtraImport": true,
-        "detail": "django.contrib.auth.hashers",
+        "detail": "drf_writable_nested.serializers",
         "documentation": {}
     },
     {
@@ -1158,14 +1254,6 @@
         "description": "rest_framework.generics",
         "isExtraImport": true,
         "detail": "rest_framework.generics",
-        "documentation": {}
-    },
-    {
-        "label": "IsAuthenticated",
-        "importPath": "rest_framework.permissions",
-        "description": "rest_framework.permissions",
-        "isExtraImport": true,
-        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
@@ -1274,6 +1362,46 @@
     },
     {
         "label": "ProjectTaskSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ListProjectsSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "UserTaskSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "AddUserTaskSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectTimeRecordSerializer",
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "isExtraImport": true,
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaskTimeRecordSerializer",
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
         "isExtraImport": true,
@@ -1911,20 +2039,47 @@
         "documentation": {}
     },
     {
-        "label": "isProjectAdmin",
+        "label": "isAuthenticated",
         "kind": 6,
         "importPath": "workspace.permissions",
         "description": "workspace.permissions",
-        "peekOfCode": "class isProjectAdmin(permissions.BasePermission):\n    # def has_permission(self, request, view):\n    #     role = Role.objects.get(name=\"admin\")\n    #     return request.user.role.name == role\n    def _has_user(self, user, related_manager):\n        return related_manager.filter(user=user).exists()\n    def has_object_permission(self, request, view, obj):\n        if isinstance(obj, Project):\n            if self._has_user(request.user, obj.project_users):\n                if obj.project_users.get(user=request.user).role.name == \"admin\":",
+        "peekOfCode": "class isAuthenticated(permissions.BasePermission):\n    def has_permission(self, request, view):\n        return request.user.is_authenticated\nclass isProjectAdminOrMember(permissions.BasePermission):\n    def has_permission(self, request, view):\n        project_pk = view.kwargs.get('project_pk', None)\n        try:\n            user_role = UserProject.objects.get(project_id=project_pk, user_id=request.user.id).role.name\n        except UserProject.DoesNotExist:\n            return False",
         "detail": "workspace.permissions",
         "documentation": {}
     },
     {
-        "label": "isProjectMember",
+        "label": "isProjectAdminOrMember",
         "kind": 6,
         "importPath": "workspace.permissions",
         "description": "workspace.permissions",
-        "peekOfCode": "class isProjectMember(permissions.BasePermission):\n    pass",
+        "peekOfCode": "class isProjectAdminOrMember(permissions.BasePermission):\n    def has_permission(self, request, view):\n        project_pk = view.kwargs.get('project_pk', None)\n        try:\n            user_role = UserProject.objects.get(project_id=project_pk, user_id=request.user.id).role.name\n        except UserProject.DoesNotExist:\n            return False\n        if user_role == 'admin':\n            return request.method in [\"GET\", \"POST\", \"DELETE\", \"PUT\", \"PATCH\"]\n        if user_role == 'member':",
+        "detail": "workspace.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "isProjectAdmin",
+        "kind": 6,
+        "importPath": "workspace.permissions",
+        "description": "workspace.permissions",
+        "peekOfCode": "class isProjectAdmin(permissions.BasePermission):\n    def _has_user(self, user, related_manager):\n        return related_manager.filter(user=user).exists()\n    def has_object_permission(self, request, view, obj):\n        if isinstance(obj, Project):\n            if self._has_user(request.user, obj.project_users):\n                if obj.project_users.get(user=request.user).role.name == \"admin\":\n                    return True\n        elif isinstance(obj, UserProject):\n            admin = UserProject.objects.get(project_id=obj.project.id, role__name=\"admin\").user",
+        "detail": "workspace.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsProjectMember",
+        "kind": 6,
+        "importPath": "workspace.permissions",
+        "description": "workspace.permissions",
+        "peekOfCode": "class IsProjectMember(permissions.BasePermission):\n    def _has_user(self, user, related_manager):\n        return related_manager.filter(user=user).exists()\n    def has_object_permission(self, request, view, obj):\n        if isinstance(obj, Project):\n            if self._has_user(request.user, obj.project_users):\n                if obj.project_users.get(user=request.user).role.name == \"member\":\n                    if request.method in permissions.SAFE_METHODS:\n                        return True\n        elif isinstance(obj, TimeRecord):",
+        "detail": "workspace.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsGuest",
+        "kind": 6,
+        "importPath": "workspace.permissions",
+        "description": "workspace.permissions",
+        "peekOfCode": "class IsGuest(permissions.BasePermission):\n    \"\"\"this class is about ...\"\"\"\n    def _has_user(self, user, related_manager):\n        \"\"\"this method is about\"\"\"\n        return related_manager.filter(user=user).exists()\n    def has_object_permission(self, request, view, obj):\n        if isinstance(obj, Project):\n            if self._has_user(request.user, obj.project_users):\n                if obj.project_users.get(user=request.user).role.name == \"\":\n                    if request.method in permissions.SAFE_METHODS:",
         "detail": "workspace.permissions",
         "documentation": {}
     },
@@ -1978,7 +2133,7 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class TaskSimpleSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\"]\nclass UserTaskSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    class Meta:\n        model = UserTask\n        fields = [\"username\"]\nclass TaskSerializer(serializers.ModelSerializer):",
+        "peekOfCode": "class TaskSimpleSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\"]\nclass UserTaskSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    user_id = serializers.ReadOnlyField(source=\"user.id\")\n    class Meta:\n        model = UserTask\n        fields = [\"id\", \"username\", \"user_id\"]",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -1987,7 +2142,16 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class UserTaskSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    class Meta:\n        model = UserTask\n        fields = [\"username\"]\nclass TaskSerializer(serializers.ModelSerializer):\n    task_users = UserTaskSerializer(many=True)\n    def create(self, validated_data):\n        project_id = self.context['request'].project.id\n        task = Task(name=validated_data[\"name\"], project_id=project_id)",
+        "peekOfCode": "class UserTaskSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    user_id = serializers.ReadOnlyField(source=\"user.id\")\n    class Meta:\n        model = UserTask\n        fields = [\"id\", \"username\", \"user_id\"]\nclass AddUserTaskSerializer(serializers.ModelSerializer):\n    user_id = serializers.IntegerField()\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    def save(self, **kwargs):",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "AddUserTaskSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class AddUserTaskSerializer(serializers.ModelSerializer):\n    user_id = serializers.IntegerField()\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    def save(self, **kwargs):\n        task_id = self.context[\"task_id\"]\n        user_id = self.validated_data[\"user_id\"]\n        try:\n            task_user = UserTask.objects.get(task_id=task_id, user_id=user_id)\n            task_user.save()\n        except UserTask.DoesNotExist:",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -1996,7 +2160,7 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class TaskSerializer(serializers.ModelSerializer):\n    task_users = UserTaskSerializer(many=True)\n    def create(self, validated_data):\n        project_id = self.context['request'].project.id\n        task = Task(name=validated_data[\"name\"], project_id=project_id)\n        task.save()\n        return task\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\", \"max_allocated_hours\", \"task_users\"]",
+        "peekOfCode": "class TaskSerializer(serializers.ModelSerializer):\n    task_users = UserTaskSerializer(many=True)\n    def create(self, validated_data):\n        project_id = self.context['request'].project.id\n        task = Task(name=validated_data[\"name\"], project_id=project_id)\n        task.save()\n        return task\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\", \"max_allocated_hours\", \"task_users\", \"project_id\", \"time_records\"]",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -2005,7 +2169,7 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class TaskItemSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = \"__all__\"\nclass TaskProjectSimpleSerializer(serializers.ModelSerializer):\n    task_project = serializers.SerializerMethodField()\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\", \"task_project\"]\n    def get_task_project(self, Task):",
+        "peekOfCode": "class TaskItemSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = \"__all__\"\nclass TaskProjectSimpleSerializer(serializers.ModelSerializer):\n    task_project = serializers.SerializerMethodField()\n    class Meta:\n        model = Task\n        fields = [\"id\", \"task_project\"]\n    def get_task_project(self, Task):",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -2014,7 +2178,7 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class TaskProjectSimpleSerializer(serializers.ModelSerializer):\n    task_project = serializers.SerializerMethodField()\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\", \"task_project\"]\n    def get_task_project(self, Task):\n        return Task.project.name\nclass ProjectTaskSerializer(serializers.ModelSerializer):\n    def create(self, validated_data):\n        project_id = self.context['project_id']",
+        "peekOfCode": "class TaskProjectSimpleSerializer(serializers.ModelSerializer):\n    task_project = serializers.SerializerMethodField()\n    class Meta:\n        model = Task\n        fields = [\"id\", \"task_project\"]\n    def get_task_project(self, Task):\n        return Task.project.name\nclass ProjectTaskSerializer(serializers.ModelSerializer):\n    def create(self, validated_data):\n        project_id = self.context['project_id']",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -2023,7 +2187,25 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class ProjectTaskSerializer(serializers.ModelSerializer):\n    def create(self, validated_data):\n        project_id = self.context['project_id']\n        return Task.objects.create(project_id=project_id, **validated_data)\n    class Meta:\n        model = Task\n        fields = \"__all__\"\nclass TimeRecordSerializer(serializers.ModelSerializer):\n    user = serializers.SerializerMethodField()\n    task = TaskProjectSimpleSerializer()",
+        "peekOfCode": "class ProjectTaskSerializer(serializers.ModelSerializer):\n    def create(self, validated_data):\n        project_id = self.context['project_id']\n        return Task.objects.create(project_id=project_id, **self.validated_data)\n    class Meta:\n        model = Task\n        fields = \"__all__\"\nclass ProjectTimeRecordSerializer(serializers.ModelSerializer):\n    user = serializers.SerializerMethodField()\n    task = TaskProjectSimpleSerializer()",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectTimeRecordSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class ProjectTimeRecordSerializer(serializers.ModelSerializer):\n    user = serializers.SerializerMethodField()\n    task = TaskProjectSimpleSerializer()\n    project_id = serializers.ReadOnlyField(source=\"project.id\")\n    class Meta:\n        model = TimeRecord\n        fields = [\"id\", \"description\", \"start_time\", \"end_time\", \"date\", \"task\", \"user\", \"project_id\"]\n    def get_user(self, TimeRecord):\n        return TimeRecord.user.username\n    def get_task(self, TimeRecord):",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaskTimeRecordSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class TaskTimeRecordSerializer(WritableNestedModelSerializer, serializers.ModelSerializer):\n    user = serializers.SerializerMethodField()\n    class Meta:\n        model = TimeRecord\n        fields = [\"id\", \"description\", \"start_time\", \"end_time\", \"date\", \"user\"]\n    def get_user(self, TimeRecord):\n        return TimeRecord.user.username\nclass TimeRecordSerializer(serializers.ModelSerializer):\n    user = serializers.SerializerMethodField()\n    task_id = serializers.PrimaryKeyRelatedField(queryset=Task.objects.all(), source='task.id')",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -2032,7 +2214,7 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class TimeRecordSerializer(serializers.ModelSerializer):\n    user = serializers.SerializerMethodField()\n    task = TaskProjectSimpleSerializer()\n    class Meta:\n        model = TimeRecord\n        fields = [\"id\", \"description\", \"start_time\", \"end_time\", \"date\", \"task\", \"user\"]\n    def get_user(self, TimeRecord):\n        return TimeRecord.user.username\n    def get_task(self, TimeRecord):\n        return TimeRecord.task.name",
+        "peekOfCode": "class TimeRecordSerializer(serializers.ModelSerializer):\n    user = serializers.SerializerMethodField()\n    task_id = serializers.PrimaryKeyRelatedField(queryset=Task.objects.all(), source='task.id')\n    class Meta:\n        model = TimeRecord\n        fields = [\"id\", \"description\", \"start_time\", \"end_time\", \"date\", \"task\", \"task_id\", \"user\"]\n    def get_user(self, TimeRecord):\n        return TimeRecord.user.username\n    def update(self, instance, validated_data):\n        print(validated_data)",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -2059,7 +2241,7 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class UserProjectSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    role = serializers.ReadOnlyField(source=\"role.name\")\n    user_id = serializers.ReadOnlyField(source=\"user.id\")\n    class Meta:\n        model = UserProject\n        fields = [\"username\", \"user_id\", \"role\"]\nclass AddUserProjectSerializer(serializers.ModelSerializer):\n    user_id = serializers.IntegerField()\n    role_id = serializers.IntegerField()",
+        "peekOfCode": "class UserProjectSerializer(serializers.ModelSerializer):\n    username = serializers.ReadOnlyField(source=\"user.username\")\n    role = serializers.ReadOnlyField(source=\"role.name\")\n    user_id = serializers.ReadOnlyField(source=\"user.id\")\n    class Meta:\n        model = UserProject\n        fields = [\"id\", \"username\", \"user_id\", \"role\"]\nclass AddUserProjectSerializer(serializers.ModelSerializer):\n    user_id = serializers.IntegerField()\n    role_id = serializers.IntegerField()",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -2077,7 +2259,16 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class TaskSimpleSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\"]\nclass ProjectSerializer(serializers.ModelSerializer):\n    project_users = UserProjectSerializer(many=True, read_only=True)\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\", \"project_users\"]\n    def get_project_users(self, Project):",
+        "peekOfCode": "class TaskSimpleSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Task\n        fields = [\"id\", \"name\"]\nclass ListProjectsSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\"]\nclass ProjectSerializer(serializers.ModelSerializer):\n    project_users = UserProjectSerializer(many=True)",
+        "detail": "workspace.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ListProjectsSerializer",
+        "kind": 6,
+        "importPath": "workspace.serializers",
+        "description": "workspace.serializers",
+        "peekOfCode": "class ListProjectsSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\"]\nclass ProjectSerializer(serializers.ModelSerializer):\n    project_users = UserProjectSerializer(many=True)\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\", \"project_users\"]\n    def get_project_users(self, project_obj):",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -2086,7 +2277,7 @@
         "kind": 6,
         "importPath": "workspace.serializers",
         "description": "workspace.serializers",
-        "peekOfCode": "class ProjectSerializer(serializers.ModelSerializer):\n    project_users = UserProjectSerializer(many=True, read_only=True)\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\", \"project_users\"]\n    def get_project_users(self, Project):\n        return Project.user.username\nclass UpdateProjectSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Project",
+        "peekOfCode": "class ProjectSerializer(serializers.ModelSerializer):\n    project_users = UserProjectSerializer(many=True)\n    class Meta:\n        model = Project\n        fields = [\"id\", \"name\", \"project_users\"]\n    def get_project_users(self, project_obj):\n        return project_obj.user.username\nclass UpdateProjectSerializer(serializers.ModelSerializer):\n    class Meta:\n        model = Project",
         "detail": "workspace.serializers",
         "documentation": {}
     },
@@ -2158,7 +2349,7 @@
         "kind": 5,
         "importPath": "workspace.urls",
         "description": "workspace.urls",
-        "peekOfCode": "project_tasks_list = views.TaskViewSet.as_view({'get': 'list', 'post': 'create'})\nproject_task_details = views.TaskViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\ntime_records_list = views.TimeRecordViewSet.as_view({'get': 'list'})\nurlpatterns = [\n    path(\"\", views.home, name=\"home\"),",
+        "peekOfCode": "project_tasks_list = views.TaskViewSet.as_view({'get': 'list', 'post': 'create'})\nproject_task_details = views.TaskViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\ntask_users_list = views.TaskUsers.as_view({'get': 'list', 'post': 'create'})\ntask_user_details = views.TaskUsers.as_view({\n    'get': 'retrieve',",
         "detail": "workspace.urls",
         "documentation": {}
     },
@@ -2167,7 +2358,61 @@
         "kind": 5,
         "importPath": "workspace.urls",
         "description": "workspace.urls",
-        "peekOfCode": "project_task_details = views.TaskViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\ntime_records_list = views.TimeRecordViewSet.as_view({'get': 'list'})\nurlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"auth/\", include(\"djoser.urls\")),",
+        "peekOfCode": "project_task_details = views.TaskViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\ntask_users_list = views.TaskUsers.as_view({'get': 'list', 'post': 'create'})\ntask_user_details = views.TaskUsers.as_view({\n    'get': 'retrieve',\n    'put': 'update',",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "task_users_list",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "task_users_list = views.TaskUsers.as_view({'get': 'list', 'post': 'create'})\ntask_user_details = views.TaskUsers.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\ntask_time_records_list = views.TaskTimeRecordViewSet.as_view({'get': 'list'})\ntask_time_record_details = views.TaskTimeRecordViewSet.as_view({\n    'get': 'retrieve',",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "task_user_details",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "task_user_details = views.TaskUsers.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\ntask_time_records_list = views.TaskTimeRecordViewSet.as_view({'get': 'list'})\ntask_time_record_details = views.TaskTimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "task_time_records_list",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "task_time_records_list = views.TaskTimeRecordViewSet.as_view({'get': 'list'})\ntask_time_record_details = views.TaskTimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\nproject_time_records = views.ProjectTimeRecordViewSet.as_view({\n    'get': 'list'\n})",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "task_time_record_details",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "task_time_record_details = views.TaskTimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\nproject_time_records = views.ProjectTimeRecordViewSet.as_view({\n    'get': 'list'\n})\nproject_time_record_details = views.ProjectTimeRecordViewSet.as_view({",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "project_time_records",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "project_time_records = views.ProjectTimeRecordViewSet.as_view({\n    'get': 'list'\n})\nproject_time_record_details = views.ProjectTimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\ntime_records_list = views.TimeRecordViewSet.as_view({'get': 'list'})",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "project_time_record_details",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "project_time_record_details = views.ProjectTimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\ntime_records_list = views.TimeRecordViewSet.as_view({'get': 'list'})\ntime_record_detail = views.TimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'delete': 'destroy'",
         "detail": "workspace.urls",
         "documentation": {}
     },
@@ -2176,7 +2421,25 @@
         "kind": 5,
         "importPath": "workspace.urls",
         "description": "workspace.urls",
-        "peekOfCode": "time_records_list = views.TimeRecordViewSet.as_view({'get': 'list'})\nurlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"auth/\", include(\"djoser.urls\")),\n    path(\"auth/\", include(\"djoser.urls.jwt\")),\n    path(\"register/\", views.Register.as_view(), name=\"register\"),\n    path(\"projects/\", project_list, name=\"list-projects\"),\n    path(\"projects/<int:pk>/\", project_details, name=\"project-details\"),\n    path(\"projects/<int:project_pk>/users/\", project_users_list, name=\"list-project-users\"),\n    path(\"projects/<int:project_pk>/users/<pk>/\", project_user_details, name=\"project-user-detail\"),",
+        "peekOfCode": "time_records_list = views.TimeRecordViewSet.as_view({'get': 'list'})\ntime_record_detail = views.TimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'delete': 'destroy'\n})\nupdate_time_record_detail = views.TimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "time_record_detail",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "time_record_detail = views.TimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'delete': 'destroy'\n})\nupdate_time_record_detail = views.TimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})",
+        "detail": "workspace.urls",
+        "documentation": {}
+    },
+    {
+        "label": "update_time_record_detail",
+        "kind": 5,
+        "importPath": "workspace.urls",
+        "description": "workspace.urls",
+        "peekOfCode": "update_time_record_detail = views.TimeRecordViewSet.as_view({\n    'get': 'retrieve',\n    'put': 'update',\n    'patch': 'partial_update',\n    'delete': 'destroy'\n})\nurlpatterns = [\n    path(\"\", views.home, name=\"home\"),\n    path(\"auth/\", include(\"djoser.urls\")),\n    path(\"auth/\", include(\"djoser.urls.jwt\")),",
         "detail": "workspace.urls",
         "documentation": {}
     },
@@ -2248,7 +2511,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class ListAllUsers(ListAPIView):\n    permission_classes = [IsAuthenticated]\n    serializer_class = ListUserSerializer\n    def get_queryset(self, request):\n        return User.objects.get(id=request.user.id)\nclass UserViewSet(ModelViewSet):\n    serializer_class = UserSerializer\n    def get_queryset(self):\n        return User.objects.all()\nclass UserProjectViewSet(ModelViewSet):",
+        "peekOfCode": "class ListAllUsers(ListAPIView):\n    permission_classes = [IsAuthenticated]\n    serializer_class = ListUserSerializer\n    def get_queryset(self, request):\n        return User.objects.get(id=request.user.id)\nclass UserViewSet(ModelViewSet):\n    serializer_class = UserSerializer\n    def get_queryset(self):\n        return User.objects.all()\nclass ListUserProject(ListAPIView):",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -2257,7 +2520,16 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class UserViewSet(ModelViewSet):\n    serializer_class = UserSerializer\n    def get_queryset(self):\n        return User.objects.all()\nclass UserProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    serializer_class = AddUserProjectSerializer\n    def get_serializer_class(self):\n        if self.request.method == \"POST\":\n            return AddUserProjectSerializer",
+        "peekOfCode": "class UserViewSet(ModelViewSet):\n    serializer_class = UserSerializer\n    def get_queryset(self):\n        return User.objects.all()\nclass ListUserProject(ListAPIView):\n    pass\nclass UserProjectViewSet(ModelViewSet):\n    def get_permissions(self):\n        if self.request.method in SAFE_METHODS:\n            self.permission_classes = [IsProjectMember]",
+        "detail": "workspace.views",
+        "documentation": {}
+    },
+    {
+        "label": "ListUserProject",
+        "kind": 6,
+        "importPath": "workspace.views",
+        "description": "workspace.views",
+        "peekOfCode": "class ListUserProject(ListAPIView):\n    pass\nclass UserProjectViewSet(ModelViewSet):\n    def get_permissions(self):\n        if self.request.method in SAFE_METHODS:\n            self.permission_classes = [IsProjectMember]\n        else:\n            self.permission_classes = [isProjectAdmin]\n        return [isProjectAdminOrMember()]\n    def get_serializer_class(self):",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -2266,7 +2538,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class UserProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    serializer_class = AddUserProjectSerializer\n    def get_serializer_class(self):\n        if self.request.method == \"POST\":\n            return AddUserProjectSerializer\n        return UserProjectSerializer\n    def get_serializer_context(self):\n        return {\"project_id\": self.kwargs[\"project_pk\"]}\n    def get_queryset(self):",
+        "peekOfCode": "class UserProjectViewSet(ModelViewSet):\n    def get_permissions(self):\n        if self.request.method in SAFE_METHODS:\n            self.permission_classes = [IsProjectMember]\n        else:\n            self.permission_classes = [isProjectAdmin]\n        return [isProjectAdminOrMember()]\n    def get_serializer_class(self):\n        if self.request.method == \"POST\":\n            return AddUserProjectSerializer",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -2275,7 +2547,34 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class TimeRecordViewSet(ModelViewSet):\n    serializer_class = TimeRecordSerializer\n    def get_queryset(self):\n        return TimeRecord.objects.all()\nclass ProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated, isProjectAdmin]\n    # permission_classes = [IsAuthenticated]\n    http_method_names = [\"get\", \"patch\", \"post\", \"delete\", \"head\", \"options\"]\n    def get_serializer_class(self):\n        if self.action == \"list\":",
+        "peekOfCode": "class TimeRecordViewSet(ModelViewSet):\n    serializer_class = TimeRecordSerializer\n    permission_classes = [isProjectAdmin | IsProjectMember]\n    def get_queryset(self):\n        return TimeRecord.objects.filter(user=self.request.user)\nclass UpdateTimeRecordViewSet(ModelViewSet):\n    serializer_class = TimeRecordSerializer\n    permission_classes = [isProjectAdmin | IsProjectMember]\n    def get_queryset(self):\n        return TimeRecord.objects.filter(user=self.request.user)",
+        "detail": "workspace.views",
+        "documentation": {}
+    },
+    {
+        "label": "UpdateTimeRecordViewSet",
+        "kind": 6,
+        "importPath": "workspace.views",
+        "description": "workspace.views",
+        "peekOfCode": "class UpdateTimeRecordViewSet(ModelViewSet):\n    serializer_class = TimeRecordSerializer\n    permission_classes = [isProjectAdmin | IsProjectMember]\n    def get_queryset(self):\n        return TimeRecord.objects.filter(user=self.request.user)\nclass TaskTimeRecordViewSet(ModelViewSet):\n    serializer_class = TaskTimeRecordSerializer\n    permission_classes = [isProjectAdmin | IsProjectMember]\n    def get_queryset(self):\n        return TimeRecord.objects.filter(task__project_id=self.kwargs[\"project_pk\"])",
+        "detail": "workspace.views",
+        "documentation": {}
+    },
+    {
+        "label": "TaskTimeRecordViewSet",
+        "kind": 6,
+        "importPath": "workspace.views",
+        "description": "workspace.views",
+        "peekOfCode": "class TaskTimeRecordViewSet(ModelViewSet):\n    serializer_class = TaskTimeRecordSerializer\n    permission_classes = [isProjectAdmin | IsProjectMember]\n    def get_queryset(self):\n        return TimeRecord.objects.filter(task__project_id=self.kwargs[\"project_pk\"])\nclass ProjectTimeRecordViewSet(ModelViewSet):\n    serializer_class = TaskTimeRecordSerializer\n    def get_permissions(self):\n        if self.action == 'list':\n            permission_classes = [isProjectAdminOrMember]",
+        "detail": "workspace.views",
+        "documentation": {}
+    },
+    {
+        "label": "ProjectTimeRecordViewSet",
+        "kind": 6,
+        "importPath": "workspace.views",
+        "description": "workspace.views",
+        "peekOfCode": "class ProjectTimeRecordViewSet(ModelViewSet):\n    serializer_class = TaskTimeRecordSerializer\n    def get_permissions(self):\n        if self.action == 'list':\n            permission_classes = [isProjectAdminOrMember]\n        else:\n            permission_classes = [isProjectAdmin | IsProjectMember]\n        return [permission() for permission in permission_classes]\n    def get_queryset(self):\n        return TimeRecord.objects.filter(task__project_id=self.kwargs[\"project_pk\"])",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -2284,7 +2583,7 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class ProjectViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated, isProjectAdmin]\n    # permission_classes = [IsAuthenticated]\n    http_method_names = [\"get\", \"patch\", \"post\", \"delete\", \"head\", \"options\"]\n    def get_serializer_class(self):\n        if self.action == \"list\":\n            return ProjectSerializer\n        if self.request.method == \"GET\":\n            return ProjectDetailSerializer\n        if self.request.method == \"PATCH\":",
+        "peekOfCode": "class ProjectViewSet(ModelViewSet):\n    permission_classes = [isProjectAdmin | IsProjectMember]\n    def get_serializer_class(self):\n        if self.action == \"list\":\n            return ProjectSerializer\n        if self.request.method == \"GET\":\n            return ProjectDetailSerializer\n        if self.request.method == \"PATCH\":\n            return UpdateProjectSerializer\n        if self.request.method == \"POST\":",
         "detail": "workspace.views",
         "documentation": {}
     },
@@ -2293,7 +2592,16 @@
         "kind": 6,
         "importPath": "workspace.views",
         "description": "workspace.views",
-        "peekOfCode": "class TaskViewSet(ModelViewSet):\n    permission_classes = [IsAuthenticated]\n    def get_serializer_class(self):\n        if self.request.method == \"POST\":\n            return ProjectTaskSerializer\n        return TaskSerializer\n    def get_serializer_context(self):\n        return {\"project_id\": self.kwargs[\"project_pk\"]}\n    def get_queryset(self):\n        return Task.objects.filter(project_id=self.kwargs[\"project_pk\"]).select_related(\"project\")",
+        "peekOfCode": "class TaskViewSet(ModelViewSet):\n    permission_classes = [isProjectAdminOrMember]\n    def get_serializer_class(self):\n        if self.request.method in [\"POST\", \"PATCH\"]:\n            return ProjectTaskSerializer\n        return TaskSerializer\n    def get_serializer_context(self):\n        return {\"project_id\": self.kwargs[\"project_pk\"]}\n    def get_queryset(self):\n        return Task.objects.filter(project_id=self.kwargs[\"project_pk\"]).select_related(\"project\")",
+        "detail": "workspace.views",
+        "documentation": {}
+    },
+    {
+        "label": "TaskUsers",
+        "kind": 6,
+        "importPath": "workspace.views",
+        "description": "workspace.views",
+        "peekOfCode": "class TaskUsers(ModelViewSet):\n    permission_classes = [isProjectAdminOrMember]\n    def get_serializer_class(self):\n        if self.request.method in [\"POST\"]:\n            return AddUserTaskSerializer\n        return UserTaskSerializer\n    def get_serializer_context(self):\n        return {\"task_id\": self.kwargs[\"task_pk\"]}\n    def get_queryset(self):\n        return UserTask.objects.filter(task__project_id=self.kwargs[\"project_pk\"])",
         "detail": "workspace.views",
         "documentation": {}
     },

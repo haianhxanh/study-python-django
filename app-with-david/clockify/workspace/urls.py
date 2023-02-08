@@ -48,9 +48,25 @@ task_time_record_details = views.TaskTimeRecordViewSet.as_view({
     'delete': 'destroy'
 })
 
+project_time_records = views.ProjectTimeRecordViewSet.as_view({
+    'get': 'list'
+})
+
+project_time_record_details = views.ProjectTimeRecordViewSet.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
+
 time_records_list = views.TimeRecordViewSet.as_view({'get': 'list'})
 
 time_record_detail = views.TimeRecordViewSet.as_view({
+    'get': 'retrieve',
+    'delete': 'destroy'
+})
+
+update_time_record_detail = views.TimeRecordViewSet.as_view({
     'get': 'retrieve',
     'put': 'update',
     'patch': 'partial_update',
@@ -74,9 +90,12 @@ urlpatterns = [
          name="list-task-time-records"),
     path("projects/<int:project_pk>/tasks/<int:task_pk>/tracking/<pk>/", task_time_record_details,
          name="time-record-details"),
+    path("projects/<int:project_pk>/tracking/", project_time_records, name="list-project-time-records"),
+    path("projects/<int:project_pk>/tracking/<int:tracking_pk>/", project_time_record_details, name="project-time-record-details"),
     path("users/", views.ListAllUsers.as_view(), name="list-users"),
     path("tracking/", time_records_list, name="list-time-records"),
-    path("tracking/<int:pk>/", time_record_detail, name="time-record-detail"),
+    path("tracking/<pk>/", time_record_detail, name="time-record-detail"),
+    path("tracking/<pk>/update/", update_time_record_detail, name="update-time-record-detail"),
     path("tracking/start", views.TrackingStart.as_view(), name="tracker-start"),
     path("tracking/stop", views.TrackingStop.as_view(), name="tracker-stop"),
     path('__debug__/', include('debug_toolbar.urls')),

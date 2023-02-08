@@ -40,7 +40,7 @@ class Task(models.Model):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="tasks")
 
     def __str__(self):
-        return f"{self.project.name} - {self.name}"
+        return f"[{self.id}] {self.project.name} - {self.name}"
 
 
 class TimeRecord(models.Model):
@@ -62,7 +62,6 @@ class TimeRecord(models.Model):
         self.start_time = start_time
         self.save()
 
-    # todo
     def stop_time(self):
 
         end_time = strftime("%H:%M")
@@ -98,6 +97,9 @@ class Report(models.Model):
 
 
 class User(AbstractUser):
+    tasks = models.ManyToManyField(Task, through="UserTask")
+    projects = models.ManyToManyField(Project, through="UserProject")
+
     def __str__(self):
         return self.email
 

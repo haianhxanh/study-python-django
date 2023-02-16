@@ -10,7 +10,7 @@ from django.urls import reverse
 from django.views.generic.edit import CreateView, UpdateView
 from rest_framework import status
 from rest_framework.exceptions import ValidationError
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, get_object_or_404
 from rest_framework.permissions import IsAuthenticated, SAFE_METHODS
 from rest_framework.response import Response
 # from django.http import HttpResponse
@@ -30,8 +30,9 @@ from workspace.serializers import (
     UpdateProjectSerializer,
     UserProjectSerializer,
     UserSerializer, ProjectTaskSerializer, ListProjectsSerializer, UserTaskSerializer,
-    AddUserTaskSerializer, ProjectTimeRecordSerializer, TaskTimeRecordSerializer,
+    AddUserTaskSerializer, ProjectTimeRecordSerializer, TaskTimeRecordSerializer, UpdateTimeRecordSerializer,
 )
+from .enums import RoleEnum
 from .forms import RegistrationForm
 from .models import Project, Task, TimeRecord, User, UserProject, UserTask
 from .permissions import isProjectAdmin, IsProjectMember, IsGuest, isProjectAdminOrMember, isAuthenticated
@@ -205,23 +206,54 @@ class TimeRecordViewSet(ModelViewSet):
 
 
 class UpdateTimeRecordViewSet(ModelViewSet):
-    serializer_class = TimeRecordSerializer
+    serializer_class = UpdateTimeRecordSerializer
     permission_classes = [isProjectAdmin | IsProjectMember]
 
     def get_queryset(self):
         return TimeRecord.objects.filter(user=self.request.user)
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        updated_task = get_object_or_404(Task, pk=request.data['task'])
+        updated_task_project = Task.objects.filter(id=request.data['task']).get().project
+
+        # check if user is part of project the task belongs to
+        is_project_user = UserProject.objects.filter(user=request.user, project=updated_task_project)
+
+        if is_project_user.exists():
+            # check if user is admin or assigned to the task
+            user_role = is_project_user.get().role.name
+            updated_task_id = updated_task.id
+            task_has_user = UserTask.objects.filter(user=request.user, task=updated_task_id)
+            if user_role == RoleEnum.ADMIN.value or task_has_user.exists():
+                serializer = self.get_serializer(instance, data=request.data, partial=partial)
+                serializer.is_valid(raise_exception=True)
+                self.perform_update(serializer)
+            else:
+                raise ValidationError(f"You are not assigned to this task")
+        else:
+            raise ValidationError(f"Task doesn't exist")
+        return Response(serializer.data)
 
 
 class TaskTimeRecordViewSet(ModelViewSet):
     serializer_class = TaskTimeRecordSerializer
     permission_classes = [isProjectAdmin | IsProjectMember]
 
+    def get_permissions(self):
+        if self.action == 'list':
+            permission_classes = [isProjectAdminOrMember]
+        else:
+            permission_classes = [isProjectAdmin | IsProjectMember]
+        return [permission() for permission in permission_classes]
+
     def get_queryset(self):
         return TimeRecord.objects.filter(task__project_id=self.kwargs["project_pk"])
 
 
 class ProjectTimeRecordViewSet(ModelViewSet):
-    serializer_class = TaskTimeRecordSerializer
+    serializer_class = ProjectTimeRecordSerializer
 
     def get_permissions(self):
         if self.action == 'list':

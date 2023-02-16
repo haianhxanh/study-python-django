@@ -66,7 +66,7 @@ time_record_detail = views.TimeRecordViewSet.as_view({
     'delete': 'destroy'
 })
 
-update_time_record_detail = views.TimeRecordViewSet.as_view({
+update_time_record_detail = views.UpdateTimeRecordViewSet.as_view({
     'get': 'retrieve',
     'put': 'update',
     'patch': 'partial_update',
@@ -91,7 +91,8 @@ urlpatterns = [
     path("projects/<int:project_pk>/tasks/<int:task_pk>/tracking/<pk>/", task_time_record_details,
          name="time-record-details"),
     path("projects/<int:project_pk>/tracking/", project_time_records, name="list-project-time-records"),
-    path("projects/<int:project_pk>/tracking/<int:tracking_pk>/", project_time_record_details, name="project-time-record-details"),
+    path("projects/<int:project_pk>/tracking/<pk>/", project_time_record_details,
+         name="project-time-record-details"),
     path("users/", views.ListAllUsers.as_view(), name="list-users"),
     path("tracking/", time_records_list, name="list-time-records"),
     path("tracking/<pk>/", time_record_detail, name="time-record-detail"),

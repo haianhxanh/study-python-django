@@ -8,6 +8,7 @@ from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from pprint import pprint
 
+from workspace.enums import TaskStatusChoices, ProjectStatusChoices
 from workspace.querysets import TimeRecordQuerySet
 
 
@@ -27,6 +28,7 @@ class Project(models.Model):
     currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True, blank=True, related_name="currency")
     hex_color = models.CharField(max_length=7, null=True, blank=True)  # predefined colors + color picker
     hourly_rate = models.FloatField(null=True)
+    status = models.CharField(max_length=36, choices=ProjectStatusChoices)
 
     def __str__(self):
         return self.name
@@ -38,9 +40,14 @@ class Task(models.Model):
     description = models.TextField()
     max_allocated_hours = models.FloatField(null=True, blank=True)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="tasks")
+    status = models.CharField(max_length=36, choices=TaskStatusChoices)
 
     def __str__(self):
         return f"[{self.id}] {self.project.name} - {self.name}"
+
+    @property
+    def time_spent(self):
+        pass
 
 
 class TimeRecord(models.Model):

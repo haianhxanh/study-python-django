@@ -45,7 +45,6 @@ class isProjectAdmin(permissions.BasePermission):
             if admin == request.user:
                 return True
         elif isinstance(obj, TimeRecord):
-            print(obj)
             # if the time record is not assigned to any task and belongs to user, allow him to edit
             if obj.task is not None:
                 if self._has_user(request.user, obj.task.project.project_users):
@@ -57,7 +56,6 @@ class isProjectAdmin(permissions.BasePermission):
             if self._has_user(request.user, obj.task.project.project_users):
                 return True
         else:
-            print(obj)
             return False
 
 
@@ -82,7 +80,7 @@ class IsProjectMember(permissions.BasePermission):
                         else:
                             if request.method in permissions.SAFE_METHODS:
                                 return True
-                    return True
+                    return False
             else:
                 return True
 

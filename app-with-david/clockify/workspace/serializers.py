@@ -175,6 +175,12 @@ class TimeRecordSerializer(serializers.ModelSerializer):
     #     return time_record.user.username
 
 
+class UpdateTimeRecordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TimeRecord
+        exclude = ("user",)
+
+
 class TimeRecordStartSerializer(serializers.ModelSerializer):
     class Meta:
         model = TimeRecord

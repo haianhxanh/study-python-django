@@ -88,7 +88,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ["id", "name", "max_allocated_hours", "task_users", "project_id", "time_records"]
+        fields = ["id", "name", "max_allocated_hours", "tracked_hours", "task_users", "project_id", "time_records"]
 
 
 class TaskItemSerializer(serializers.ModelSerializer):
@@ -142,7 +142,7 @@ class TaskTimeRecordSerializer(WritableNestedModelSerializer, serializers.ModelS
 
     class Meta:
         model = TimeRecord
-        fields = ["id", "description", "start_time", "end_time", "date", "user"]
+        fields = ["id", "description", "start_time", "end_time", "tracked_hours", "date", "user"]
 
     def get_user(self, TimeRecord):
         return TimeRecord.user.username
@@ -155,24 +155,7 @@ class TimeRecordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TimeRecord
-        fields = ["id", "description", "start_time", "end_time", "date", "task", "user"]
-
-    # def validate(self, data):
-    #     validated_data = super().validate(data)
-    #     print(validated_data)
-    #     return validated_data
-
-    # def validate_user(self, data):
-    #     if not data:
-    #         print("user not present")
-    #     return data
-    #
-    # def update(self, obj, validated_data):
-    #     validated_data["user"] = obj.user
-    #     return super().update(obj, validated_data)
-
-    # def get_user(self, time_record):
-    #     return time_record.user.username
+        fields = ["id", "description", "start_time", "end_time", "tracked_hours", "date", "task", "user"]
 
 
 class UpdateTimeRecordSerializer(serializers.ModelSerializer):
@@ -275,7 +258,7 @@ class ProjectDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ["id", "name", "description", "hourly_rate", "currency", "tasks", "project_users"]
+        fields = ["id", "name", "description", "hourly_rate", "total_allocated_hours", "tracked_hours", "currency", "tasks", "project_users"]
 
     def get_currency(self, Project):
         return Project.currency.shortcut_name

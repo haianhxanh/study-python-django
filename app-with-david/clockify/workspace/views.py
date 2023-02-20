@@ -249,7 +249,7 @@ class TaskTimeRecordViewSet(ModelViewSet):
         return [permission() for permission in permission_classes]
 
     def get_queryset(self):
-        return TimeRecord.objects.filter(task__project_id=self.kwargs["project_pk"])
+        return TimeRecord.objects.filter(task__project_id=self.kwargs["project_pk"], task_id=self.kwargs["task_pk"])
 
 
 class ProjectTimeRecordViewSet(ModelViewSet):

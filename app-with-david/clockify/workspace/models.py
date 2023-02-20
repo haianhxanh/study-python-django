@@ -33,21 +33,61 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    def get_tracked_hours(self):
+        tasks = self.tasks.all()
+        total = 0
+        for task in tasks:
+            trackings = task.time_records.all()
+            for tracking in trackings:
+                start = datetime.strptime(tracking.start_time.strftime('%H:%M:%S'), "%H:%M:%S")
+                end = datetime.strptime(tracking.end_time.strftime('%H:%M:%S'), "%H:%M:%S")
+                delta = end - start
+                total = total + int(delta.total_seconds())
+        return round(total / 3600, 2)
+
+    @property
+    def tracked_hours(self):
+        return self.get_tracked_hours()
+
+    def get_total_allocated_hours(self):
+        tasks = self.tasks.all()
+        total = 0
+        for task in tasks:
+            if task.max_allocated_hours is None:
+                total = total + 0
+            else:
+                total = total + task.max_allocated_hours
+        return total
+
+    @property
+    def total_allocated_hours(self):
+        return self.get_total_allocated_hours()
+
 
 class Task(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
     description = models.TextField()
-    max_allocated_hours = models.FloatField(null=True, blank=True)
+    max_allocated_hours = models.FloatField(null=True, blank=True, default=0.0)
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="tasks")
     status = models.CharField(max_length=36, choices=TaskStatusChoices)
 
     def __str__(self):
         return f"[{self.id}] {self.project.name} - {self.name}"
 
+    def get_tracked_hours(self):
+        total = 0
+        trackings = self.time_records.all()
+        for tracking in trackings:
+            start = datetime.strptime(tracking.start_time.strftime('%H:%M:%S'), "%H:%M:%S")
+            end = datetime.strptime(tracking.end_time.strftime('%H:%M:%S'), "%H:%M:%S")
+            delta = end - start
+            total = total + int(delta.total_seconds())
+        return round(total / 3600, 2)
+
     @property
-    def time_spent(self):
-        pass
+    def tracked_hours(self):
+        return self.get_tracked_hours()
 
 
 class TimeRecord(models.Model):
@@ -96,6 +136,18 @@ class TimeRecord(models.Model):
                 date=new_end_date,
                 user=self.user,
             )
+
+    def get_tracked_hours(self):
+        total = 0
+        start = datetime.strptime(self.start_time.strftime('%H:%M:%S'), "%H:%M:%S")
+        end = datetime.strptime(self.end_time.strftime('%H:%M:%S'), "%H:%M:%S")
+        delta = end - start
+        total = total + int(delta.total_seconds())
+        return round(total / 3600, 2)
+
+    @property
+    def tracked_hours(self):
+        return self.get_tracked_hours()
 
 
 class Report(models.Model):
